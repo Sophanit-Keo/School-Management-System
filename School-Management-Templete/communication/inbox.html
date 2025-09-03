@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - EduPortal</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/communication.css">
+</head>
+<body>
+    <div class="communication-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge" id="userRole">User</span>
+            </div>
+            
+            <ul class="sidebar-menu" id="sidebarMenu">
+                <!-- Menu items will be populated by JavaScript based on user role -->
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Inbox</h1>
+                    <p class="text-gray-600">Messages and notifications</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="composeMessage()">Compose</button>
+                </div>
+            </header>
+            
+            <!-- Message Categories -->
+            <div class="message-categories">
+                <button class="category-btn active" data-category="all">All Messages</button>
+                <button class="category-btn" data-category="unread">Unread (3)</button>
+                <button class="category-btn" data-category="sent">Sent</button>
+                <button class="category-btn" data-category="archived">Archived</button>
+            </div>
+            
+            <!-- Messages List -->
+            <div class="messages-container">
+                <div class="messages-list">
+                    <div class="message-item unread">
+                        <div class="message-avatar">
+                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Teacher">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h4>Mrs. Johnson</h4>
+                                <span class="message-time">2 hours ago</span>
+                            </div>
+                            <h5>Parent-Teacher Conference Reminder</h5>
+                            <p>Dear parents, this is a reminder about the upcoming parent-teacher conference scheduled for next week...</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="btn-icon">⭐</button>
+                            <button class="btn-icon">🗑️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="message-item">
+                        <div class="message-avatar">
+                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Admin">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h4>School Administration</h4>
+                                <span class="message-time">1 day ago</span>
+                            </div>
+                            <h5>Winter Break Schedule</h5>
+                            <p>Please note the updated winter break schedule. Classes will resume on January 8th, 2024...</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="btn-icon">⭐</button>
+                            <button class="btn-icon">🗑️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="message-item">
+                        <div class="message-avatar">
+                            <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Teacher">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h4>Mr. Chen</h4>
+                                <span class="message-time">2 days ago</span>
+                            </div>
+                            <h5>Assignment Feedback</h5>
+                            <p>Great work on the recent essay! I've provided detailed feedback and suggestions for improvement...</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="btn-icon starred">⭐</button>
+                            <button class="btn-icon">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Compose Modal -->
+    <div id="composeModal" class="modal-overlay">
+        <div class="modal large">
+            <div class="modal-header">
+                <h3>Compose Message</h3>
+                <button class="modal-close" onclick="closeComposeModal()">&times;</button>
+            </div>
+            
+            <form id="composeForm">
+                <div class="form-group">
+                    <label class="form-label">To</label>
+                    <select class="form-select" name="recipient" required>
+                        <option value="">Select Recipient</option>
+                        <option value="all-teachers">All Teachers</option>
+                        <option value="all-parents">All Parents</option>
+                        <option value="all-students">All Students</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-input" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-textarea" name="message" rows="8" required></textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeComposeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- <script src="../shared/js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth()) {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            const userRole = getUserRole();
+            setupRoleBasedSidebar(userRole);
+            setupMessageCategories();
+        });
+        
+        function setupRoleBasedSidebar(role) {
+            const sidebarMenu = document.getElementById('sidebarMenu');
+            const roleSpan = document.getElementById('userRole');
+            
+            if (!sidebarMenu || !roleSpan) return;
+            
+            roleSpan.textContent = role.charAt(0).toUpperCase() + role.slice(1);
+            roleSpan.className = `role-badge ${role}`;
+            
+            let menuItems = [];
+            
+            switch(role) {
+                case 'admin':
+                    menuItems = [
+                        { href: '../admin/index.html', icon: '📊', text: 'Dashboard' },
+                        { href: '../admin/users.html', icon: '👥', text: 'Users' },
+                        { href: '../admin/classes.html', icon: '🏫', text: 'Classes' },
+                        { href: '../admin/reports.html', icon: '📈', text: 'Reports' },
+                        { href: '../admin/fees.html', icon: '💰', text: 'Fees' },
+                        { href: '../scheduling/index.html', icon: '📅', text: 'Schedule' },
+                        { href: 'inbox.html', icon: '✉️', text: 'Inbox', active: true }
+                    ];
+                    break;
+                case 'teacher':
+                    menuItems = [
+                        { href: '../teacher/index.html', icon: '📊', text: 'Dashboard' },
+                        { href: '../teacher/schedule.html', icon: '📅', text: 'Schedule' },
+                        { href: '../teacher/attendance.html', icon: '✅', text: 'Attendance' },
+                        { href: '../teacher/exams.html', icon: '📝', text: 'Exams' },
+                        { href: '../teacher/reports.html', icon: '📈', text: 'Reports' },
+                        { href: 'inbox.html', icon: '✉️', text: 'Inbox', active: true }
+                    ];
+                    break;
+                case 'student':
+                    menuItems = [
+                        { href: '../student/index.html', icon: '📊', text: 'Dashboard' },
+                        { href: '../student/schedule.html', icon: '📅', text: 'Schedule' },
+                        { href: '../student/assignments.html', icon: '📝', text: 'Assignments' },
+                        { href: '../student/grades.html', icon: '🎯', text: 'Grades' },
+                        { href: '../student/library.html', icon: '📚', text: 'Library' },
+                        { href: 'inbox.html', icon: '✉️', text: 'Inbox', active: true }
+                    ];
+                    break;
+                case 'parent':
+                    menuItems = [
+                        { href: '../parent/index.html', icon: '📊', text: 'Dashboard' },
+                        { href: '../parent/child-progress.html', icon: '📈', text: 'Child Progress' },
+                        { href: '../parent/attendance.html', icon: '✅', text: 'Attendance' },
+                        { href: '../parent/fees.html', icon: '💰', text: 'Fees' },
+                        { href: '../parent/communication.html', icon: '💬', text: 'Messages' },
+                        { href: 'inbox.html', icon: '✉️', text: 'Inbox', active: true }
+                    ];
+                    break;
+            }
+            
+            menuItems.push({ href: '#', icon: '🚪', text: 'Logout', onclick: 'logout()' });
+            
+            sidebarMenu.innerHTML = menuItems.map(item => `
+                <li>
+                    <a href="${item.href}" ${item.active ? 'class="active"' : ''} ${item.onclick ? `onclick="${item.onclick}"` : ''}>
+                        <span class="icon">${item.icon}</span> ${item.text}
+                    </a>
+                </li>
+            `).join('');
+        }
+        
+        function setupMessageCategories() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterMessages(btn.dataset.category);
+                });
+            });
+        }
+        
+        function filterMessages(category) {
+            const messages = document.querySelectorAll('.message-item');
+            messages.forEach(message => {
+                switch(category) {
+                    case 'unread':
+                        message.style.display = message.classList.contains('unread') ? 'flex' : 'none';
+                        break;
+                    case 'sent':
+                        message.style.display = 'none'; // Would show sent messages
+                        break;
+                    case 'archived':
+                        message.style.display = 'none'; // Would show archived messages
+                        break;
+                    default:
+                        message.style.display = 'flex';
+                }
+            });
+        }
+        
+        function composeMessage() {
+            openModal('composeModal');
+        }
+        
+        function closeComposeModal() {
+            closeModal('composeModal');
+            document.getElementById('composeForm').reset();
+        }
+        
+        // Handle compose form submission
+        document.getElementById('composeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const messageData = {
+                recipient: formData.get('recipient'),
+                subject: formData.get('subject'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('Message sent:', messageData);
+            closeComposeModal();
+            showToast('Message sent successfully', 'success');
+        });
+    </script> -->
+</body>
+</html>

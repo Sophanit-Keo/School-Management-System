@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPortal - School Management System</title>
+    <link rel="stylesheet" href="shared/css/reset.css">
+    <link rel="stylesheet" href="shared/css/typography.css">
+    <link rel="stylesheet" href="shared/css/components.css">
+    <link rel="stylesheet" href="shared/css/layout.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 24px;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 400px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .logo {
+            width: 64px;
+            height: 64px;
+            background: #6366F1;
+            border-radius: 12px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .role-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .role-btn {
+            padding: 12px 16px;
+            border: 2px solid #E5E7EB;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .role-btn:hover {
+            border-color: #6366F1;
+            transform: translateY(-1px);
+        }
+        
+        .role-btn.active {
+            border-color: #6366F1;
+            background: #6366F1;
+            color: white;
+        }
+        
+        .input-group {
+            margin-bottom: 16px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #6366F1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px 24px;
+            background: #6366F1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+        
+        .login-btn:hover {
+            background: #5856EB;
+            transform: translateY(-1px);
+        }
+        
+        .demo-accounts {
+            margin-top: 24px;
+            padding: 16px;
+            background: #F9FAFB;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        
+        .demo-accounts h4 {
+            margin-bottom: 8px;
+            color: #374151;
+            font-weight: 600;
+        }
+        
+        .demo-account {
+            margin-bottom: 4px;
+            color: #6B7280;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .demo-account:hover {
+            color: #6366F1;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">EP</div>
+                <h1>EduPortal</h1>
+                <p class="text-gray-600">School Management System</p>
+            </div>
+            
+            <form id="loginForm">
+                <!-- Testing Role -->
+                <div class="role-selector">
+                    <button type="button" class="role-btn active" data-role="admin">Admin</button>
+                    <button type="button" class="role-btn" data-role="teacher">Teacher</button>
+                    <button type="button" class="role-btn" data-role="student">Student</button>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="admin@school.edu" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" value="admin123" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+            
+            <div class="demo-accounts">
+                <h4>Demo Accounts</h4>
+                <div class="demo-account" data-role="admin">Admin: admin@school.edu / admin123</div>
+                <div class="demo-account" data-role="teacher">Teacher: teacher@school.edu / teacher123</div>
+                <div class="demo-account" data-role="student">Student: student@school.edu / student123</div>
+                <div class="demo-account" data-role="parent">Parent: parent@school.edu / parent123</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <script src="shared/js/utils.js"></script>
+    <script>
+        // Role selection
+        document.querySelectorAll('.role-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const role = btn.dataset.role;
+                updateCredentials(role);
+            });
+        });
+        
+        // Demo account quick selection
+        document.querySelectorAll('.demo-account').forEach(account => {
+            account.addEventListener('click', () => {
+                const role = account.dataset.role;
+                document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector(`[data-role="${role}"]`).classList.add('active');
+                updateCredentials(role);
+            });
+        });
+        
+        function updateCredentials(role) {
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            
+            const credentials = {
+                admin: { email: 'admin@school.edu', password: 'admin123' },
+                teacher: { email: 'teacher@school.edu', password: 'teacher123' },
+                student: { email: 'student@school.edu', password: 'student123' },
+                parent: { email: 'parent@school.edu', password: 'parent123' }
+            };
+            
+            emailInput.value = credentials[role].email;
+            passwordInput.value = credentials[role].password;
+        }
+        
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const selectedRole = document.querySelector('.role-btn.active').dataset.role;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation for demo accounts
+            const validCredentials = {
+                'admin@school.edu': { password: 'admin123', role: 'admin' },
+                'teacher@school.edu': { password: 'teacher123', role: 'teacher' },
+                'student@school.edu': { password: 'student123', role: 'student' },
+                'parent@school.edu': { password: 'parent123', role: 'parent' }
+            };
+            
+            const user = validCredentials[email];
+            if (user && user.password === password && user.role === selectedRole) {
+                // Store session data
+                sessionStorage.setItem('userRole', selectedRole);
+                sessionStorage.setItem('userEmail', email);
+                sessionStorage.setItem('isLoggedIn', 'true');
+                
+                // Redirect to appropriate dashboard
+                window.location.href = `./${selectedRole}/index.html`;
+            } else {
+                alert('Invalid credentials! Please use the demo accounts provided.');
+            }
+        });
+    </script> -->
+</body>
+</html>

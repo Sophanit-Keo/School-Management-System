@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees - Parent Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/parent.css">
+</head>
+<body>
+    <div class="parent-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Parent</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="child-progress.html"><span class="icon">📈</span> Child Progress</a></li>
+                <li><a href="attendance.html"><span class="icon">✅</span> Attendance</a></li>
+                <li><a href="fees.html" class="active"><span class="icon">💰</span> Fees</a></li>
+                <li><a href="communication.html"><span class="icon">💬</span> Messages</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Fee Management</h1>
+                    <p class="text-gray-600">Manage payments and view fee history</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">Download Receipt</button>
+                    <button class="btn btn-primary">Make Payment</button>
+                </div>
+            </header>
+            
+            <!-- Fee Summary -->
+            <div class="fee-summary">
+                <div class="card">
+                    <div class="summary-grid">
+                        <div class="total-due">
+                            <h2>$600</h2>
+                            <p>Total Outstanding</p>
+                            <span class="due-date">Due: December 25, 2025</span>
+                        </div>
+                        
+                        <div class="payment-breakdown">
+                            <div class="breakdown-item">
+                                <span>Tuition Fee</span>
+                                <span class="amount">$500</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Library Fee</span>
+                                <span class="amount">$25</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Lab Fee</span>
+                                <span class="amount">$75</span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-actions">
+                            <button class="btn btn-primary btn-lg">Pay Now</button>
+                            <button class="btn btn-secondary">Set Auto-Pay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fee History -->
+            <div class="fee-history">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Payment History</h3>
+                        <select class="period-filter">
+                            <option>This Year</option>
+                            <option>Last Year</option>
+                            <option>All Time</option>
+                        </select>
+                    </div>
+                    
+                    <div class="fee-records">
+                        <div class="fee-record paid">
+                            <div class="record-icon">✅</div>
+                            <div class="record-content">
+                                <h4>Monthly Tuition Fee</h4>
+                                <p>November 2025 • Paid on Nov 15, 2025</p>
+                            </div>
+                            <div class="record-amount">$500</div>
+                            <div class="record-status">
+                                <span class="badge badge-success">Paid</span>
+                            </div>
+                        </div>
+                        
+                        <div class="fee-record pending">
+                            <div class="record-icon">⏳</div>
+                            <div class="record-content">
+                                <h4>Monthly Tuition Fee</h4>
+                                <p>December 2025 • Due: Dec 25, 2025</p>
+                            </div>
+                            <div class="record-amount">$500</div>
+                            <div class="record-status">
+                                <span class="badge badge-warning">Pending</span>
+                            </div>
+                        </div>
+                        
+                        <div class="fee-record overdue">
+                            <div class="record-icon">⚠️</div>
+                            <div class="record-content">
+                                <h4>Physics Lab Equipment Fee</h4>
+                                <p>December 2025 • Due: Dec 20, 2025</p>
+                            </div>
+                            <div class="record-amount">$75</div>
+                            <div class="record-status">
+                                <span class="badge badge-error">Overdue</span>
+                            </div>
+                        </div>
+                        
+                        <div class="fee-record pending">
+                            <div class="record-icon">📚</div>
+                            <div class="record-content">
+                                <h4>Library Membership Fee</h4>
+                                <p>December 2025 • Due: Dec 30, 2025</p>
+                            </div>
+                            <div class="record-amount">$25</div>
+                            <div class="record-status">
+                                <span class="badge badge-warning">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth() || getUserRole() !== 'parent') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            showToast('Fee information loaded', 'success');
+        });
+    </script>
+    
+    <style>
+        .fee-summary {
+            margin-bottom: var(--space-8);
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--space-6);
+            align-items: center;
+        }
+        
+        .total-due {
+            text-align: center;
+        }
+        
+        .total-due h2 {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-bold);
+            color: var(--color-error-600);
+            margin-bottom: var(--space-2);
+        }
+        
+        .due-date {
+            font-size: var(--text-sm);
+            color: var(--color-error-600);
+            font-weight: var(--font-medium);
+        }
+        
+        .payment-breakdown {
+            border-left: 1px solid var(--color-gray-200);
+            border-right: 1px solid var(--color-gray-200);
+            padding: 0 var(--space-4);
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3);
+        }
+        
+        .breakdown-item span:first-child {
+            color: var(--color-gray-600);
+        }
+        
+        .breakdown-item .amount {
+            font-weight: var(--font-semibold);
+            color: var(--color-gray-900);
+        }
+        
+        .payment-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            align-items: center;
+        }
+        
+        .period-filter {
+            padding: var(--space-2) var(--space-3);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+        }
+        
+        .fee-records {
+            margin-top: var(--space-4);
+        }
+        
+        .fee-record {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-fast);
+        }
+        
+        .fee-record:hover {
+            border-color: var(--color-primary-300);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .record-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: var(--color-gray-100);
+        }
+        
+        .record-content {
+            flex: 1;
+        }
+        
+        .record-content h4 {
+            margin-bottom: var(--space-1);
+        }
+        
+        .record-content p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+        }
+        
+        .record-amount {
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            color: var(--color-gray-900);
+        }
+        
+        @media (max-width: 768px) {
+            .summary-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .payment-breakdown {
+                border: none;
+                padding: var(--space-4) 0;
+                border-top: 1px solid var(--color-gray-200);
+                border-bottom: 1px solid var(--color-gray-200);
+            }
+            
+            .fee-record {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

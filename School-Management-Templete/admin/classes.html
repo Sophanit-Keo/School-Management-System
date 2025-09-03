@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Management - Admin Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Admin</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="users.html"><span class="icon">👥</span> Users</a></li>
+                <li><a href="classes.html" class="active"><span class="icon">🏫</span> Classes</a></li>
+                <li><a href="reports.html"><span class="icon">📈</span> Reports</a></li>
+                <li><a href="fees.html"><span class="icon">💰</span> Fees</a></li>
+                <li><a href="../scheduling/index.html"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Class Management</h1>
+                    <p class="text-gray-600">Manage classes, sections, and enrollments</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">Export Classes</button>
+                    <button class="btn btn-primary" onclick="openAddClassModal()">Add Class</button>
+                </div>
+            </header>
+            
+            <!-- Class Overview Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon primary">🏫</div>
+                    <div class="stat-content">
+                        <h3>42</h3>
+                        <p>Total Classes</p>
+                        <span class="stat-change neutral">Active sessions</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon success">👥</div>
+                    <div class="stat-content">
+                        <h3>1,248</h3>
+                        <p>Total Students</p>
+                        <span class="stat-change positive">95% attendance</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon warning">🎓</div>
+                    <div class="stat-content">
+                        <h3>89</h3>
+                        <p>Total Teachers</p>
+                        <span class="stat-change positive">Fully staffed</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon error">📊</div>
+                    <div class="stat-content">
+                        <h3>29.6</h3>
+                        <p>Avg Class Size</p>
+                        <span class="stat-change neutral">Optimal range</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Classes Table -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>All Classes</h3>
+                    <div class="table-filters">
+                        <select id="gradeFilter" onchange="filterClasses()">
+                            <option value="">All Grades</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                        </select>
+                        <input type="text" id="searchClasses" placeholder="Search classes..." oninput="filterClasses()">
+                    </div>
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Teacher</th>
+                            <th>Students</th>
+                            <th>Room</th>
+                            <th>Schedule</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="classesTableBody">
+                        <!-- Classes will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Add Class Modal -->
+    <div id="addClassModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New Class</h3>
+                <button class="modal-close" onclick="closeAddClassModal()">&times;</button>
+            </div>
+            
+            <form id="addClassForm">
+                <div class="form-group">
+                    <label class="form-label">Class Name</label>
+                    <input type="text" class="form-input" name="name" placeholder="e.g., Grade 10 - Section A" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Class Code</label>
+                    <input type="text" class="form-input" name="code" placeholder="e.g., 10A" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Assigned Teacher</label>
+                    <select class="form-select" name="teacher" required>
+                        <option value="">Select Teacher</option>
+                        <option value="teacher001">Anna Wilson</option>
+                        <option value="teacher002">Michael Chen</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Room Number</label>
+                    <input type="text" class="form-input" name="room" placeholder="e.g., 201" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Capacity</label>
+                    <input type="number" class="form-input" name="capacity" min="10" max="50" value="30" required>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddClassModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Class</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <!-- <script>
+        let allClasses = [];
+        let allTeachers = [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth() || getUserRole() !== 'admin') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            loadClasses();
+            loadTeachers();
+        });
+        
+        async function loadClasses() {
+            try {
+                const response = await fetch('../data/classes.json');
+                allClasses = await response.json();
+                displayClasses(allClasses);
+            } catch (error) {
+                console.error('Error loading classes:', error);
+                showToast('Error loading classes', 'error');
+            }
+        }
+        
+        async function loadTeachers() {
+            try {
+                const response = await fetch('../data/users.json');
+                const users = await response.json();
+                allTeachers = users.filter(user => user.role === 'teacher');
+            } catch (error) {
+                console.error('Error loading teachers:', error);
+            }
+        }
+        
+        function displayClasses(classes) {
+            const tbody = document.getElementById('classesTableBody');
+            tbody.innerHTML = '';
+            
+            classes.forEach(classItem => {
+                const teacher = allTeachers.find(t => t.id === classItem.teacher);
+                const teacherName = teacher ? teacher.name : 'Unassigned';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="class-info">
+                            <div class="class-icon">${classItem.code}</div>
+                            <div>
+                                <div class="font-medium">${classItem.name}</div>
+                                <div class="text-sm text-gray-500">${classItem.code}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="teacher-info">
+                            ${teacher ? `<img src="${teacher.avatar}" alt="${teacherName}" class="teacher-avatar">` : ''}
+                            <span>${teacherName}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="enrollment-info">
+                            <span class="enrollment-count">${classItem.enrolled}/${classItem.capacity}</span>
+                            <div class="enrollment-bar">
+                                <div class="enrollment-fill" style="width: ${(classItem.enrolled / classItem.capacity) * 100}%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="room-badge">${classItem.room}</span></td>
+                    <td><span class="schedule-summary">${getScheduleSummary(classItem.schedule)}</span></td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                        <div class="actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editClass('${classItem.id}')">Edit</button>
+                            <button class="btn btn-sm btn-primary" onclick="viewStudents('${classItem.id}')">Students</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function getScheduleSummary(schedule) {
+            const days = Object.keys(schedule);
+            return `${days.length} days/week`;
+        }
+        
+        function filterClasses() {
+            const gradeFilter = document.getElementById('gradeFilter').value;
+            const searchTerm = document.getElementById('searchClasses').value.toLowerCase();
+            
+            let filteredClasses = allClasses;
+            
+            if (gradeFilter) {
+                filteredClasses = filteredClasses.filter(cls => 
+                    cls.code.startsWith(gradeFilter)
+                );
+            }
+            
+            if (searchTerm) {
+                filteredClasses = filteredClasses.filter(cls => 
+                    cls.name.toLowerCase().includes(searchTerm) ||
+                    cls.code.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            displayClasses(filteredClasses);
+        }
+        
+        function openAddClassModal() {
+            openModal('addClassModal');
+        }
+        
+        function closeAddClassModal() {
+            closeModal('addClassModal');
+            document.getElementById('addClassForm').reset();
+        }
+        
+        function editClass(classId) {
+            const classItem = allClasses.find(c => c.id === classId);
+            if (classItem) {
+                showToast(`Editing class: ${classItem.name}`, 'info');
+            }
+        }
+        
+        function viewStudents(classId) {
+            window.location.href = `users.html?class=${classId}&role=student`;
+        }
+        
+        // Handle add class form submission
+        document.getElementById('addClassForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const newClass = {
+                id: 'class' + (allClasses.length + 1).toString().padStart(3, '0'),
+                name: formData.get('name'),
+                code: formData.get('code'),
+                teacher: formData.get('teacher'),
+                room: formData.get('room'),
+                capacity: parseInt(formData.get('capacity')),
+                enrolled: 0,
+                students: [],
+                subjects: [],
+                schedule: {}
+            };
+            
+            allClasses.push(newClass);
+            displayClasses(allClasses);
+            closeAddClassModal();
+            showToast('Class added successfully', 'success');
+        });
+    </script> -->
+    
+</body>
+</html>

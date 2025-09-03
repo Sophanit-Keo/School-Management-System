@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Management - Admin Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Admin</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="users.html"><span class="icon">👥</span> Users</a></li>
+                <li><a href="classes.html"><span class="icon">🏫</span> Classes</a></li>
+                <li><a href="reports.html"><span class="icon">📈</span> Reports</a></li>
+                <li><a href="fees.html" class="active"><span class="icon">💰</span> Fees</a></li>
+                <li><a href="../scheduling/index.html"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Fee Management</h1>
+                    <p class="text-gray-600">Track payments, generate invoices, and manage finances</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">Export Fees</button>
+                    <button class="btn btn-primary" onclick="addFee()">Add Fee</button>
+                </div>
+            </header>
+            
+            <!-- Fee Overview Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon success">💰</div>
+                    <div class="stat-content">
+                        <h3>$124,580</h3>
+                        <p>Total Collected</p>
+                        <span class="stat-change positive">+8.2% this month</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon warning">⏳</div>
+                    <div class="stat-content">
+                        <h3>$15,250</h3>
+                        <p>Pending Payments</p>
+                        <span class="stat-change neutral">45 students</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon error">⚠️</div>
+                    <div class="stat-content">
+                        <h3>$3,750</h3>
+                        <p>Overdue Payments</p>
+                        <span class="stat-change negative">12 students</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon primary">📊</div>
+                    <div class="stat-content">
+                        <h3>89%</h3>
+                        <p>Collection Rate</p>
+                        <span class="stat-change positive">Above target</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fee Records Table -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>Fee Records</h3>
+                    <div class="table-filters">
+                        <select id="statusFilter" onchange="filterFees()">
+                            <option value="">All Status</option>
+                            <option value="paid">Paid</option>
+                            <option value="pending">Pending</option>
+                            <option value="overdue">Overdue</option>
+                        </select>
+                        <input type="text" id="searchFees" placeholder="Search students..." oninput="filterFees()">
+                    </div>
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Fee Type</th>
+                            <th>Amount</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feesTableBody">
+                        <!-- Fees will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <!-- <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <script>
+        let allFees = [];
+        let allStudents = [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth() || getUserRole() !== 'admin') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            loadFees();
+            loadStudents();
+        });
+        
+        async function loadFees() {
+            try {
+                const response = await fetch('../data/fees.json');
+                allFees = await response.json();
+                displayFees(allFees);
+            } catch (error) {
+                console.error('Error loading fees:', error);
+                showToast('Error loading fees', 'error');
+            }
+        }
+        
+        async function loadStudents() {
+            try {
+                const response = await fetch('../data/students.json');
+                allStudents = await response.json();
+            } catch (error) {
+                console.error('Error loading students:', error);
+            }
+        }
+        
+        function displayFees(fees) {
+            const tbody = document.getElementById('feesTableBody');
+            tbody.innerHTML = '';
+            
+            fees.forEach(fee => {
+                const student = allStudents.find(s => s.id === fee.studentId);
+                const studentName = student ? student.name : 'Unknown Student';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="student-info">
+                            ${student ? `<img src="${student.avatar}" alt="${studentName}" class="student-avatar">` : ''}
+                            <div>
+                                <div class="font-medium">${studentName}</div>
+                                <div class="text-sm text-gray-500">${fee.studentId}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="fee-type">${fee.type}</span></td>
+                    <td><span class="amount">${formatCurrency(fee.amount)}</span></td>
+                    <td>${formatDate(fee.dueDate)}</td>
+                    <td><span class="badge badge-${getStatusColor(fee.status)}">${fee.status}</span></td>
+                    <td>
+                        <div class="actions">
+                            <button class="btn btn-sm btn-secondary" onclick="viewFee('${fee.id}')">View</button>
+                            ${fee.status === 'pending' ? `<button class="btn btn-sm btn-success" onclick="markPaid('${fee.id}')">Mark Paid</button>` : ''}
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function getStatusColor(status) {
+            switch(status) {
+                case 'paid': return 'success';
+                case 'pending': return 'warning';
+                case 'overdue': return 'error';
+                default: return 'gray';
+            }
+        }
+        
+        function filterFees() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const searchTerm = document.getElementById('searchFees').value.toLowerCase();
+            
+            let filteredFees = allFees;
+            
+            if (statusFilter) {
+                filteredFees = filteredFees.filter(fee => fee.status === statusFilter);
+            }
+            
+            if (searchTerm) {
+                filteredFees = filteredFees.filter(fee => {
+                    const student = allStudents.find(s => s.id === fee.studentId);
+                    return student && student.name.toLowerCase().includes(searchTerm);
+                });
+            }
+            
+            displayFees(filteredFees);
+        }
+        
+        function addFee() {
+            showToast('Add fee feature coming soon!', 'info');
+        }
+        
+        function viewFee(feeId) {
+            showToast(`Viewing fee: ${feeId}`, 'info');
+        }
+        
+        function markPaid(feeId) {
+            const fee = allFees.find(f => f.id === feeId);
+            if (fee) {
+                fee.status = 'paid';
+                fee.paidDate = new Date().toISOString().split('T')[0];
+                displayFees(allFees);
+                showToast('Fee marked as paid', 'success');
+            }
+        }
+    </script> -->
+
+</body>
+</html>

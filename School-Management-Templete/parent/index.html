@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - EduPortal</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/parent.css">
+    <script src="../vendor/chart.min.js"></script>
+</head>
+<body>
+    <div class="parent-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Parent</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html" class="active"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="child-progress.html"><span class="icon">📈</span> Child Progress</a></li>
+                <li><a href="attendance.html"><span class="icon">✅</span> Attendance</a></li>
+                <li><a href="fees.html"><span class="icon">💰</span> Fees</a></li>
+                <li><a href="communication.html"><span class="icon">💬</span> Messages</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Welcome back, Parent</h1>
+                    <p class="text-gray-600">Track your child's progress and stay connected</p>
+                </div>
+                <div class="parent-profile">
+                    <div class="profile-info">
+                        <h4>Robert Doe</h4>
+                        <p>Parent of John Doe</p>
+                        <div class="child-info">
+                            <span>Grade 10A</span>
+                        </div>
+                    </div>
+                    <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="Parent" class="profile-avatar">
+                </div>
+            </header>
+            
+            <!-- Child Overview -->
+            <div class="child-overview">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>John's Overview</h3>
+                        <div class="child-selector">
+                            <select>
+                                <option>John Doe - Grade 10A</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-stats">
+                        <div class="overview-stat">
+                            <div class="stat-icon success">📚</div>
+                            <div>
+                                <h4>3.8 GPA</h4>
+                                <p>Academic Performance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-stat">
+                            <div class="stat-icon primary">✅</div>
+                            <div>
+                                <h4>95%</h4>
+                                <p>Attendance Rate</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-stat">
+                            <div class="stat-icon warning">📝</div>
+                            <div>
+                                <h4>8</h4>
+                                <p>Pending Assignments</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-stat">
+                            <div class="stat-icon error">💰</div>
+                            <div>
+                                <h4>$250</h4>
+                                <p>Outstanding Fees</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress & Attendance -->
+            <div class="dashboard-grid">
+                <div class="progress-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Academic Progress</h3>
+                            <select class="period-selector">
+                                <option>This Semester</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <canvas id="academicChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="attendance-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Attendance This Month</h3>
+                        </div>
+                        <div class="attendance-calendar">
+                            <div class="calendar-grid">
+                                <!-- Calendar days will be generated by JavaScript -->
+                            </div>
+                            <div class="attendance-legend">
+                                <div class="legend-item">
+                                    <div class="legend-dot present"></div>
+                                    <span>Present</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot absent"></div>
+                                    <span>Absent</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot late"></div>
+                                    <span>Late</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Updates -->
+            <div class="updates-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recent Updates</h3>
+                        <a href="communication.html" class="text-primary">View all</a>
+                    </div>
+                    <div class="updates-list">
+                        <div class="update-item">
+                            <div class="update-icon grade">🎯</div>
+                            <div class="update-content">
+                                <h4>New Grade Posted</h4>
+                                <p>Mathematics Quiz - Grade: A- (88%)</p>
+                                <span class="update-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        
+                        <div class="update-item">
+                            <div class="update-icon assignment">📝</div>
+                            <div class="update-content">
+                                <h4>Assignment Reminder</h4>
+                                <p>Essay on Climate Change due tomorrow</p>
+                                <span class="update-time">1 day ago</span>
+                            </div>
+                        </div>
+                        
+                        <div class="update-item">
+                            <div class="update-icon message">💬</div>
+                            <div class="update-content">
+                                <h4>Message from Teacher</h4>
+                                <p>Mrs. Johnson: Great improvement in math!</p>
+                                <span class="update-time">2 days ago</span>
+                            </div>
+                        </div>
+                        
+                        <div class="update-item">
+                            <div class="update-icon fee">💰</div>
+                            <div class="update-content">
+                                <h4>Fee Payment Due</h4>
+                                <p>Monthly tuition fee - $250 due Dec 25</p>
+                                <span class="update-time">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <script src="js/parent.js"></script>
+</body>
+</html>

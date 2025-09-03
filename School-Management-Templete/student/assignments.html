@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments - Student Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+    <div class="student-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Student</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="schedule.html"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="assignments.html" class="active"><span class="icon">📝</span> Assignments</a></li>
+                <li><a href="grades.html"><span class="icon">🎯</span> Grades</a></li>
+                <li><a href="library.html"><span class="icon">📚</span> Library</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>My Assignments</h1>
+                    <p class="text-gray-600">Track your assignments and submissions</p>
+                </div>
+                <div class="header-actions">
+                    <select class="subject-filter">
+                        <option value="">All Subjects</option>
+                        <option value="mathematics">Mathematics</option>
+                        <option value="english">English</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                    </select>
+                </div>
+            </header>
+            
+            <!-- Assignment Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon warning">📝</div>
+                    <div class="stat-content">
+                        <h3>8</h3>
+                        <p>Pending</p>
+                        <span class="stat-change neutral">Due this week</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon primary">📤</div>
+                    <div class="stat-content">
+                        <h3>15</h3>
+                        <p>Submitted</p>
+                        <span class="stat-change positive">Awaiting grades</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon success">✅</div>
+                    <div class="stat-content">
+                        <h3>23</h3>
+                        <p>Completed</p>
+                        <span class="stat-change positive">This semester</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon error">⏰</div>
+                    <div class="stat-content">
+                        <h3>2</h3>
+                        <p>Overdue</p>
+                        <span class="stat-change negative">Need attention</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assignments List -->
+            <div class="assignments-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Assignments</h3>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">All</button>
+                            <button class="filter-tab" data-filter="pending">Pending</button>
+                            <button class="filter-tab" data-filter="submitted">Submitted</button>
+                            <button class="filter-tab" data-filter="graded">Graded</button>
+                        </div>
+                    </div>
+                    
+                    <div class="assignments-list" id="assignmentsList">
+                        <!-- Assignments will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <script>
+        let allAssignments = [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth() || getUserRole() !== 'student') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            loadAssignments();
+            setupFilters();
+        });
+        
+        async function loadAssignments() {
+            try {
+                const response = await fetch('../data/assignments.json');
+                allAssignments = await response.json();
+                displayAssignments(allAssignments);
+            } catch (error) {
+                console.error('Error loading assignments:', error);
+                showToast('Error loading assignments', 'error');
+            }
+        }
+        
+        function displayAssignments(assignments) {
+            const container = document.getElementById('assignmentsList');
+            container.innerHTML = '';
+            
+            assignments.forEach(assignment => {
+                const assignmentElement = document.createElement('div');
+                assignmentElement.className = `assignment-item ${assignment.status}`;
+                assignmentElement.innerHTML = `
+                    <div class="assignment-icon ${assignment.subject.toLowerCase().replace(' ', '-')}">
+                        ${getSubjectIcon(assignment.subject)}
+                    </div>
+                    <div class="assignment-content">
+                        <h4>${assignment.title}</h4>
+                        <p>${assignment.subject} • Due: ${formatDate(assignment.dueDate)}</p>
+                        <div class="assignment-description">${assignment.description}</div>
+                        ${assignment.grade ? `<div class="assignment-grade">Grade: ${assignment.grade} (${assignment.points}/${assignment.maxPoints})</div>` : ''}
+                    </div>
+                    <div class="assignment-actions">
+                        ${assignment.status === 'pending' ? 
+                            `<button class="btn btn-primary" onclick="submitAssignment('${assignment.id}')">Submit</button>` :
+                            assignment.status === 'submitted' ?
+                            `<span class="badge badge-primary">Submitted</span>` :
+                            `<span class="badge badge-success">Graded</span>`
+                        }
+                    </div>
+                `;
+                container.appendChild(assignmentElement);
+            });
+        }
+        
+        function getSubjectIcon(subject) {
+            const icons = {
+                'Mathematics': '🧮',
+                'English Literature': '📚',
+                'English': '📚',
+                'Physics': '⚗️',
+                'Chemistry': '🧪',
+                'History': '📜'
+            };
+            return icons[subject] || '📝';
+        }
+        
+        function setupFilters() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    filterAssignments(tab.dataset.filter);
+                });
+            });
+        }
+        
+        function filterAssignments(filter) {
+            let filteredAssignments = allAssignments;
+            
+            if (filter !== 'all') {
+                filteredAssignments = allAssignments.filter(assignment => 
+                    assignment.status === filter
+                );
+            }
+            
+            displayAssignments(filteredAssignments);
+        }
+        
+        function submitAssignment(assignmentId) {
+            const assignment = allAssignments.find(a => a.id === assignmentId);
+            if (assignment) {
+                assignment.status = 'submitted';
+                displayAssignments(allAssignments);
+                showToast('Assignment submitted successfully', 'success');
+            }
+        }
+    </script> -->
+    
+    <style>
+        .subject-filter {
+            padding: var(--space-3);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+        }
+        
+        .filter-tabs {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .filter-tab {
+            padding: var(--space-2) var(--space-4);
+            border: none;
+            background: none;
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--color-gray-600);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-tab:hover {
+            background: var(--color-gray-100);
+        }
+        
+        .filter-tab.active {
+            background: var(--color-primary-500);
+            color: white;
+        }
+        
+        .assignments-list {
+            margin-top: var(--space-4);
+        }
+        
+        .assignment-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-fast);
+        }
+        
+        .assignment-item:hover {
+            border-color: var(--color-primary-300);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .assignment-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: var(--color-gray-100);
+        }
+        
+        .assignment-content {
+            flex: 1;
+        }
+        
+        .assignment-content h4 {
+            margin-bottom: var(--space-1);
+        }
+        
+        .assignment-content p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-2);
+        }
+        
+        .assignment-description {
+            font-size: var(--text-sm);
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-2);
+        }
+        
+        .assignment-grade {
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
+            color: var(--color-success-600);
+        }
+        
+        @media (max-width: 768px) {
+            .assignment-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .filter-tabs {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</body>
+</html>

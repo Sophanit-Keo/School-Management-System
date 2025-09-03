@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - EduPortal</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/student.css">
+    <script src="../vendor/chart.min.js"></script>
+</head>
+<body>
+    <div class="student-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Student</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html" class="active"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="schedule.html"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="assignments.html"><span class="icon">📝</span> Assignments</a></li>
+                <li><a href="grades.html"><span class="icon">🎯</span> Grades</a></li>
+                <li><a href="library.html"><span class="icon">📚</span> Library</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Welcome back, Student</h1>
+                    <p class="text-gray-600">Ready to learn something new today?</p>
+                </div>
+                <div class="student-profile">
+                    <div class="profile-info">
+                        <h4>John Doe</h4>
+                        <p>Grade 10 - Section A</p>
+                        <div class="student-stats">
+                            <span>GPA: 3.8</span>
+                            <span>Rank: 5/45</span>
+                        </div>
+                    </div>
+                    <img src="https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="Student" class="profile-avatar">
+                </div>
+            </header>
+            
+            <!-- Quick Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon primary">📚</div>
+                    <div class="stat-content">
+                        <h3>12</h3>
+                        <p>Courses Enrolled</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon success">✅</div>
+                    <div class="stat-content">
+                        <h3>8</h3>
+                        <p>Assignments Due</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon warning">⏰</div>
+                    <div class="stat-content">
+                        <h3>3</h3>
+                        <p>Upcoming Exams</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon error">📖</div>
+                    <div class="stat-content">
+                        <h3>5</h3>
+                        <p>Library Books</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Today's Schedule & Progress -->
+            <div class="dashboard-section">
+                <div class="schedule-card">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Today's Schedule</h3>
+                            <a href="schedule.html" class="text-primary">View full schedule</a>
+                        </div>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:00</div>
+                                <div class="schedule-content">
+                                    <h4>Mathematics</h4>
+                                    <p>Room 201 - Mrs. Johnson</p>
+                                </div>
+                                <div class="schedule-status ongoing">Ongoing</div>
+                            </div>
+                            
+                            <div class="schedule-item">
+                                <div class="schedule-time">10:30</div>
+                                <div class="schedule-content">
+                                    <h4>English Literature</h4>
+                                    <p>Room 105 - Mr. Smith</p>
+                                </div>
+                                <div class="schedule-status upcoming">Upcoming</div>
+                            </div>
+                            
+                            <div class="schedule-item">
+                                <div class="schedule-time">12:00</div>
+                                <div class="schedule-content">
+                                    <h4>Physics Lab</h4>
+                                    <p>Lab 3 - Dr. Wilson</p>
+                                </div>
+                                <div class="schedule-status upcoming">Upcoming</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Academic Progress</h3>
+                        </div>
+                        <canvas id="progressChart"></canvas>
+                        <div class="progress-summary">
+                            <div class="progress-item">
+                                <span class="subject">Mathematics</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="percentage">85%</span>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <span class="subject">English</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                                <span class="percentage">92%</span>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <span class="subject">Physics</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                                <span class="percentage">78%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Assignments -->
+            <div class="assignments-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recent Assignments</h3>
+                        <a href="assignments.html" class="text-primary">View all</a>
+                    </div>
+                    <div class="assignments-list">
+                        <div class="assignment-item">
+                            <div class="assignment-icon">📝</div>
+                            <div class="assignment-content">
+                                <h4>Essay on Climate Change</h4>
+                                <p>English Literature • Due: Dec 22, 2025</p>
+                            </div>
+                            <div class="assignment-status pending">Pending</div>
+                        </div>
+                        
+                        <div class="assignment-item">
+                            <div class="assignment-icon">🧮</div>
+                            <div class="assignment-content">
+                                <h4>Quadratic Equations Problem Set</h4>
+                                <p>Mathematics • Due: Dec 20, 2025</p>
+                            </div>
+                            <div class="assignment-status submitted">Submitted</div>
+                        </div>
+                        
+                        <div class="assignment-item">
+                            <div class="assignment-icon">⚗️</div>
+                            <div class="assignment-content">
+                                <h4>Chemistry Lab Report</h4>
+                                <p>Chemistry • Due: Dec 25, 2025</p>
+                            </div>
+                            <div class="assignment-status graded">Graded (A-)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Student Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+    <div class="student-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Student</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="schedule.html"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="assignments.html"><span class="icon">📝</span> Assignments</a></li>
+                <li><a href="grades.html"><span class="icon">🎯</span> Grades</a></li>
+                <li><a href="library.html" class="active"><span class="icon">📚</span> Library</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Digital Library</h1>
+                    <p class="text-gray-600">Access books, resources, and manage borrowings</p>
+                </div>
+                <div class="header-actions">
+                    <input type="text" class="search-input" placeholder="Search books...">
+                    <button class="btn btn-primary">Advanced Search</button>
+                </div>
+            </header>
+            
+            <!-- Library Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon primary">📚</div>
+                    <div class="stat-content">
+                        <h3>5</h3>
+                        <p>Books Borrowed</p>
+                        <span class="stat-change neutral">Current</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon warning">⏰</div>
+                    <div class="stat-content">
+                        <h3>2</h3>
+                        <p>Due Soon</p>
+                        <span class="stat-change warning">Within 3 days</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon success">✅</div>
+                    <div class="stat-content">
+                        <h3>28</h3>
+                        <p>Books Read</p>
+                        <span class="stat-change positive">This year</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon error">💰</div>
+                    <div class="stat-content">
+                        <h3>$0</h3>
+                        <p>Outstanding Fines</p>
+                        <span class="stat-change positive">All clear</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Current Borrowings -->
+            <div class="borrowings-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Current Borrowings</h3>
+                        <a href="#" class="text-primary">Renew All</a>
+                    </div>
+                    
+                    <div class="books-grid">
+                        <div class="book-card">
+                            <div class="book-cover">📖</div>
+                            <div class="book-info">
+                                <h4>Advanced Mathematics</h4>
+                                <p>by Dr. Robert Smith</p>
+                                <div class="book-meta">
+                                    <span class="borrowed-date">Borrowed: Dec 10</span>
+                                    <span class="due-date warning">Due: Dec 24</span>
+                                </div>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-sm btn-secondary">Renew</button>
+                                <button class="btn btn-sm btn-warning">Return</button>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card">
+                            <div class="book-cover">📚</div>
+                            <div class="book-info">
+                                <h4>Shakespeare Complete Works</h4>
+                                <p>by William Shakespeare</p>
+                                <div class="book-meta">
+                                    <span class="borrowed-date">Borrowed: Dec 5</span>
+                                    <span class="due-date error">Due: Dec 19</span>
+                                </div>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-sm btn-secondary">Renew</button>
+                                <button class="btn btn-sm btn-warning">Return</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommended Books -->
+            <div class="recommendations-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recommended for You</h3>
+                        <a href="#" class="text-primary">View All</a>
+                    </div>
+                    
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card">
+                            <div class="book-cover">🔬</div>
+                            <div class="book-details">
+                                <h4>Physics Fundamentals</h4>
+                                <p>Dr. Jane Wilson</p>
+                                <div class="book-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Borrow</button>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <div class="book-cover">📐</div>
+                            <div class="book-details">
+                                <h4>Calculus Made Easy</h4>
+                                <p>Prof. Michael Brown</p>
+                                <div class="book-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Borrow</button>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <div class="book-cover">🎭</div>
+                            <div class="book-details">
+                                <h4>Modern Literature</h4>
+                                <p>Dr. Sarah Johnson</p>
+                                <div class="book-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Borrow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth() || getUserRole() !== 'student') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            showToast('Library loaded successfully', 'success');
+        });
+    </script> -->
+    
+    <style>
+        .search-input {
+            padding: var(--space-3);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+            width: 300px;
+        }
+        
+        .borrowings-section {
+            margin-bottom: var(--space-8);
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-4);
+        }
+        
+        .book-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+        }
+        
+        .book-card:hover {
+            border-color: var(--color-primary-300);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .book-cover {
+            width: 60px;
+            height: 80px;
+            background: var(--color-primary-100);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .book-info {
+            flex: 1;
+        }
+        
+        .book-info h4 {
+            margin-bottom: var(--space-1);
+        }
+        
+        .book-info p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-2);
+        }
+        
+        .book-meta {
+            display: flex;
+            gap: var(--space-3);
+            font-size: var(--text-xs);
+        }
+        
+        .borrowed-date {
+            color: var(--color-gray-500);
+        }
+        
+        .due-date.warning {
+            color: var(--color-warning-600);
+            font-weight: var(--font-medium);
+        }
+        
+        .due-date.error {
+            color: var(--color-error-600);
+            font-weight: var(--font-medium);
+        }
+        
+        .book-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-4);
+        }
+        
+        .recommendation-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-4);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+        }
+        
+        .recommendation-card:hover {
+            border-color: var(--color-primary-300);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .recommendation-card .book-cover {
+            margin-bottom: var(--space-3);
+        }
+        
+        .book-details h4 {
+            margin-bottom: var(--space-1);
+        }
+        
+        .book-details p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-2);
+        }
+        
+        .book-rating {
+            margin-bottom: var(--space-3);
+            font-size: var(--text-sm);
+        }
+        
+        @media (max-width: 768px) {
+            .search-input {
+                width: 100%;
+                margin-bottom: var(--space-3);
+            }
+            
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .books-grid,
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

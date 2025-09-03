@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Teacher Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/teacher.css">
+</head>
+<body>
+    <div class="teacher-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Teacher</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="schedule.html" class="active"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="attendance.html"><span class="icon">✅</span> Attendance</a></li>
+                <li><a href="exams.html"><span class="icon">📝</span> Exams</a></li>
+                <li><a href="reports.html"><span class="icon">📈</span> Reports</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>My Schedule</h1>
+                    <p class="text-gray-600">Manage your classes and time slots</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">Export Schedule</button>
+                    <button class="btn btn-primary">Add Class</button>
+                </div>
+            </header>
+            
+            <!-- Weekly Schedule -->
+            <div class="schedule-container">
+                <div class="card">
+                    <div class="schedule-header">
+                        <h3>Weekly Schedule</h3>
+                        <div class="week-nav">
+                            <button class="btn btn-secondary">‹ Previous</button>
+                            <span class="current-week">December 16-22, 2025</span>
+                            <button class="btn btn-secondary">Next ›</button>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-grid">
+                        <div class="time-column">
+                            <div class="time-slot">8:00</div>
+                            <div class="time-slot">9:00</div>
+                            <div class="time-slot">10:00</div>
+                            <div class="time-slot">11:00</div>
+                            <div class="time-slot">12:00</div>
+                            <div class="time-slot">13:00</div>
+                            <div class="time-slot">14:00</div>
+                            <div class="time-slot">15:00</div>
+                            <div class="time-slot">16:00</div>
+                        </div>
+                        
+                        <div class="days-grid">
+                            <div class="day-header">Mon</div>
+                            <div class="day-header">Tue</div>
+                            <div class="day-header">Wed</div>
+                            <div class="day-header">Thu</div>
+                            <div class="day-header">Fri</div>
+                            
+                            <!-- Monday -->
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block math">
+                                    <h4>Mathematics</h4>
+                                    <p>Grade 10A</p>
+                                    <span>Room 201</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block physics">
+                                    <h4>Physics</h4>
+                                    <p>Grade 10B</p>
+                                    <span>Lab 3</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block math">
+                                    <h4>Mathematics</h4>
+                                    <p>Grade 11A</p>
+                                    <span>Room 205</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            
+                            <!-- Tuesday -->
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block physics">
+                                    <h4>Physics Lab</h4>
+                                    <p>Grade 10A</p>
+                                    <span>Lab 3</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block math">
+                                    <h4>Mathematics</h4>
+                                    <p>Grade 10B</p>
+                                    <span>Room 202</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            
+                            <!-- Wednesday -->
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block math">
+                                    <h4>Mathematics</h4>
+                                    <p>Grade 10A</p>
+                                    <span>Room 201</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block physics">
+                                    <h4>Physics</h4>
+                                    <p>Grade 11A</p>
+                                    <span>Lab 2</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            
+                            <!-- Thursday -->
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block math">
+                                    <h4>Mathematics</h4>
+                                    <p>Grade 10B</p>
+                                    <span>Room 202</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block physics">
+                                    <h4>Physics</h4>
+                                    <p>Grade 10A</p>
+                                    <span>Lab 3</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            
+                            <!-- Friday -->
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block math">
+                                    <h4>Mathematics</h4>
+                                    <p>Grade 11A</p>
+                                    <span>Room 205</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell">
+                                <div class="class-block physics">
+                                    <h4>Physics Lab</h4>
+                                    <p>Grade 10B</p>
+                                    <span>Lab 3</span>
+                                </div>
+                            </div>
+                            <div class="schedule-cell"></div>
+                            <div class="schedule-cell"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script> -->
+    
+    <style>
+        .schedule-container {
+            margin-bottom: var(--space-8);
+        }
+        
+        .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .week-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .current-week {
+            font-weight: var(--font-semibold);
+            color: var(--color-gray-900);
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1px;
+            background: var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .time-column {
+            background: var(--color-gray-50);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .time-slot {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--color-gray-600);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background: white;
+        }
+        
+        .day-header {
+            background: var(--color-gray-50);
+            padding: var(--space-3);
+            text-align: center;
+            font-weight: var(--font-semibold);
+            color: var(--color-gray-700);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .schedule-cell {
+            height: 60px;
+            border-bottom: 1px solid var(--color-gray-200);
+            border-right: 1px solid var(--color-gray-200);
+            padding: var(--space-2);
+            position: relative;
+        }
+        
+        .class-block {
+            background: var(--color-primary-500);
+            color: white;
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .class-block:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .class-block.math {
+            background: var(--color-primary-500);
+        }
+        
+        .class-block.physics {
+            background: var(--color-success-500);
+        }
+        
+        .class-block h4 {
+            font-size: 10px;
+            font-weight: var(--font-semibold);
+            color: white;
+        }
+        
+        .class-block p {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .class-block span {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        @media (max-width: 768px) {
+            .schedule-grid {
+                grid-template-columns: 60px 1fr;
+            }
+            
+            .days-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .class-block h4,
+            .class-block p,
+            .class-block span {
+                font-size: 10px;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Admin Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Admin</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="users.html" class="active"><span class="icon">👥</span> Users</a></li>
+                <li><a href="classes.html"><span class="icon">🏫</span> Classes</a></li>
+                <li><a href="reports.html"><span class="icon">📈</span> Reports</a></li>
+                <li><a href="fees.html"><span class="icon">💰</span> Fees</a></li>
+                <li><a href="../scheduling/index.html"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>User Management</h1>
+                    <p class="text-gray-600">Manage teachers, students, and parents</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="exportUsers()">Export</button>
+                    <button class="btn btn-primary" onclick="openAddUserModal()">Add User</button>
+                </div>
+            </header>
+            
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="card">
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label>Role</label>
+                            <select id="roleFilter" onchange="filterUsers()">
+                                <option value="">All Roles</option>
+                                <option value="teacher">Teachers</option>
+                                <option value="student">Students</option>
+                                <option value="parent">Parents</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Status</label>
+                            <select id="statusFilter" onchange="filterUsers()">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Search</label>
+                            <input type="text" id="searchInput" placeholder="Search users..." oninput="filterUsers()">
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>&nbsp;</label>
+                            <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Users Table -->
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Role</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Users will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="modal-close" onclick="closeAddUserModal()">&times;</button>
+            </div>
+            
+            <form id="addUserForm">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Role</label>
+                    <select class="form-select" name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                        <option value="parent">Parent</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-input" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-textarea" name="address" rows="3"></textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddUserModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <!-- <script>
+        // Load users data
+        let allUsers = [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth() || getUserRole() !== 'admin') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            loadUsers();
+        });
+        
+        async function loadUsers() {
+            try {
+                const response = await fetch('../data/users.json');
+                allUsers = await response.json();
+                displayUsers(allUsers);
+            } catch (error) {
+                console.error('Error loading users:', error);
+                showToast('Error loading users', 'error');
+            }
+        }
+        
+        function displayUsers(users) {
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = '';
+            
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="user-info">
+                            <img src="${user.avatar}" alt="${user.name}" class="user-avatar">
+                            <div>
+                                <div class="font-medium">${user.name}</div>
+                                <div class="text-sm text-gray-500">${user.id}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="badge badge-${user.role === 'teacher' ? 'primary' : user.role === 'student' ? 'success' : 'warning'}">${user.role}</span></td>
+                    <td>${user.email}</td>
+                    <td><span class="status-${user.status}">${user.status}</span></td>
+                    <td>${formatDate(user.joinedDate)}</td>
+                    <td>
+                        <div class="actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editUser('${user.id}')">Edit</button>
+                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('${user.id}')">
+                                ${user.status === 'active' ? 'Deactivate' : 'Activate'}
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function filterUsers() {
+            const roleFilter = document.getElementById('roleFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            let filteredUsers = allUsers;
+            
+            if (roleFilter) {
+                filteredUsers = filteredUsers.filter(user => user.role === roleFilter);
+            }
+            
+            if (statusFilter) {
+                filteredUsers = filteredUsers.filter(user => user.status === statusFilter);
+            }
+            
+            if (searchTerm) {
+                filteredUsers = filteredUsers.filter(user => 
+                    user.name.toLowerCase().includes(searchTerm) ||
+                    user.email.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            displayUsers(filteredUsers);
+        }
+        
+        function clearFilters() {
+            document.getElementById('roleFilter').value = '';
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('searchInput').value = '';
+            displayUsers(allUsers);
+        }
+        
+        function openAddUserModal() {
+            openModal('addUserModal');
+        }
+        
+        function closeAddUserModal() {
+            closeModal('addUserModal');
+            document.getElementById('addUserForm').reset();
+        }
+        
+        function editUser(userId) {
+            const user = allUsers.find(u => u.id === userId);
+            if (user) {
+                showToast(`Editing user: ${user.name}`, 'info');
+                // Implement edit functionality
+            }
+        }
+        
+        function toggleUserStatus(userId) {
+            const user = allUsers.find(u => u.id === userId);
+            if (user) {
+                user.status = user.status === 'active' ? 'inactive' : 'active';
+                displayUsers(allUsers);
+                showToast(`User ${user.status === 'active' ? 'activated' : 'deactivated'}`, 'success');
+            }
+        }
+        
+        function exportUsers() {
+            const dataStr = JSON.stringify(allUsers, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'users_export.json';
+            link.click();
+            showToast('Users exported successfully', 'success');
+        }
+        
+        // Handle add user form submission
+        document.getElementById('addUserForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const newUser = {
+                id: generateId(),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                role: formData.get('role'),
+                phone: formData.get('phone'),
+                address: formData.get('address'),
+                status: 'active',
+                joinedDate: new Date().toISOString(),
+                avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop'
+            };
+            
+            allUsers.push(newUser);
+            displayUsers(allUsers);
+            closeAddUserModal();
+            showToast('User added successfully', 'success');
+        }); -->
+    <!-- </script> -->
+</body>
+</html>

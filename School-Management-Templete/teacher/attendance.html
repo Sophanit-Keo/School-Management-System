@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Teacher Dashboard</title>
+    <link rel="stylesheet" href="../shared/css/reset.css">
+    <link rel="stylesheet" href="../shared/css/typography.css">
+    <link rel="stylesheet" href="../shared/css/components.css">
+    <link rel="stylesheet" href="../shared/css/layout.css">
+    <link rel="stylesheet" href="css/teacher.css">
+</head>
+<body>
+    <div class="teacher-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">EP</div>
+                <h3>EduPortal</h3>
+                <span class="role-badge">Teacher</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="schedule.html"><span class="icon">📅</span> Schedule</a></li>
+                <li><a href="attendance.html" class="active"><span class="icon">✅</span> Attendance</a></li>
+                <li><a href="exams.html"><span class="icon">📝</span> Exams</a></li>
+                <li><a href="reports.html"><span class="icon">📈</span> Reports</a></li>
+                <li><a href="../communication/inbox.html"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a href="#" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Attendance Management</h1>
+                    <p class="text-gray-600">Track and manage student attendance</p>
+                </div>
+                <div class="header-actions">
+                    <select class="class-selector">
+                        <option value="class001">Grade 10A</option>
+                        <option value="class002">Grade 10B</option>
+                        <option value="class003">Grade 11A</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="takeAttendance()">Take Attendance</button>
+                </div>
+            </header>
+            
+            <!-- Attendance Overview -->
+            <div class="attendance-overview">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Today's Attendance - Grade 10A</h3>
+                        <span class="date">December 18, 2025</span>
+                    </div>
+                    
+                    <div class="attendance-stats">
+                        <div class="stat-item present">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Present</div>
+                        </div>
+                        <div class="stat-item absent">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Absent</div>
+                        </div>
+                        <div class="stat-item late">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Late</div>
+                        </div>
+                        <div class="stat-item total">
+                            <div class="stat-number">30</div>
+                            <div class="stat-label">Total</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Student Attendance List -->
+            <div class="attendance-list">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Student List</h3>
+                        <div class="attendance-actions">
+                            <button class="btn btn-success" onclick="markAllPresent()">Mark All Present</button>
+                            <button class="btn btn-secondary" onclick="saveAttendance()">Save Attendance</button>
+                        </div>
+                    </div>
+                    
+                    <div class="students-grid">
+                        <div class="student-card">
+                            <img src="https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="John Doe">
+                            <div class="student-info">
+                                <h4>John Doe</h4>
+                                <p>Roll: 10A001</p>
+                            </div>
+                            <div class="attendance-buttons">
+                                <button class="attendance-btn present active" data-status="present">P</button>
+                                <button class="attendance-btn absent" data-status="absent">A</button>
+                                <button class="attendance-btn late" data-status="late">L</button>
+                            </div>
+                        </div>
+                        
+                        <div class="student-card">
+                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="Marie Stephens">
+                            <div class="student-info">
+                                <h4>Marie Stephens</h4>
+                                <p>Roll: 10A002</p>
+                            </div>
+                            <div class="attendance-buttons">
+                                <button class="attendance-btn present" data-status="present">P</button>
+                                <button class="attendance-btn absent active" data-status="absent">A</button>
+                                <button class="attendance-btn late" data-status="late">L</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- <script src="../shared/js/utils.js"></script>
+    <script src="../shared/js/sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth() || getUserRole() !== 'teacher') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            initializeAttendance();
+        });
+        
+        function initializeAttendance() {
+            // Setup attendance button interactions
+            document.querySelectorAll('.attendance-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.student-card');
+                    const buttons = card.querySelectorAll('.attendance-btn');
+                    
+                    buttons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    updateAttendanceStats();
+                });
+            });
+        }
+        
+        function updateAttendanceStats() {
+            const presentCount = document.querySelectorAll('.attendance-btn.present.active').length;
+            const absentCount = document.querySelectorAll('.attendance-btn.absent.active').length;
+            const lateCount = document.querySelectorAll('.attendance-btn.late.active').length;
+            
+            document.querySelector('.stat-item.present .stat-number').textContent = presentCount;
+            document.querySelector('.stat-item.absent .stat-number').textContent = absentCount;
+            document.querySelector('.stat-item.late .stat-number').textContent = lateCount;
+        }
+        
+        function takeAttendance() {
+            showToast('Starting attendance session', 'info');
+        }
+        
+        function markAllPresent() {
+            document.querySelectorAll('.student-card').forEach(card => {
+                const buttons = card.querySelectorAll('.attendance-btn');
+                buttons.forEach(b => b.classList.remove('active'));
+                card.querySelector('.attendance-btn.present').classList.add('active');
+            });
+            updateAttendanceStats();
+            showToast('All students marked present', 'success');
+        }
+        
+        function saveAttendance() {
+            showToast('Attendance saved successfully', 'success');
+        }
+    </script> -->
+    
+    <style>
+        .class-selector {
+            padding: var(--space-3);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+        }
+        
+        .attendance-overview {
+            margin-bottom: var(--space-6);
+        }
+        
+        .date {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+        }
+        
+        .attendance-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-4);
+            margin-top: var(--space-4);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+        }
+        
+        .stat-item.present {
+            background: var(--color-success-50);
+            color: var(--color-success-700);
+        }
+        
+        .stat-item.absent {
+            background: var(--color-error-50);
+            color: var(--color-error-700);
+        }
+        
+        .stat-item.late {
+            background: var(--color-warning-50);
+            color: var(--color-warning-700);
+        }
+        
+        .stat-item.total {
+            background: var(--color-gray-50);
+            color: var(--color-gray-700);
+        }
+        
+        .stat-number {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-bold);
+            margin-bottom: var(--space-1);
+        }
+        
+        .stat-label {
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+        }
+        
+        .attendance-actions {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-4);
+        }
+        
+        .student-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+        }
+        
+        .student-card:hover {
+            border-color: var(--color-primary-300);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .student-card img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+        
+        .student-info {
+            flex: 1;
+        }
+        
+        .student-info h4 {
+            margin-bottom: var(--space-1);
+        }
+        
+        .student-info p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+        }
+        
+        .attendance-buttons {
+            display: flex;
+            gap: var(--space-1);
+        }
+        
+        .attendance-btn {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--color-gray-300);
+            background: white;
+            border-radius: var(--radius-md);
+            font-weight: var(--font-bold);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .attendance-btn.present.active {
+            background: var(--color-success-500);
+            border-color: var(--color-success-500);
+            color: white;
+        }
+        
+        .attendance-btn.absent.active {
+            background: var(--color-error-500);
+            border-color: var(--color-error-500);
+            color: white;
+        }
+        
+        .attendance-btn.late.active {
+            background: var(--color-warning-500);
+            border-color: var(--color-warning-500);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .attendance-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .students-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
