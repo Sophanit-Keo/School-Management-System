@@ -119,63 +119,6 @@
             </div>
         </main>
     </div>
-    
-    <!-- <script src="../shared/js/utils.js"></script>
-    <script src="../shared/js/sidebar.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!checkAuth() || getUserRole() !== 'teacher') {
-                window.location.href = '../index.html';
-                return;
-            }
-            
-            initializeAttendance();
-        });
-        
-        function initializeAttendance() {
-            // Setup attendance button interactions
-            document.querySelectorAll('.attendance-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const card = this.closest('.student-card');
-                    const buttons = card.querySelectorAll('.attendance-btn');
-                    
-                    buttons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    updateAttendanceStats();
-                });
-            });
-        }
-        
-        function updateAttendanceStats() {
-            const presentCount = document.querySelectorAll('.attendance-btn.present.active').length;
-            const absentCount = document.querySelectorAll('.attendance-btn.absent.active').length;
-            const lateCount = document.querySelectorAll('.attendance-btn.late.active').length;
-            
-            document.querySelector('.stat-item.present .stat-number').textContent = presentCount;
-            document.querySelector('.stat-item.absent .stat-number').textContent = absentCount;
-            document.querySelector('.stat-item.late .stat-number').textContent = lateCount;
-        }
-        
-        function takeAttendance() {
-            showToast('Starting attendance session', 'info');
-        }
-        
-        function markAllPresent() {
-            document.querySelectorAll('.student-card').forEach(card => {
-                const buttons = card.querySelectorAll('.attendance-btn');
-                buttons.forEach(b => b.classList.remove('active'));
-                card.querySelector('.attendance-btn.present').classList.add('active');
-            });
-            updateAttendanceStats();
-            showToast('All students marked present', 'success');
-        }
-        
-        function saveAttendance() {
-            showToast('Attendance saved successfully', 'success');
-        }
-    </script> -->
-    
     <style>
         .class-selector {
             padding: var(--space-3);

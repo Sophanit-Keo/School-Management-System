@@ -190,58 +190,6 @@
         </main>
     </div>
     
-    <!-- <script src="../shared/js/utils.js"></script>
-    <script src="../shared/js/sidebar.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!checkAuth() || getUserRole() !== 'student') {
-                window.location.href = '../index.html';
-                return;
-            }
-            
-            initializeGPAChart();
-        });
-        
-        function initializeGPAChart() {
-            if (typeof Chart === 'undefined') {
-                console.warn('Chart.js not loaded, skipping chart initialization');
-                return;
-            }
-            
-            const ctx = document.getElementById('gpaChart');
-            if (ctx) {
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Sep', 'Oct', 'Nov', 'Dec'],
-                        datasets: [{
-                            label: 'GPA',
-                            data: [3.6, 3.7, 3.8, 3.8],
-                            borderColor: '#10B981',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                            tension: 0.4,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: false,
-                                min: 3.0,
-                                max: 4.0
-                            }
-                        }
-                    }
-                });
-            }
-        }
-    </script> -->
-    
     <style>
         .semester-filter {
             padding: var(--space-3);

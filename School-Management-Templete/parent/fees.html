@@ -143,19 +143,6 @@
         </main>
     </div>
     
-    <script src="../shared/js/utils.js"></script>
-    <script src="../shared/js/sidebar.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!checkAuth() || getUserRole() !== 'parent') {
-                window.location.href = '../index.html';
-                return;
-            }
-            
-            showToast('Fee information loaded', 'success');
-        });
-    </script>
-    
     <style>
         .fee-summary {
             margin-bottom: var(--space-8);
