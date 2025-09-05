@@ -1,0 +1,98 @@
+﻿@page
+@model school_management_system.Pages.Admin.Classes.IndexModel
+@{
+	Layout = "_AdminLayout";
+	ViewData["Titel"] = "Admin-Class";
+}
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>Class Management</h1>
+            <p class="text-gray-600">Manage classes, sections, and enrollments</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary">Export Classes</button>
+            <button class="btn btn-primary" onclick="openAddClassModal()">Add Class</button>
+        </div>
+    </header>
+
+    <!-- Class Overview Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon primary">🏫</div>
+            <div class="stat-content">
+                <h3>42</h3>
+                <p>Total Classes</p>
+                <span class="stat-change neutral">Active sessions</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon success">👥</div>
+            <div class="stat-content">
+                <h3>1,248</h3>
+                <p>Total Students</p>
+                <span class="stat-change positive">95% attendance</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon warning">🎓</div>
+            <div class="stat-content">
+                <h3>89</h3>
+                <p>Total Teachers</p>
+                <span class="stat-change positive">Fully staffed</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon error">📊</div>
+            <div class="stat-content">
+                <h3>29.6</h3>
+                <p>Avg Class Size</p>
+                <span class="stat-change neutral">Optimal range</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Classes Table -->
+    <div class="table-container">
+        <div class="table-header">
+            <h3>All Classes</h3>
+            <div class="table-filters">
+                <select id="gradeFilter" onchange="filterClasses()">
+                    <option value="">All Grades</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
+                <input type="text" id="searchClasses" placeholder="Search classes..." oninput="filterClasses()">
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Teacher</th>
+                    <th>Students</th>
+                    <th>Room</th>
+                    <th>Schedule</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="classesTableBody">
+                <!-- Classes will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</main>
+@section Styles {
+    <link rel="stylesheet" href="/css/admin-css/admin.css" />
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

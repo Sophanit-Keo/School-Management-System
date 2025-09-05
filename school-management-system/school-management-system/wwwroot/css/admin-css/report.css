@@ -1,0 +1,16 @@
+﻿
+.header {
+    display: inline-block;
+    justify-content: space-between;
+    align-items:center;
+    align-content:center;
+    width:100%;
+    height:100%;
+    background: gray;
+    text-align: center;
+}
+.header div {
+    display: inline;
+    
+}
+

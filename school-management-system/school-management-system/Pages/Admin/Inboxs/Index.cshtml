@@ -1,0 +1,15 @@
+﻿@page
+@model school_management_system.Pages.Admin.Inboxs.IndexModel
+@{
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "Admin-Inbox";
+}
+<partial name="_ComingSoonView" model="@(new {Name = "Report Status and Analysis "})" />
+@section styles {
+        <link rel="stylesheet" href="/css/admin-css/admin.css" />
+        <link rel="stylesheet" href="/css/admin-css/report.css">
+        <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+        <link rel="stylesheet" href="/css/shared-css/typography.css">
+        <link rel="stylesheet" href="/css/shared-css/components.css">
+        <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

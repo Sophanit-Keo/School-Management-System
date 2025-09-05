@@ -1,0 +1,80 @@
+﻿@page
+@model school_management_system.Pages.Admin.Users.IndexModel
+@{
+    Layout = "_AdminLayout";
+	ViewData["Title"] = "Admin-User";
+}
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>User Management</h1>
+            <p class="text-gray-600">Manage teachers, students, and parents</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary" onclick="exportUsers()">Export</button>
+            <button class="btn btn-primary" onclick="openAddUserModal()">Add User</button>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <div class="filters-section">
+        <div class="card">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label>Role</label>
+                    <select id="roleFilter" onchange="filterUsers()">
+                        <option value="">All Roles</option>
+                        <option value="teacher">Teachers</option>
+                        <option value="student">Students</option>
+                        <option value="parent">Parents</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="statusFilter" onchange="filterUsers()">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Search</label>
+                    <input type="text" id="searchInput" placeholder="Search users..." oninput="filterUsers()">
+                </div>
+
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Joined</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="usersTableBody">
+                <!-- Users will be populated -->
+            </tbody>
+        </table>
+    </div>
+</main>
+@section Styles {
+                <link rel="stylesheet" href="/css/admin-css/admin.css" />
+                <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+                <link rel="stylesheet" href="/css/shared-css/typography.css">
+                <link rel="stylesheet" href="/css/shared-css/components.css">
+                <link rel="stylesheet" href="/css/shared-css/layout.css">
+}
