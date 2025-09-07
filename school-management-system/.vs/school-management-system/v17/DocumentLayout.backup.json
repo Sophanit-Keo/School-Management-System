@@ -3,64 +3,88 @@
   "WorkspaceRootPath": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\authmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\authmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\admin\\schedules\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\admin\\schedules\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\rolemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\rolemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\admin\\inboxs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\admin\\inboxs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\admin\\fees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\admin\\fees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907152011_updateRelationshipRole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:school-management-system\\Migrations\\20250907152011_updateRelationshipRole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\admin\\reports\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\admin\\reports\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907150543_updateRelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:school-management-system\\Migrations\\20250907150543_updateRelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\shared\\_comingsoonview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\shared\\_comingsoonview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\subjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\subjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\grademodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\grademodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\wwwroot\\css\\admin-css\\report.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\wwwroot\\css\\admin-css\\report.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\teachermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\teachermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\admin\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\admin\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\assessmen_typemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\assessmen_typemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\wwwroot\\css\\admin-css\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\wwwroot\\css\\admin-css\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\admin\\classes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\admin\\classes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\guardianmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\guardianmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\pages\\shared\\_loginlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\pages\\shared\\_loginlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\wwwroot\\css\\login-css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\wwwroot\\css\\login-css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\assessmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\assessmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\departmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\departmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\classroommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\classroommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\groupmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\groupmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\models\\majormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\models\\majormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\school-management-system.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\school-management-system.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\migrations\\20250907082509_updatedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\migrations\\20250907082509_updatedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|d:\\phanit\\it step\\school\\school\\lesson and homework\\term 3\\asp\\project_final\\school-management-system\\school-management-system\\school-management-system\\migrations\\20250907082105_adddb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C1C9C6E-7865-4125-8F73-003BFC158719}|school-management-system\\school-management-system.csproj|solutionrelative:school-management-system\\migrations\\20250907082105_adddb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,188 +106,256 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Inboxs\\Index.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Admin\\Inboxs\\Index.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Inboxs\\Index.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Admin\\Inboxs\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-05T09:08:44.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_ComingSoonView.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_ComingSoonView.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Shared\\_ComingSoonView.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_ComingSoonView.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Shared\\_ComingSoonView.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-05T08:25:15.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Schedules\\Index.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Admin\\Schedules\\Index.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Schedules\\Index.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Admin\\Schedules\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-05T08:22:42.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Fees\\Index.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Admin\\Fees\\Index.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Fees\\Index.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Admin\\Fees\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-05T08:16:29.988Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "report.css",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\wwwroot\\css\\admin-css\\report.css",
-              "RelativeDocumentMoniker": "school-management-system\\wwwroot\\css\\admin-css\\report.css",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\wwwroot\\css\\admin-css\\report.css",
-              "RelativeToolTip": "school-management-system\\wwwroot\\css\\admin-css\\report.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-09-05T06:52:12.577Z",
+              "Title": "20250907152011_updateRelationshipRole.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907152011_updateRelationshipRole.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Migrations\\20250907152011_updateRelationshipRole.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907152011_updateRelationshipRole.cs",
+              "RelativeToolTip": "school-management-system\\Migrations\\20250907152011_updateRelationshipRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T15:20:11.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Reports\\Index.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Admin\\Reports\\Index.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Reports\\Index.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Admin\\Reports\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-05T06:27:49.283Z",
+              "Title": "20250907150543_updateRelationship.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907150543_updateRelationship.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Migrations\\20250907150543_updateRelationship.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907150543_updateRelationship.cs",
+              "RelativeToolTip": "school-management-system\\Migrations\\20250907150543_updateRelationship.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T15:05:43.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "admin.css",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\wwwroot\\css\\admin-css\\admin.css",
-              "RelativeDocumentMoniker": "school-management-system\\wwwroot\\css\\admin-css\\admin.css",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\wwwroot\\css\\admin-css\\admin.css",
-              "RelativeToolTip": "school-management-system\\wwwroot\\css\\admin-css\\admin.css",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAUwFwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-09-04T17:31:26.521Z",
+              "DocumentIndex": 5,
+              "Title": "SubjectModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\SubjectModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\SubjectModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\SubjectModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\SubjectModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:41:07.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\StudentModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\StudentModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\StudentModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\StudentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:39:02.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TeacherModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\TeacherModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\TeacherModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\TeacherModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\TeacherModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:29:00.391Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Users\\Index.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Admin\\Users\\Index.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Users\\Index.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Admin\\Users\\Index.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-05T06:16:54.896Z",
+              "Title": "Assessmen_TypeModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\Assessmen_TypeModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\Assessmen_TypeModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\Assessmen_TypeModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\Assessmen_TypeModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:44:21.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RoleModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\RoleModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\RoleModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\RoleModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\RoleModel.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:52:00.316Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_AdminLayout.cshtml*",
-              "RelativeToolTip": "school-management-system\\Pages\\Shared\\_AdminLayout.cshtml*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACAAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T17:24:03.468Z",
+              "Title": "AuthModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\AuthModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\AuthModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\AuthModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\AuthModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:34:30.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Index.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Index.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T16:46:32.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Classes\\Index.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Admin\\Classes\\Index.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Admin\\Classes\\Index.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Admin\\Classes\\Index.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAFsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-05T06:22:01.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_LoginLayout.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_LoginLayout.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Shared\\_LoginLayout.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_LoginLayout.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Shared\\_LoginLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T17:11:50.552Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "login.css",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\wwwroot\\css\\login-css\\login.css",
-              "RelativeDocumentMoniker": "school-management-system\\wwwroot\\css\\login-css\\login.css",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\wwwroot\\css\\login-css\\login.css",
-              "RelativeToolTip": "school-management-system\\wwwroot\\css\\login-css\\login.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-09-04T16:56:03.554Z"
+              "DocumentIndex": 9,
+              "Title": "AppDBContext.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\AppDBContext.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\AppDBContext.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\AppDBContext.cs",
+              "RelativeToolTip": "school-management-system\\Models\\AppDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:27:38.496Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "school-management-system\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "school-management-system\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACMAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T16:37:49.295Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Program.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Program.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Program.cs",
+              "RelativeToolTip": "school-management-system\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:17:31.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "20250907082105_AddDB.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907082105_AddDB.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Migrations\\20250907082105_AddDB.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907082105_AddDB.cs",
+              "RelativeToolTip": "school-management-system\\Migrations\\20250907082105_AddDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T08:21:06.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GradeModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\GradeModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\GradeModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\GradeModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\GradeModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:40:41.316Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "20250907082509_UpdateDB.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907082509_UpdateDB.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Migrations\\20250907082509_UpdateDB.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Migrations\\20250907082509_UpdateDB.cs",
+              "RelativeToolTip": "school-management-system\\Migrations\\20250907082509_UpdateDB.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T08:25:09.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\appsettings.json",
+              "RelativeDocumentMoniker": "school-management-system\\appsettings.json",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\appsettings.json",
+              "RelativeToolTip": "school-management-system\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-07T07:13:46.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GuardianModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\GuardianModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\GuardianModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\GuardianModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\GuardianModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:39:46.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AssessmentModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\AssessmentModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\AssessmentModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\AssessmentModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\AssessmentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:43:50.774Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "DepartmentModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\DepartmentModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\DepartmentModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\DepartmentModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\DepartmentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:42:57.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ClassroomModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\ClassroomModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\ClassroomModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\ClassroomModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\ClassroomModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:42:33.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GroupModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\GroupModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\GroupModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\GroupModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\GroupModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:42:12.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MajorModel.cs",
+              "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\MajorModel.cs",
+              "RelativeDocumentMoniker": "school-management-system\\Models\\MajorModel.cs",
+              "ToolTip": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\Models\\MajorModel.cs",
+              "RelativeToolTip": "school-management-system\\Models\\MajorModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T07:41:27.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "school-management-system.csproj",
               "DocumentMoniker": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\school-management-system.csproj",
               "RelativeDocumentMoniker": "school-management-system\\school-management-system.csproj",
@@ -271,7 +363,7 @@
               "RelativeToolTip": "school-management-system\\school-management-system.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-04T16:30:04.723Z"
+              "WhenOpened": "2025-09-07T07:18:24.941Z"
             }
           ]
         }
