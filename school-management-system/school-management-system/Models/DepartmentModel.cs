@@ -4,7 +4,9 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        // FK Major and Reference
         public int MajorId;
-        public ICollection<MajorModel> Major { get; set; }
+        public ICollection<MajorModel> Majors { get; set; }
     }
 }

@@ -14,13 +14,13 @@ namespace school_management_system.Models
         public DbSet<StudentModel> Students { get; set; }
         public DbSet<GuardianModel> Guardians { get; set; }
         public DbSet<SubjectModel> Subjects { get; set; }
-        public DbSet<GradeModel> Grade { get; set; }
+        public DbSet<GradeModel> Grades { get; set; }
         public DbSet<GroupModel> Groups { get; set; }
         public DbSet<MajorModel> Majors { get; set; }
         public DbSet<DepartmentModel> Departments { get; set; }
         public DbSet<ClassroomModel> Classrooms { get; set; }
         public DbSet<AssessmentModel> Assessments { get; set; }
-        public DbSet<Assessmen_TypeModel> Assessmen_Types { get; set; }
+        public DbSet<Assessment_TypeModel> Assessmen_Types { get; set; }
         public DbSet<RoleModel> Roles { get; set; }
 
 

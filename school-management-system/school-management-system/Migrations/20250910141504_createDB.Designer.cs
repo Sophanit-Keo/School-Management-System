@@ -12,8 +12,8 @@ using school_management_system.Models;
 namespace school_management_system.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20250907150543_updateRelationship")]
-    partial class updateRelationship
+    [Migration("20250910141504_createDB")]
+    partial class createDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,13 +27,13 @@ namespace school_management_system.Migrations
 
             modelBuilder.Entity("GradeModelSubjectModel", b =>
                 {
-                    b.Property<int>("GradeId")
+                    b.Property<int>("GradesId")
                         .HasColumnType("int");
 
                     b.Property<int>("SubjectsId")
                         .HasColumnType("int");
 
-                    b.HasKey("GradeId", "SubjectsId");
+                    b.HasKey("GradesId", "SubjectsId");
 
                     b.HasIndex("SubjectsId");
 
@@ -42,13 +42,13 @@ namespace school_management_system.Migrations
 
             modelBuilder.Entity("GroupModelSubjectModel", b =>
                 {
-                    b.Property<int>("GroupId")
+                    b.Property<int>("GroupsId")
                         .HasColumnType("int");
 
                     b.Property<int>("SubjectsId")
                         .HasColumnType("int");
 
-                    b.HasKey("GroupId", "SubjectsId");
+                    b.HasKey("GroupsId", "SubjectsId");
 
                     b.HasIndex("SubjectsId");
 
@@ -75,17 +75,44 @@ namespace school_management_system.Migrations
                     b.Property<int>("SubjectModelsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeacherId")
+                    b.Property<int>("TeachersId")
                         .HasColumnType("int");
 
-                    b.HasKey("SubjectModelsId", "TeacherId");
+                    b.HasKey("SubjectModelsId", "TeachersId");
 
-                    b.HasIndex("TeacherId");
+                    b.HasIndex("TeachersId");
 
                     b.ToTable("SubjectModelTeacherModel");
                 });
 
-            modelBuilder.Entity("school_management_system.Models.Assessmen_TypeModel", b =>
+            modelBuilder.Entity("school_management_system.Models.AssessmentModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Assessment_TypeModelId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Assessment_TypeModelId");
+
+                    b.ToTable("Assessments");
+                });
+
+            modelBuilder.Entity("school_management_system.Models.Assessment_TypeModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -102,37 +129,6 @@ namespace school_management_system.Migrations
                     b.ToTable("Assessmen_Types");
                 });
 
-            modelBuilder.Entity("school_management_system.Models.AssessmentModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("Assessmen_TypeModelId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Assessmen_TypeModelId");
-
-                    b.ToTable("Assessments");
-                });
-
             modelBuilder.Entity("school_management_system.Models.AuthModel", b =>
                 {
                     b.Property<int>("Id")
@@ -145,7 +141,7 @@ namespace school_management_system.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoleModelId")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.Property<int?>("StudentModelId")
@@ -159,8 +155,6 @@ namespace school_management_system.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RoleModelId");
 
                     b.HasIndex("StudentModelId");
 
@@ -222,7 +216,7 @@ namespace school_management_system.Migrations
 
                     b.HasIndex("StudentModelId");
 
-                    b.ToTable("Grade");
+                    b.ToTable("Grades");
                 });
 
             modelBuilder.Entity("school_management_system.Models.GroupModel", b =>
@@ -263,6 +257,10 @@ namespace school_management_system.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -313,11 +311,16 @@ namespace school_management_system.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AuthModelId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AuthModelId");
 
                     b.ToTable("Roles");
                 });
@@ -330,6 +333,9 @@ namespace school_management_system.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AssessmentModelId")
+                        .HasColumnType("int");
+
                     b.Property<DateOnly>("DOB")
                         .HasColumnType("date");
 
@@ -341,6 +347,10 @@ namespace school_management_system.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -349,6 +359,8 @@ namespace school_management_system.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AssessmentModelId");
 
                     b.ToTable("Students");
                 });
@@ -394,6 +406,10 @@ namespace school_management_system.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -410,7 +426,7 @@ namespace school_management_system.Migrations
                 {
                     b.HasOne("school_management_system.Models.GradeModel", null)
                         .WithMany()
-                        .HasForeignKey("GradeId")
+                        .HasForeignKey("GradesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -425,7 +441,7 @@ namespace school_management_system.Migrations
                 {
                     b.HasOne("school_management_system.Models.GroupModel", null)
                         .WithMany()
-                        .HasForeignKey("GroupId")
+                        .HasForeignKey("GroupsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -461,24 +477,20 @@ namespace school_management_system.Migrations
 
                     b.HasOne("school_management_system.Models.TeacherModel", null)
                         .WithMany()
-                        .HasForeignKey("TeacherId")
+                        .HasForeignKey("TeachersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("school_management_system.Models.AssessmentModel", b =>
                 {
-                    b.HasOne("school_management_system.Models.Assessmen_TypeModel", null)
-                        .WithMany("Assessment")
-                        .HasForeignKey("Assessmen_TypeModelId");
+                    b.HasOne("school_management_system.Models.Assessment_TypeModel", null)
+                        .WithMany("Assessments")
+                        .HasForeignKey("Assessment_TypeModelId");
                 });
 
             modelBuilder.Entity("school_management_system.Models.AuthModel", b =>
                 {
-                    b.HasOne("school_management_system.Models.RoleModel", null)
-                        .WithMany("Auths")
-                        .HasForeignKey("RoleModelId");
-
                     b.HasOne("school_management_system.Models.StudentModel", null)
                         .WithMany("Auths")
                         .HasForeignKey("StudentModelId");
@@ -505,12 +517,26 @@ namespace school_management_system.Migrations
             modelBuilder.Entity("school_management_system.Models.MajorModel", b =>
                 {
                     b.HasOne("school_management_system.Models.DepartmentModel", null)
-                        .WithMany("Major")
+                        .WithMany("Majors")
                         .HasForeignKey("DepartmentModelId");
 
                     b.HasOne("school_management_system.Models.SubjectModel", null)
                         .WithMany("Major")
                         .HasForeignKey("SubjectModelId");
+                });
+
+            modelBuilder.Entity("school_management_system.Models.RoleModel", b =>
+                {
+                    b.HasOne("school_management_system.Models.AuthModel", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("AuthModelId");
+                });
+
+            modelBuilder.Entity("school_management_system.Models.StudentModel", b =>
+                {
+                    b.HasOne("school_management_system.Models.AssessmentModel", null)
+                        .WithMany("Students")
+                        .HasForeignKey("AssessmentModelId");
                 });
 
             modelBuilder.Entity("school_management_system.Models.SubjectModel", b =>
@@ -520,14 +546,21 @@ namespace school_management_system.Migrations
                         .HasForeignKey("AssessmentModelId");
                 });
 
-            modelBuilder.Entity("school_management_system.Models.Assessmen_TypeModel", b =>
-                {
-                    b.Navigation("Assessment");
-                });
-
             modelBuilder.Entity("school_management_system.Models.AssessmentModel", b =>
                 {
+                    b.Navigation("Students");
+
                     b.Navigation("Subjects");
+                });
+
+            modelBuilder.Entity("school_management_system.Models.Assessment_TypeModel", b =>
+                {
+                    b.Navigation("Assessments");
+                });
+
+            modelBuilder.Entity("school_management_system.Models.AuthModel", b =>
+                {
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("school_management_system.Models.ClassroomModel", b =>
@@ -537,12 +570,7 @@ namespace school_management_system.Migrations
 
             modelBuilder.Entity("school_management_system.Models.DepartmentModel", b =>
                 {
-                    b.Navigation("Major");
-                });
-
-            modelBuilder.Entity("school_management_system.Models.RoleModel", b =>
-                {
-                    b.Navigation("Auths");
+                    b.Navigation("Majors");
                 });
 
             modelBuilder.Entity("school_management_system.Models.StudentModel", b =>

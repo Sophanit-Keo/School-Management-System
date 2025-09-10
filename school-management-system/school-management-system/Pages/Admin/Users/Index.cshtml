@@ -62,11 +62,71 @@
                     <th>Email</th>
                     <th>Status</th>
                     <th>Joined</th>
+                    <th>Username</th>
+                    <th>Password</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="usersTableBody">
                 <!-- Users will be populated -->
+                <tr>
+                    <td>
+                        <div class="font-medium">
+                            <p>Jojo Johnson</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="user-info">
+                            <div class="font-medium">Student</div>
+                        </div>
+                    </td>
+                    <td>S001.name.edu@gmail.com</td>
+                    <td><span class="status-active">active</span></td>
+                    <td>
+                        Jan 15, 2024
+                    </td>
+                    <td>
+                        teacher001
+                    </td>
+                    <td>
+                        teacher001
+                    </td>
+                    <td>
+                        <div class="actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
+                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="font-medium">
+                            <p>Sarah Johnson</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="user-info">
+                            <div class="font-medium">Teacher</div>
+                        </div>
+                    </td>
+                    <td>T001.name.edu@gmail.com</td>
+                    <td><span class="status-active">active</span></td>
+                    <td>
+                        Jan 15, 2024
+                    </td>
+                    <td>
+                        T001JOJO
+                    </td>                    
+                    <td>
+                        JOJOT001
+                    </td>
+                    <td>
+                        <div class="actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
+                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

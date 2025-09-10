@@ -1,0 +1,99 @@
+﻿@page
+@model school_management_system.Pages.Admin.Teachers.IndexModel
+@{
+	Layout="_AdminLayout";
+	ViewData["Title"]="Admin-Teacher";
+}
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>Student Management</h1>
+            <p class="text-gray-600">Manage all the Teacher</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary" onclick="exportUsers()">Export</button>
+            <a role = "Button" class="btn btn-primary" asp-page = "CreateTeacher">Add Teacher</a>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <div class="filters-section">
+        <div class="card">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="statusFilter" onchange="filterUsers()">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Search</label>
+                    <input type="text" id="searchInput" placeholder="Search teacher..." oninput="filterUsers()">
+                </div>
+
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Joined</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="usersTableBody">
+                <!-- Teacher will be populated -->
+                <tr>
+                    <td>
+                        <div class="font-medium">
+                            <p>T001</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="user-info">
+                            <div class="font-medium">Sarah Johnson</div>
+                        </div>
+                    </td>
+                    <td>T001.name.edu@gmail.com</td>
+                    <td><span class="status-active">active</span></td>
+                    <td>Jan 15, 2024</td>
+                    <td>
+                        teacher001
+                    </td>
+                    <td>
+                        teacher001
+                    </td>
+                    <td>
+                        <div class="actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
+                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
+                        </div>
+                    </td>
+                </tr>
+                <!--End Teacher List-->
+            </tbody>
+        </table>
+    </div>
+</main>
+@section Styles {
+    <link rel="stylesheet" href="/css/admin-css/admin.css" />
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}
