@@ -5,8 +5,9 @@
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        // Reference Subject and Grade (many to many)
+        //Reference Property (one to many)
+        public ICollection<StudentModel> Students { get; set; }
+        // Reference (many to many)
         public ICollection<SubjectModel> Subjects { get; set; }
     }
 }

@@ -4,7 +4,9 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        // FK and Reference Property Assessment Type and Assessemnt (one to many)
         public int AssessmentId;
-        public ICollection<AssessmentModel> Assessments { get; set; }
+        public AssessmentModel Assessment { get; set; }
     }
 }

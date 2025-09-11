@@ -7,13 +7,16 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        // FK Subject and Reference
+        // FK Subject and Reference (one to many)
         public int SubjectId;
-        public ICollection<SubjectModel> Subjects { get; set; }
+        public SubjectModel Subject { get; set; }
 
-        // FK Student and Reference
+        // FK Student and Reference (one to many)
         public int StudentId;
-        public ICollection<StudentModel> Students { get; set; }
+        public StudentModel Student { get; set; }
+
+        // Reference Property (one to many)
+        public ICollection<AssessmentModel> Assessment { get; set; }
 
     }
 }

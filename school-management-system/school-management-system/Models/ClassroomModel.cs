@@ -7,6 +7,6 @@
 
         // FK Group and Reference
         public int GroupId;
-        public ICollection<GroupModel> Groups { get; set; }
+        public GroupModel Groups { get; set; }
     }
 }

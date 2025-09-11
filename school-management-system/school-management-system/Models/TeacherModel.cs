@@ -13,7 +13,7 @@
 
         // FK Auth and Reference
         public int AuthId;
-        public ICollection<AuthModel> AuthModels { get; set; }
+        public AuthModel AuthModel { get; set; }
 
         // Reference Subject and  Teacher (many to many)
         public ICollection<SubjectModel> SubjectModels { get; set; }

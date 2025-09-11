@@ -7,6 +7,6 @@
 
         // FK Major and Reference
         public int MajorId;
-        public ICollection<MajorModel> Majors { get; set; }
+        public MajorModel Major { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿@page
 @model school_management_system.Pages.Admin.Students.IndexModel
 @{
-	Layout = "_AdminLayout";
-	ViewData["Title"]="Admin-Student";
+    Layout = "_AdminLayout";
+    ViewData["Title"]="Admin-Student";
 }
 <main class="main-content">
     <header class="header">
@@ -52,40 +52,38 @@
                     <th>Email</th>
                     <th>Status</th>
                     <th>Grade</th>
-                    <th>Joined</th>
+                    <th>Enrollment Date</th>
                     <th>Date of bith</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="usersTableBody">
                 <!-- Users will be populated -->
-                <tr>
+                @foreach(var student in Model.Students)
+                {
+                 <tr>
                     <td>
                         <div class="font-medium">
-                            <p>S001</p>
+                            <p>S-@student.Id</p>
                         </div>
                     </td>
                     <td>
                         <div class="user-info">
-                            <div class="font-medium">Jojo Johnson</div>
+                            <div class="font-medium">@student.FirstName @student.LastName</div>
                         </div>
                     </td>
-                    <td>S001.name.edu@gmail.com</td>
+                    <td>@student.Email</td>
                     <td><span class="status-active">active</span></td>
-                    <td>10 A</td>
+                    <td>@student.GradeId</td>
                     <td>
-                        Jan 15, 2024
+                        @student.StartDate
                     </td>
                     <td>
-                        Jan 18, 2002
+                        @student.DOB
                     </td>
-                    <td>
-                        <div class="actions">
-                            <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
-                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
-                        </div>
-                    </td>
+
                 </tr>
+                }
             </tbody>
         </table>
     </div>
