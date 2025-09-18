@@ -5,8 +5,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
 
-        // FK Major and Reference
-        public int MajorId;
-        public MajorModel Major { get; set; }
+        // Navigation Property
+        public ICollection<MajorModel> Majors { get; set; }
     }
 }

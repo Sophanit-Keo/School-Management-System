@@ -14,27 +14,35 @@ namespace school_management_system.Pages.Admin.Students
 
 
         //RoleModel
-        public RoleModel Role { get; set; }
-
-
-        // GradeModel
-        public GradeModel Grade { get; set; }
         public SelectList SelectListGrades { get; set; }
-        [BindProperty]
-        public int SelectedGrade { get; set; }
-        public IEnumerable<GradeModel> Grades { get; set; }
+
 
         // GuardianModel
         [BindProperty]
         public GuardianModel Guardian { get; set; }
         public IEnumerable<GuardianModel> Guardians { get; set; }
 
-        // Auth
-        public AuthModel Auth { get; set; }
-        public IEnumerable<AuthModel> Auths { get; set; }
 
         public async Task OnGet()
         {
+        }
+        public async Task<IActionResult> OnPost()
+        {
+            ModelState.Remove("Student.Auths");
+            ModelState.Remove("Student.Grade");
+            ModelState.Remove("Student.Guardians");
+            ModelState.Remove("Guardian.Students");
+            if (ModelState.IsValid)
+            {
+
+
+                // 5. Redirect
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                return Page();
+            }
         }
 
     }

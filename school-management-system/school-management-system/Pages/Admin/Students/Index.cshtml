@@ -3,6 +3,7 @@
 @{
     Layout = "_AdminLayout";
     ViewData["Title"]="Admin-Student";
+    var data = new { Message = "No Student Data" };
 }
 <main class="main-content">
     <header class="header">
@@ -59,30 +60,37 @@
             </thead>
             <tbody id="usersTableBody">
                 <!-- Users will be populated -->
-                @foreach(var student in Model.Students)
+                @if (Model.Students.Count() > 0)
                 {
-                 <tr>
-                    <td>
-                        <div class="font-medium">
-                            <p>S-@student.Id</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="user-info">
-                            <div class="font-medium">@student.FirstName @student.LastName</div>
-                        </div>
-                    </td>
-                    <td>@student.Email</td>
-                    <td><span class="status-active">active</span></td>
-                    <td>@student.GradeId</td>
-                    <td>
-                        @student.StartDate
-                    </td>
-                    <td>
-                        @student.DOB
-                    </td>
+                    @foreach (var student in Model.Students)
+                    {
+                        <tr>
+                            <td>
+                                <div class="font-medium">
+                                    <p>S-@student.Id</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <div class="font-medium">@student.FirstName @student.LastName</div>
+                                </div>
+                            </td>
+                            <td>@student.Email</td>
+                            <td><span class="status-active">active</span></td>
+                            <td>@student.Status</td>
+                            <td>
+                                @student.StartDate
+                            </td>
+                            <td>
+                                @student.DOB
+                            </td>
 
-                </tr>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <partial name="_ViewNoData" model="@data"/>
                 }
             </tbody>
         </table>

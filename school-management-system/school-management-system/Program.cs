@@ -1,10 +1,15 @@
+using Microsoft.AspNetCore.Identity;
 using school_management_system.Models;
+using school_management_system.Models.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<AppDBContext>();
+builder.Services.AddDefaultIdentity<UserEntity>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<AppDBContext>();
 
 var app = builder.Build();
 

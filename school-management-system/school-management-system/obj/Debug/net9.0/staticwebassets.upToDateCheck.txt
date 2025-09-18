@@ -1,14 +1,4 @@
-wwwroot\css\admin-css\admin.css
-wwwroot\css\admin-css\report.css
-wwwroot\css\admin-css\user.css
-wwwroot\css\login-css\login.css
-wwwroot\css\shared-css\components.css
-wwwroot\css\shared-css\layout.css
-wwwroot\css\shared-css\reset.css
-wwwroot\css\shared-css\typography.css
 wwwroot\css\site.css
-wwwroot\echo-logo.ico
-wwwroot\echo-logo.jpg
 wwwroot\favicon.ico
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -71,6 +61,16 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\echo-logo.jpg
+wwwroot\echo-logo.ico
+wwwroot\css\login-css\login.css
+wwwroot\css\admin-css\admin.css
+wwwroot\css\shared-css\components.css
+wwwroot\css\shared-css\layout.css
+wwwroot\css\shared-css\reset.css
+wwwroot\css\shared-css\typography.css
+wwwroot\css\admin-css\user.css
+wwwroot\css\admin-css\report.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Project_Final\School-Management-System\school-management-system\school-management-system\wwwroot\css\site.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Project_Final\School-Management-System\school-management-system\school-management-system\wwwroot\echo-logo.ico
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Project_Final\School-Management-System\school-management-system\school-management-system\wwwroot\favicon.ico

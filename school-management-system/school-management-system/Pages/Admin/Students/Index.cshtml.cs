@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
 
 namespace school_management_system.Pages.Admin.Students
@@ -15,7 +16,6 @@ namespace school_management_system.Pages.Admin.Students
 
 
         // GradeModel
-        public IEnumerable<GradeModel> Grades { get; set; }
 
         // GuardianModel
 
@@ -23,6 +23,7 @@ namespace school_management_system.Pages.Admin.Students
 
         public async Task OnGet()
         {
+            Students = await _db.Students.ToListAsync();
         }
     }
 }

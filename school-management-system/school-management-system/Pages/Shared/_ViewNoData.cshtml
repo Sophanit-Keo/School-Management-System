@@ -1,0 +1,8 @@
+﻿@model dynamic
+<div class="border p-3 mt-3 text-center">
+    @if (String.IsNullOrEmpty(Model.Message)) {
+        <td colspan="8" class="text-center text-danger fs-4">No Data</td>
+    } else {
+        <td colspan="8" class="text-center text-danger fs-4">@Model.Message</td>
+    }
+</div>

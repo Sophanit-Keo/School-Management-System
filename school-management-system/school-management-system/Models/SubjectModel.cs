@@ -4,19 +4,14 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        // FK Major and Reference
-        public int MajorId;
-        public MajorModel Major { get; set; }
-        // Reference Property (one to many)
-        public ICollection<AssessmentModel> Assessment { get; set; }
+        public string SubjectCode { get; set; }
 
-        // Reference Group and Subject (many to many)
-        public ICollection<GroupModel> Groups { get; set; }
-
-        // Reference Grade and Subject (many to many)
+        // Navigation Grades, Attendances,Homeworks ,Teachers, Timetables
         public ICollection<GradeModel> Grades { get; set; }
-
-        // Reference Teacher and Subject (many to many)
+        public ICollection<AttendanceModel> Attendances { get; set; }
+        public ICollection<HomeworkModel> Homeworks { get; set; }
         public ICollection<TeacherModel> Teachers { get; set; }
+        public ICollection<TimetableModel> Timetables { get; set; }
     }
+
 }

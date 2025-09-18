@@ -5,8 +5,8 @@
         public int Id { get; set; }
         public string Name { get; set; }
 
-        // FK Group and Reference
-        public int GroupId;
-        public GroupModel Groups { get; set; }
+        // Navigation Property Group
+        public ICollection<GroupModel> Groups { get; set; }
     }
+
 }

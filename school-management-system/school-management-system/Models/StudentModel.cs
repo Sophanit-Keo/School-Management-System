@@ -1,9 +1,7 @@
 ﻿namespace school_management_system.Models
 {
     public class StudentModel
-
     {
-
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,16 +14,13 @@
         public DateOnly DOB { get; set; }
         public DateTime StartDate { get; set; } = DateTime.Now;
 
-        // FK Auth and Reference
 
-        public int AuthID;
-        public AuthModel Auths { get; set; }
-
-        // FK Grade and Reference
-        public int GradeId;
-        public GradeModel Grade { get; set; }
-
-        // Reference Student and Guardian (many to many)
+        // Navigation Property Attendances, Grades, HomeworkSubmissions, Enrollments, Guardians
+        public ICollection<AttendanceModel> Attendances { get; set; }
+        public ICollection<GradeModel> Grades { get; set; }
+        public ICollection<HomeworkSubmissionModel> HomeworkSubmissions { get; set; }
+        public ICollection<EnrollmentModel> Enrollments { get; set; }
         public ICollection<GuardianModel> Guardians { get; set; }
     }
+
 }
