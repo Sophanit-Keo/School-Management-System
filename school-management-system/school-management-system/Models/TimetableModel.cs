@@ -8,10 +8,15 @@
         public TimeOnly EndTime { get; set; }
 
         // Navigation Property Groups, Subjjects, Teachers, Classrooms
-        public ICollection<GroupModel> Groups { get; set; }
-        public ICollection<SubjectModel> Subjects { get; set; }
-        public ICollection<TeacherModel> Teachers { get; set; }
-        public ICollection<ClassroomModel> Classrooms { get; set; }
+        public int GroupId { get; set; }
+        public GroupModel Group { get; set; }
+
+        public int SubjectId { get; set; }
+        public SubjectModel Subject { get; set; }
+        public int TeacherId { get; set; }
+        public TeacherModel Teacher { get; set; }
+        public int ClassroomId { get; set; }
+        public ClassroomModel Classroom { get; set; }
     }
 
 }

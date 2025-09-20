@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
 namespace school_management_system.Pages.Admin.Students
 {
@@ -14,7 +15,7 @@ namespace school_management_system.Pages.Admin.Students
 
 
         //RoleModel
-        public SelectList SelectListGrades { get; set; }
+        public SelectList SelectListGroup { get; set; }
 
 
         // GuardianModel
@@ -22,21 +23,33 @@ namespace school_management_system.Pages.Admin.Students
         public GuardianModel Guardian { get; set; }
         public IEnumerable<GuardianModel> Guardians { get; set; }
 
+        // Group
+
 
         public async Task OnGet()
         {
+            Students = await _db.Students
+                    .Include(s => s.Guardians)
+                    .ToListAsync();
         }
         public async Task<IActionResult> OnPost()
         {
-            ModelState.Remove("Student.Auths");
-            ModelState.Remove("Student.Grade");
+            ModelState.Remove("Student.Attendances");
+            ModelState.Remove("Student.Grades");
             ModelState.Remove("Student.Guardians");
+            ModelState.Remove("Student.Enrollments");
+            ModelState.Remove("Student.HomeworkSubmissions");
             ModelState.Remove("Guardian.Students");
             if (ModelState.IsValid)
             {
-
-
-                // 5. Redirect
+                Console.WriteLine("Valide");
+                await _db.Guardians.AddAsync(Guardian);
+                await _db.SaveChangesAsync();
+                Student.Guardians = [];
+                var sGuardian = await _db.Guardians.FindAsync(Guardian.Id);
+                Student.Guardians.Add(sGuardian);
+                await _db.Students.AddAsync(Student);
+                await _db.SaveChangesAsync();
                 return RedirectToPage("Index");
             }
             else

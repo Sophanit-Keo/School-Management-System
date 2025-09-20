@@ -1,0 +1,68 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">L.L</div>
+                <h1>LVE LER</h1>
+                <p class="text-gray-600">School Management System</p>
+            </div>
+
+            
+             <form id="account" method="post">
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3 input-group">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger "></span> 
+                </div>
+                <div class="form-floating mb-3 input-group">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password" class="form-label">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span> 
+                </div>
+                <div class="checkbox mb-3">
+                    <label asp-for="Input.RememberMe" class="form-label">
+                        <input class="form-check-input" asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+                <div>
+                    <p></p>
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                </div>
+            </form>
+
+            <div class="demo-accounts">
+                <h4>Demo Accounts</h4>
+                <div class="demo-account" data-role="admin">Admin: admin@school.edu / admin123</div>
+                <div class="demo-account" data-role="teacher">Teacher: teacher@school.edu / teacher123</div>
+                <div class="demo-account" data-role="student">Student: student@school.edu / student123</div>
+                <div class="demo-account" data-role="parent">Parent: parent@school.edu / parent123</div>
+            </div>
+            <footer class="border-top footer text-muted">
+                <div class="container">
+                    &copy; 2025 - school_management_system - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="/css/login-css/login.css" />
+    <partial name="_ValidationScriptsPartial" />
+}

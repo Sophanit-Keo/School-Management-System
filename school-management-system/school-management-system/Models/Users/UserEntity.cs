@@ -1,9 +1,11 @@
-﻿namespace school_management_system.Models.Users
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace school_management_system.Models.Users
 {
-    public class UserEntity
+    public class UserEntity : IdentityUser
     {
-        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; } = "student";
     }
 }

@@ -6,7 +6,7 @@
         public string Name { get; set; }
 
         // Navigation Property Group
-        public ICollection<GroupModel> Groups { get; set; }
+        public ICollection<TimetableModel> Timetables { get; set; }
     }
 
 }

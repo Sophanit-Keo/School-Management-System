@@ -23,7 +23,9 @@ namespace school_management_system.Pages.Admin.Students
 
         public async Task OnGet()
         {
-            Students = await _db.Students.ToListAsync();
+            Students = await _db.Students
+                .Include(s => s.Guardians)
+                .ToListAsync();
         }
     }
 }

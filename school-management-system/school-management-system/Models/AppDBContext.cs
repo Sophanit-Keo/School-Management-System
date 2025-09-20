@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using school_management_system.Models.Users;
 
 namespace school_management_system.Models
 {
-    public class AppDBContext(IConfiguration configuration) : IdentityDbContext<UserEntity>
+    public class AppDBContext(IConfiguration configuration) : IdentityDbContext
     {
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("conn"));
