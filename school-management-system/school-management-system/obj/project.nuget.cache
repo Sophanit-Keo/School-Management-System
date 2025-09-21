@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9t1UTzDHqIA=",
+  "dgSpecHash": "Yq5agkocBYA=",
   "success": true,
-  "projectFilePath": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Project_Final\\School-Management-System\\school-management-system\\school-management-system\\school-management-system.csproj",
+  "projectFilePath": "D:\\PHANIT\\IT STEP\\SCHOOL\\School\\Lesson and Homework\\Term 3\\ASP\\Final_Project\\School-Management-System\\school-management-system\\school-management-system\\school-management-system.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Keoso\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Keoso\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

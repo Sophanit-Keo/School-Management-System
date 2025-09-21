@@ -13,45 +13,49 @@
     <div class="form-container">
         <h2 class="form-title">Teacher Information</h2>
 
-        <form>
+        <form  method="POST" enctype="multipart/form-data">
             <!-- Personal Information Section -->
+            <div asp-validation-summary="All"></div>
             <div class="section-header">Personal Information</div>
-
             <div class="form-grid">
                 <div class="form-group">
-                    <label for="firstName">First Name <span class="required">*</span></label>
-                    <input type="text" id="firstName" name="firstName" required>
+                    <label asp-for="Teacher.FirstName">First Name <span class="required">*</span></label>
+                    <input type="text" asp-for="Teacher.FirstName" required>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Last Name <span class="required">*</span></label>
-                    <input type="text" id="lastName" name="lastName" required>
+                    <label asp-for="Teacher.LastName">Last Name <span class="required">*</span></label>
+                    <input type="text" asp-for="Teacher.LastName" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email Address <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required>
+                    <label asp-for="Teacher.Email">Email Address <span class="required">*</span></label>
+                    <input type="email" asp-for="Teacher.Email" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
+                    <label asp-for="Teacher.Phone">Phone Number</label>
+                    <input type="tel" asp-for="Teacher.Phone">
                 </div>
+                </div>
+                <div class="form-grid">
                 <div class="form-group">
                     <label for="dob">Date of Birth <span class="required">*</span></label>
                     <input type="date" id="dob" name="dob" required>
                 </div>
                 <div class="form-group">
-                    <label for="gender">Gender <span class="required">*</span></label>
-                    <select id="gender" name="gender" required>
+                    <label asp-for="Teacher.Gender">Gender <span class="required">*</span></label>
+                    <select asp-for="Teacher.Gender" required>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
+                 <div class="form-group">
+                    <label asp-for="Teacher.HireDate">Start date <span class="required">*</span></label>
+                    <input type="date" asp-for="Teacher.HireDate" required>
+                </div>
                 <div class="form-group">
-                    <label for="subject">Subject <span class="required">*</span></label>
-                    <select id="subject" name="subject" required>
-                        <option value="Math">Math</option>
-                        <option value="Physic">Physic</option>
-                        <option value="Khmer">Khmer</option>
+                    <label  class="form-label" asp-for="SelectedSubject">Subject <span class="required">*</span></label>
+                    <select asp-for="SelectedSubject" asp-items="Model.SubjectItems" class="form-select" required>
+                        <option seleted>Select Subject</option>
                     </select>
                 </div>
             </div>

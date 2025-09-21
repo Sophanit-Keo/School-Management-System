@@ -1,11 +1,13 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
+using school_management_system.Models.Users;
 namespace school_management_system.Pages.Admin.Students
 {
-    public class CreateStudentModel(AppDBContext _db) : PageModel
+    public class CreateStudentModel(AppDBContext _db, UserManager<IdentityUser> _userManager) : PageModel
     {
         // StudentModel
         [BindProperty]
@@ -24,8 +26,6 @@ namespace school_management_system.Pages.Admin.Students
         public IEnumerable<GuardianModel> Guardians { get; set; }
 
         // Group
-
-
         public async Task OnGet()
         {
             Students = await _db.Students
@@ -42,7 +42,7 @@ namespace school_management_system.Pages.Admin.Students
             ModelState.Remove("Guardian.Students");
             if (ModelState.IsValid)
             {
-                Console.WriteLine("Valide");
+                // Pass
                 await _db.Guardians.AddAsync(Guardian);
                 await _db.SaveChangesAsync();
                 Student.Guardians = [];
@@ -50,7 +50,42 @@ namespace school_management_system.Pages.Admin.Students
                 Student.Guardians.Add(sGuardian);
                 await _db.Students.AddAsync(Student);
                 await _db.SaveChangesAsync();
+
+                var fstudent = await _db.Students.FindAsync(Student.Id);
+                var autoPassword = PasswordGenderator.GeneratePassword(8);
+                var autoUsername = $"ST_{Student.FirstName}{Student.Id}";
+
+                //Auth for student
+                /*
+                 {
+                    Username: ST_{StudentFirstNem}{ID}
+                    Password: Auto generated
+                 }
+                */
+
+                var user = new UserEntity()
+                {
+                    UserName = autoUsername,
+                    Email = $"{fstudent.FirstName}_{fstudent.LastName}@school.edu.kh",
+                    StudentId = fstudent.Id,
+                };
+                var result = await _userManager.CreateAsync(user, autoPassword);
+
+                if (result.Succeeded)
+                {
+                    Console.WriteLine(fstudent.Id);
+
+                    await _userManager.AddToRoleAsync(user, "Student");
+                    return RedirectToPage("Index");
+                }
+
+                // Show Identity errors
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
                 return RedirectToPage("Index");
+
             }
             else
             {

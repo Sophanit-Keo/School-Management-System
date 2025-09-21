@@ -55,6 +55,8 @@
                     <th>Grade</th>
                     <th>Enrollment Date</th>
                     <th>Date of bith</th>
+                    <th>Username</th>
+                    <th>Password</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -84,7 +86,18 @@
                             <td>
                                 @student.DOB
                             </td>
-
+                            <td>
+                                NotWorkYet
+                            </td>
+                            <td>
+                                NotWorkYet
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
+                                    <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
+                                </div>
+                            </td>
                         </tr>
                     }
                 }

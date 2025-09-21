@@ -1,8 +1,8 @@
 ﻿@page
 @model school_management_system.Pages.Admin.Teachers.IndexModel
 @{
-	Layout="_AdminLayout";
-	ViewData["Title"]="Admin-Teacher";
+    Layout="_AdminLayout";
+    ViewData["Title"]="Admin-Teacher";
 }
 <main class="main-content">
     <header class="header">
@@ -51,6 +51,7 @@
                     <th>Email</th>
                     <th>Status</th>
                     <th>Joined</th>
+                    <th>Subject</th>
                     <th>Username</th>
                     <th>Password</th>
                     <th>Actions</th>
@@ -58,33 +59,42 @@
             </thead>
             <tbody id="usersTableBody">
                 <!-- Teacher will be populated -->
-                <tr>
-                    <td>
-                        <div class="font-medium">
-                            <p>T001</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="user-info">
-                            <div class="font-medium">Sarah Johnson</div>
-                        </div>
-                    </td>
-                    <td>T001.name.edu@gmail.com</td>
-                    <td><span class="status-active">active</span></td>
-                    <td>Jan 15, 2024</td>
-                    <td>
-                        teacher001
-                    </td>
-                    <td>
-                        teacher001
-                    </td>
-                    <td>
-                        <div class="actions">
-                            <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
-                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
-                        </div>
-                    </td>
-                </tr>
+                @if (Model.Teachers.Count() > 0)
+                {
+                    foreach  (var teacher in Model.Teachers)
+                    {
+                        <tr>
+                            <td>
+                                <div class="font-medium">
+                                    <p>T-@teacher.Id</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <div class="font-medium">@teacher.FirstName @teacher.LastName</div>
+                                </div>
+                            </td>
+                            <td>@teacher.Email</td>
+                            <td><span class="status-active">active</span></td>
+                            <td>@teacher.HireDate</td>
+                            @foreach(var subject in teacher.Subjects)
+                            {
+                                <td>@subject.Name</td>
+                            }
+                            <td>
+                                NotWorkYet                        
+                            <td>
+                                NotWorkYet
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
+                                    <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
                 <!--End Teacher List-->
             </tbody>
         </table>
