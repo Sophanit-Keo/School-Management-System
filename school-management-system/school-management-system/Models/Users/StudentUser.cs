@@ -2,9 +2,9 @@
 
 namespace school_management_system.Models.Users
 {
-    public class UserEntity : IdentityUser
+    public class StudentUser : IdentityUser
     {
         public int StudentId { get; set; }
-        public int TeacherId { get; set; }
+        public StudentModel Student { get; set; }
     }
 }

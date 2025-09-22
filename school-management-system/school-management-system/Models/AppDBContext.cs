@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using school_management_system.Models.Users;
 
 namespace school_management_system.Models
 {
@@ -26,6 +27,8 @@ namespace school_management_system.Models
         public DbSet<ExamModel> Exams { get; set; }
         public DbSet<GradeModel> Grades { get; set; }
         public DbSet<AttendanceModel> Attendances { get; set; }
+        public DbSet<StudentUser> StudentUsers { get; set; }
+        public DbSet<TeacherUser> TeacherUsers { get; set; }
 
     }
 }

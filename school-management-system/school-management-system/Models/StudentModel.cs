@@ -1,4 +1,6 @@
-﻿namespace school_management_system.Models
+﻿using school_management_system.Models.Users;
+
+namespace school_management_system.Models
 {
     public class StudentModel
     {
@@ -21,6 +23,7 @@
         public ICollection<HomeworkSubmissionModel> HomeworkSubmissions { get; set; }
         public ICollection<EnrollmentModel> Enrollments { get; set; }
         public ICollection<GuardianModel> Guardians { get; set; }
+        public ICollection<StudentUser> StudentUsers { get; set; }
     }
 
 }

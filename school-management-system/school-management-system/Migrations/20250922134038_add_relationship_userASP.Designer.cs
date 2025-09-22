@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using school_management_system.Models;
 
@@ -11,9 +12,11 @@ using school_management_system.Models;
 namespace school_management_system.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250922134038_add_relationship_userASP")]
+    partial class add_relationship_userASP
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -733,28 +736,21 @@ namespace school_management_system.Migrations
                     b.ToTable("Timetables");
                 });
 
-            modelBuilder.Entity("school_management_system.Models.Users.StudentUser", b =>
+            modelBuilder.Entity("school_management_system.Models.Users.UserEntity", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
 
-                    b.HasIndex("StudentId");
-
-                    b.HasDiscriminator().HasValue("StudentUser");
-                });
-
-            modelBuilder.Entity("school_management_system.Models.Users.TeacherUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
+                    b.HasIndex("StudentId");
+
                     b.HasIndex("TeacherId");
 
-                    b.HasDiscriminator().HasValue("TeacherUser");
+                    b.HasDiscriminator().HasValue("UserEntity");
                 });
 
             modelBuilder.Entity("GuardianModelStudentModel", b =>
@@ -1022,24 +1018,21 @@ namespace school_management_system.Migrations
                     b.Navigation("Teacher");
                 });
 
-            modelBuilder.Entity("school_management_system.Models.Users.StudentUser", b =>
+            modelBuilder.Entity("school_management_system.Models.Users.UserEntity", b =>
                 {
                     b.HasOne("school_management_system.Models.StudentModel", "Student")
-                        .WithMany("StudentUsers")
+                        .WithMany("Users")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("school_management_system.Models.Users.TeacherUser", b =>
-                {
                     b.HasOne("school_management_system.Models.TeacherModel", "Teacher")
-                        .WithMany("TeacherUsers")
+                        .WithMany("Users")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Student");
 
                     b.Navigation("Teacher");
                 });
@@ -1090,7 +1083,7 @@ namespace school_management_system.Migrations
 
                     b.Navigation("HomeworkSubmissions");
 
-                    b.Navigation("StudentUsers");
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("school_management_system.Models.SubjectModel", b =>
@@ -1108,9 +1101,9 @@ namespace school_management_system.Migrations
                 {
                     b.Navigation("Homeworks");
 
-                    b.Navigation("TeacherUsers");
-
                     b.Navigation("Timetables");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("school_management_system.Models.TermModel", b =>

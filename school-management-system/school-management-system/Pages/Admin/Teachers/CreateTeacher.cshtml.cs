@@ -50,11 +50,7 @@ namespace school_management_system.Pages.Admin.Teachers
 
                 var fTeacher = await _db.Teachers.FindAsync(Teacher.Id);
                 var autoPassword = PasswordGenderator.GeneratePassword(7);
-                var autoUsername = $"T_{Teacher.FirstName}{Teacher.LastName}{Teacher.Id}";
-
-                //var fstudent = await _db.Students.FindAsync(Student.Id);
-                //var autoPassword = PasswordGenderator.GeneratePassword(8);
-                //var autoUsername = $"ST_{Student.FirstName}{Student.Id}";
+                var autoUsername = $"T_{fTeacher.FirstName}{fTeacher.LastName}{fTeacher.Id}";
 
                 //Auth for Teacher
                 /*
@@ -64,26 +60,28 @@ namespace school_management_system.Pages.Admin.Teachers
                  }
                 */
 
-                var teacherUser = new UserEntity()
+                var teacherUser = new TeacherUser()
                 {
                     TeacherId = fTeacher.Id,
                     UserName = autoUsername,
-                    Email = $"{Teacher.FirstName.ToLower()}.{Teacher.LastName}@school.edu.kh"
+                    Email = $"{fTeacher.FirstName.ToLower()}.{fTeacher.LastName}.{fTeacher.Id}@school.edu.kh",
                 };
+
                 var result = await _userManager.CreateAsync(teacherUser, autoPassword);
+
+                Console.WriteLine(teacherUser.UserName);
+                Console.WriteLine(autoPassword);
                 if (result.Succeeded)
                 {
-                    Console.WriteLine(fTeacher.Id);
-
                     await _userManager.AddToRoleAsync(teacherUser, "teacher");
                     return RedirectToPage("Index");
                 }
 
                 // Show Identity errors
-                //foreach (var error in result.Errors)
-                //{
-                //    ModelState.AddModelError(string.Empty, error.Description);
-                //}
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
                 return RedirectToPage("Index");
 
             }

@@ -82,9 +82,14 @@
                                 <td>@subject.Name</td>
                             }
                             <td>
-                                NotWorkYet                        
+                                @foreach(var user in teacher.TeacherUsers){
+                                    @user.UserName
+                                }
                             <td>
-                                NotWorkYet
+                                @foreach (var user in teacher.TeacherUsers)
+                                {
+                                    @user.PasswordHash
+                                }
                             </td>
                             <td>
                                 <div class="actions">

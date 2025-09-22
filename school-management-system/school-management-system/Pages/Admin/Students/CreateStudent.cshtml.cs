@@ -25,6 +25,7 @@ namespace school_management_system.Pages.Admin.Students
         public GuardianModel Guardian { get; set; }
         public IEnumerable<GuardianModel> Guardians { get; set; }
 
+
         // Group
         public async Task OnGet()
         {
@@ -40,6 +41,7 @@ namespace school_management_system.Pages.Admin.Students
             ModelState.Remove("Student.Enrollments");
             ModelState.Remove("Student.HomeworkSubmissions");
             ModelState.Remove("Guardian.Students");
+            ModelState.Remove("Student.StudentUsers");
             if (ModelState.IsValid)
             {
                 // Pass
@@ -53,7 +55,7 @@ namespace school_management_system.Pages.Admin.Students
 
                 var fstudent = await _db.Students.FindAsync(Student.Id);
                 var autoPassword = PasswordGenderator.GeneratePassword(8);
-                var autoUsername = $"ST_{Student.FirstName}{Student.Id}";
+                var autoUsername = $"ST_{fstudent.FirstName}{fstudent.Id}";
 
                 //Auth for student
                 /*
@@ -62,20 +64,23 @@ namespace school_management_system.Pages.Admin.Students
                     Password: Auto generated
                  }
                 */
-
-                var user = new UserEntity()
+                var user = new StudentUser
                 {
+
                     UserName = autoUsername,
                     Email = $"{fstudent.FirstName}_{fstudent.LastName}@school.edu.kh",
                     StudentId = fstudent.Id,
                 };
+
                 var result = await _userManager.CreateAsync(user, autoPassword);
+                Console.WriteLine(user.UserName);
+
+                Console.WriteLine(autoPassword);
 
                 if (result.Succeeded)
                 {
                     Console.WriteLine(fstudent.Id);
-
-                    await _userManager.AddToRoleAsync(user, "Student");
+                    await _userManager.AddToRoleAsync(user, "student");
                     return RedirectToPage("Index");
                 }
 

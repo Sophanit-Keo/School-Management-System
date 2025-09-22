@@ -1,4 +1,6 @@
-﻿namespace school_management_system.Models
+﻿using school_management_system.Models.Users;
+
+namespace school_management_system.Models
 {
     public class TeacherModel
     {
@@ -15,6 +17,7 @@
         public ICollection<SubjectModel> Subjects { get; set; }
         public ICollection<TimetableModel> Timetables { get; set; }
         public ICollection<HomeworkModel> Homeworks { get; set; }
+        public ICollection<TeacherUser> TeacherUsers { get; set; }
     }
 
 }
