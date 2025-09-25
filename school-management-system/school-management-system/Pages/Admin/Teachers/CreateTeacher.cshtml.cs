@@ -9,7 +9,7 @@ using school_management_system.Models.Users;
 
 namespace school_management_system.Pages.Admin.Teachers
 {
-    public class CreateTeacherModel(AppDBContext _db, UserManager<IdentityUser> _userManager) : PageModel
+    public class CreateTeacherModel(AppDBContext _db, UserManager<IdentityUser> _userManager, SignInManager<IdentityUser> _signInManager) : PageModel
     {
         // Teacher 
         [BindProperty]
@@ -49,13 +49,14 @@ namespace school_management_system.Pages.Admin.Teachers
                 await _db.SaveChangesAsync();
 
                 var fTeacher = await _db.Teachers.FindAsync(Teacher.Id);
-                var autoPassword = PasswordGenderator.GeneratePassword(7);
-                var autoUsername = $"T_{fTeacher.FirstName}{fTeacher.LastName}{fTeacher.Id}";
+                var autoPassword = "Abc!@#456";
+                //var autoUsername = $"T_{fTeacher.FirstName}{fTeacher.LastName}{fTeacher.Id}";
+                var autoEmail = $"{fTeacher.FirstName.ToLower()}.{fTeacher.LastName.ToLower()}.{fTeacher.Id}@school.edu.kh";
 
                 //Auth for Teacher
                 /*
                  {
-                    Username: ST_{TeacherFirstName}{Teacher.LastName}{ID}
+                    Username: {fTeacher.FirstName.ToLower()}.{fTeacher.LastName}.{fTeacher.Id}@school.edu.kh"
                     Password: Auto generated
                  }
                 */
@@ -63,8 +64,8 @@ namespace school_management_system.Pages.Admin.Teachers
                 var teacherUser = new TeacherUser()
                 {
                     TeacherId = fTeacher.Id,
-                    UserName = autoUsername,
-                    Email = $"{fTeacher.FirstName.ToLower()}.{fTeacher.LastName}.{fTeacher.Id}@school.edu.kh",
+                    Email = autoEmail,
+                    UserName = autoEmail,
                 };
 
                 var result = await _userManager.CreateAsync(teacherUser, autoPassword);
@@ -73,7 +74,11 @@ namespace school_management_system.Pages.Admin.Teachers
                 Console.WriteLine(autoPassword);
                 if (result.Succeeded)
                 {
+                    Console.WriteLine(fTeacher.Id);
                     await _userManager.AddToRoleAsync(teacherUser, "teacher");
+                    await _signInManager.SignInAsync(teacherUser, isPersistent: true);
+                    var roles = await _userManager.GetRolesAsync(teacherUser);
+                    Console.WriteLine("Roles: " + string.Join(", ", roles));
                     return RedirectToPage("Index");
                 }
 
@@ -82,13 +87,10 @@ namespace school_management_system.Pages.Admin.Teachers
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
-                return RedirectToPage("Index");
 
             }
-            else
-            {
-                return Page();
-            }
+            return RedirectToPage("Index");
+
         }
     }
 }

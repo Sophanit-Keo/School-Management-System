@@ -2,7 +2,7 @@
 @model school_management_system.Pages.Admin.Users.IndexModel
 @{
     Layout = "_AdminLayout";
-	ViewData["Title"] = "Admin-User";
+    ViewData["Title"] = "Admin-User";
 }
 <main class="main-content">
     <header class="header">
@@ -59,74 +59,94 @@
                 <tr>
                     <th>User</th>
                     <th>Role</th>
-                    <th>Email</th>
+                    <th>Personal Email</th>
                     <th>Status</th>
                     <th>Joined</th>
-                    <th>Username</th>
+                    <th>School Email</th>
                     <th>Password</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="usersTableBody">
                 <!-- Users will be populated -->
-                <tr>
-                    <td>
-                        <div class="font-medium">
-                            <p>Jojo Johnson</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="user-info">
-                            <div class="font-medium">Student</div>
-                        </div>
-                    </td>
-                    <td>S001.name.edu@gmail.com</td>
-                    <td><span class="status-active">active</span></td>
-                    <td>
-                        Jan 15, 2024
-                    </td>
-                    <td>
-                        teacher001
-                    </td>
-                    <td>
-                        teacher001
-                    </td>
-                    <td>
-                        <div class="actions">
-                            <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
-                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="font-medium">
-                            <p>Sarah Johnson</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="user-info">
-                            <div class="font-medium">Teacher</div>
-                        </div>
-                    </td>
-                    <td>T001.name.edu@gmail.com</td>
-                    <td><span class="status-active">active</span></td>
-                    <td>
-                        Jan 15, 2024
-                    </td>
-                    <td>
-                        T001JOJO
-                    </td>                    
-                    <td>
-                        JOJOT001
-                    </td>
-                    <td>
-                        <div class="actions">
-                            <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
-                            <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
-                        </div>
-                    </td>
-                </tr>
+                @if(Model.Teachers.Count()>0 )
+                {
+                    foreach(var teacher in Model.Teachers)
+                    {
+                        <tr>
+                            <td>
+                                <div class="font-medium">
+                                    <p>@teacher.FirstName @teacher.LastName</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <div class="font-medium">Teacher</div>
+                                </div>
+                            </td>
+                            <td>@teacher.Email</td>
+                            <td><span class="status-active">active</span></td>
+                            <td>
+                                @teacher.HireDate
+                            </td>
+                            <td>
+                                @foreach (var user in teacher.TeacherUsers)
+                                {
+                                    @user.UserName
+                                }
+                            </td>
+                            <td>
+                                @Model.Password                           
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn btn-sm btn-secondary" >Edit</button>
+                                    <button class="btn btn-sm btn-warning" >Deactivate</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+                }
+                @if(Model.Students.Count()>0 )
+                {
+                    foreach(var teacher in Model.Students)
+                    {
+                        <tr>
+                            <td>
+                                <div class="font-medium">
+                                    <p>@teacher.FirstName @teacher.LastName</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <div class="font-medium">Student</div>
+                                </div>
+                            </td>
+                            <td>@teacher.Email</td>
+                            <td><span class="status-active">@teacher.Status</span></td>
+                            <td>
+                                @teacher.StartDate
+                            </td>
+                            <td>
+                                @foreach(var user in teacher.StudentUsers)
+                                {
+                                    @user.UserName
+                                }
+                            </td>
+                            <td>
+                                @Model.Password                           
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn btn-sm btn-secondary" >Edit</button>
+                                    <button class="btn btn-sm btn-warning" >Deactivate</button>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    }
+                }
             </tbody>
         </table>
     </div>

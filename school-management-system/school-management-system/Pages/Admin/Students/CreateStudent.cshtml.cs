@@ -7,7 +7,7 @@ using school_management_system.Models;
 using school_management_system.Models.Users;
 namespace school_management_system.Pages.Admin.Students
 {
-    public class CreateStudentModel(AppDBContext _db, UserManager<IdentityUser> _userManager) : PageModel
+    public class CreateStudentModel(AppDBContext _db, UserManager<IdentityUser> _userManager, SignInManager<IdentityUser> _signInManager) : PageModel
     {
         // StudentModel
         [BindProperty]
@@ -54,8 +54,9 @@ namespace school_management_system.Pages.Admin.Students
                 await _db.SaveChangesAsync();
 
                 var fstudent = await _db.Students.FindAsync(Student.Id);
-                var autoPassword = PasswordGenderator.GeneratePassword(8);
-                var autoUsername = $"ST_{fstudent.FirstName}{fstudent.Id}";
+                var autoPassword = "Abc!@#456";
+                //var autoUsername = $"ST_{fstudent.FirstName}{fstudent.LastName}{fstudent.Id}";
+                var autoEmail = $"{fstudent.FirstName.ToLower()}.{fstudent.LastName.ToLower()}.{fstudent.Id}@school.edu.kh";
 
                 //Auth for student
                 /*
@@ -67,8 +68,8 @@ namespace school_management_system.Pages.Admin.Students
                 var user = new StudentUser
                 {
 
-                    UserName = autoUsername,
-                    Email = $"{fstudent.FirstName}_{fstudent.LastName}@school.edu.kh",
+                    UserName = autoEmail,
+                    Email = autoEmail,
                     StudentId = fstudent.Id,
                 };
 
@@ -77,25 +78,26 @@ namespace school_management_system.Pages.Admin.Students
 
                 Console.WriteLine(autoPassword);
 
+
+
                 if (result.Succeeded)
                 {
                     Console.WriteLine(fstudent.Id);
                     await _userManager.AddToRoleAsync(user, "student");
+                    var roles = await _userManager.GetRolesAsync(user);
+                    await _signInManager.SignInAsync(user, isPersistent: true);
+                    Console.WriteLine("Roles: " + string.Join(", ", roles));
                     return RedirectToPage("Index");
                 }
 
-                // Show Identity errors
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
-                return RedirectToPage("Index");
 
             }
-            else
-            {
-                return Page();
-            }
+            return Page();
+
         }
 
     }

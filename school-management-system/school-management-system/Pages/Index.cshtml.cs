@@ -12,9 +12,11 @@ namespace school_management_system.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
 
+            return RedirectToPage("/Account/Login", new { area = "Identity" });
         }
     }
 }
+

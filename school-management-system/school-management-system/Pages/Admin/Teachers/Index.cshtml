@@ -48,11 +48,11 @@
                 <tr>
                     <th>ID</th>
                     <th>Full name</th>
-                    <th>Email</th>
+                    <th>Prsonal Email</th>
                     <th>Status</th>
                     <th>Joined</th>
                     <th>Subject</th>
-                    <th>Username</th>
+                    <th>School Email</th>
                     <th>Password</th>
                     <th>Actions</th>
                 </tr>
@@ -86,10 +86,7 @@
                                     @user.UserName
                                 }
                             <td>
-                                @foreach (var user in teacher.TeacherUsers)
-                                {
-                                    @user.PasswordHash
-                                }
+                                @Model.Password;
                             </td>
                             <td>
                                 <div class="actions">

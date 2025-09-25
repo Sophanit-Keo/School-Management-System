@@ -10,6 +10,7 @@ namespace school_management_system.Pages.Admin.Teachers
         public UserManager<IdentityUser> UserManager { get; set; }
         public IEnumerable<IdentityUser> Users { get; set; }
         public IEnumerable<TeacherModel> Teachers { get; set; }
+        public string Password { get; set; } = "Abc!@#456";
         public async Task OnGet()
         {
             Teachers = await _db.Teachers
