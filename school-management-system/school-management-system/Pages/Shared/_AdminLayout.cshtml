@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/school_management_system.styles.css" asp-append-version="true" />
-    <link rel="icon" href="~/echo-logo.ico" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" href="~/echo-logo.ico" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @RenderSection("Styles", required: false)
+    
 </head>
 <body>
     <div class="admin-layout">
@@ -23,21 +24,88 @@
             </div>
 
             <ul class="sidebar-menu">
-                <li><a asp-page="/Admin/index" class="active"><spaan class="icon">📊</spaan> Dashboard</a></li>
-                <li><a asp-page="/Admin/Classes/index"><span class="icon">🏫</span> Classes</a></li>
-                <li><a asp-page="/Admin/Users/index"><span class="icon">👥</span>All Users</a></li>
-                <li><a asp-page="/Admin/Students/index"><span class="icon">🧑🏻‍🎓</span> Student</a></li>
-                <li><a asp-page="/Admin/Teachers/index"><span class="icon">👨🏻‍🏫</span> Teacher</a></li>
-                <li><a asp-page="/Admin/Reports/index"><span class="icon">📈</span> Reports</a></li>
-                <li><a asp-page="/Admin/Fees/index"><span class="icon">💰</span> Fees</a></li>
-                <li><a asp-page="/Admin/Schedules/index"><span class="icon">📅</span> Schedule</a></li>
-                <li><a asp-page="/Admin/Inboxs/index"><span class="icon">✉️</span> Inbox</a></li>
-                <li><a asp-page="/Index" onclick="logout()"><span class="icon">🚪</span> Logout</a></li>
+                <li>
+                    <a asp-page="/Admin/index"
+                        class="@(string.Equals(ViewContext.RouteData.Values["page"]?.ToString(), "/Admin/index", StringComparison.OrdinalIgnoreCase) ? "active" : "")"/>
+                       <span class="icon">📊</span> Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Classes/index"
+                       class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Classes")? "active" :" ")"/>
+                       <span class="icon">🏫</span> Classes
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Users/index"
+                      class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/User")? "active" :" ")"/>
+                       <span class="icon">👥</span> All Users
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Students/index"
+                      class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Students")? "active" :" ")"/>
+                       <span class="icon">🧑🏻‍🎓</span> Student
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Teachers/index"
+                       class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Teachers")? "active" :" ")"/>
+                       <span class="icon">👨🏻‍🏫</span> Teacher
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Reports/index"
+                     class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Reports")? "active" :" ")"/>
+                       <span class="icon">📈</span> Reports
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Fees/index"
+                     class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Fees")? "active" :" ")"/>
+                       <span class="icon">💰</span> Fees
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Schedules/index"
+                     class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Schedules")? "active" :" ")"/>
+                       <span class="icon">📅</span> Schedule
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Admin/Inboxs/index"
+                      class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Inboxs")? "active" :" ")"/>
+                       <span class="icon">✉️</span> Inbox
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-page="/Index">
+                       <span class="icon">🚪</span> Logout
+                    </a>
+                </li>
             </ul>
+
+
         </nav>
+        <style>
+            .sidebar-menu a.active {
+                background: var(--color-primary-500);
+                color: white;
+            }
+        </style>
         <!-- Main Content -->
         @RenderBody()
     </div>
+      
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -75,8 +75,9 @@
                                 </div>
                             </td>
                             <td>@teacher.Email</td>
+                            @*<td><span class="status-@teacher.Status">@teacher.Status</span></td> *@
                             <td><span class="status-active">active</span></td>
-                            <td>@teacher.HireDate</td>
+                            <td>@teacher.HireDate.ToString("yyyy-MM-dd")</td>
                             @foreach(var subject in teacher.Subjects)
                             {
                                 <td>@subject.Name</td>
@@ -108,4 +109,42 @@
     <link rel="stylesheet" href="/css/shared-css/typography.css">
     <link rel="stylesheet" href="/css/shared-css/components.css">
     <link rel="stylesheet" href="/css/shared-css/layout.css">
+}
+@section Scripts {
+    <script>
+        function filterUsers() {
+            const statusFilter = document.getElementById("statusFilter").value.toLowerCase();
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const tableBody = document.getElementById("usersTableBody");
+            const rows = tableBody.getElementsByTagName("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                if (!cells.length) continue;
+
+                const fullName = cells[1]?.innerText.toLowerCase() || "";
+                const email = cells[2]?.innerText.toLowerCase() || "";
+                const status = cells[3]?.innerText.toLowerCase() || "";
+                const matchesStatus = statusFilter === "" || status === statusFilter;
+                const matchesSearch =
+                    searchInput === "" ||
+                    fullName.includes(searchInput) ||
+                    email.includes(searchInput) ||
+                    status.includes(searchInput);
+
+                if (matchesStatus && matchesSearch) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        function clearFilters() {
+            document.getElementById("statusFilter").value = "";
+            document.getElementById("searchInput").value = "";
+            filterUsers();
+        }
+    </script>
+
 }

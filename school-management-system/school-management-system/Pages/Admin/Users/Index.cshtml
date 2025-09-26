@@ -24,9 +24,9 @@
                     <label>Role</label>
                     <select id="roleFilter" onchange="filterUsers()">
                         <option value="">All Roles</option>
-                        <option value="teacher">Teachers</option>
-                        <option value="student">Students</option>
-                        <option value="parent">Parents</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                        <option value="parent">Parent</option>
                     </select>
                 </div>
 
@@ -110,12 +110,12 @@
                 }
                 @if(Model.Students.Count()>0 )
                 {
-                    foreach(var teacher in Model.Students)
+                    foreach(var student in Model.Students)
                     {
                         <tr>
                             <td>
                                 <div class="font-medium">
-                                    <p>@teacher.FirstName @teacher.LastName</p>
+                                    <p>@student.FirstName @student.LastName</p>
                                 </div>
                             </td>
                             <td>
@@ -123,13 +123,13 @@
                                     <div class="font-medium">Student</div>
                                 </div>
                             </td>
-                            <td>@teacher.Email</td>
-                            <td><span class="status-active">@teacher.Status</span></td>
+                            <td>@student.Email</td>
+                            <td><span class="status-@student.Status">@student.Status</span></td>
                             <td>
-                                @teacher.StartDate
+                                @student.StartDate
                             </td>
                             <td>
-                                @foreach(var user in teacher.StudentUsers)
+                                @foreach(var user in student.StudentUsers)
                                 {
                                     @user.UserName
                                 }
@@ -157,4 +157,45 @@
                 <link rel="stylesheet" href="/css/shared-css/typography.css">
                 <link rel="stylesheet" href="/css/shared-css/components.css">
                 <link rel="stylesheet" href="/css/shared-css/layout.css">
+}
+@section Scripts {
+        <script>
+            function filterUsers() {
+                const roleFilter = document.getElementById("roleFilter").value.toLowerCase();
+                const statusFilter = document.getElementById("statusFilter").value.toLowerCase();
+                const searchInput = document.getElementById("searchInput").value.toLowerCase();
+                const tableBody = document.getElementById("usersTableBody");
+                const rows = tableBody.getElementsByTagName("tr");
+
+                for (let row of rows) {
+                    const cells = row.getElementsByTagName("td");
+                    if (!cells.length) continue;
+
+                    const fullName = (cells[0]?.innerText || "").toLowerCase();
+                    const role = (cells[1]?.innerText || "").toLowerCase();
+                    const email = (cells[2]?.innerText || "").toLowerCase();
+                    const status = (cells[3]?.innerText || "").toLowerCase();
+
+                    const matchesRole = roleFilter === "" || role === roleFilter;
+                    const matchesStatus = statusFilter === "" || status === statusFilter;
+                    const matchesSearch =
+                        searchInput === "" ||
+                        fullName.includes(searchInput) ||
+                        email.includes(searchInput) ||
+                        role.includes(searchInput) ||
+                        status.includes(searchInput);
+
+                    row.style.display = matchesRole && matchesStatus && matchesSearch ? "" : "none";
+                }
+            }
+
+            function clearFilters() {
+                document.getElementById("roleFilter").value = "";
+                document.getElementById("statusFilter").value = "";
+                document.getElementById("searchInput").value = "";
+                filterUsers();  
+            }
+
+        </script>
+
 }

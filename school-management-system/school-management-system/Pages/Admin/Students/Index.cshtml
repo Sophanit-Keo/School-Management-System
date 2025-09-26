@@ -52,7 +52,7 @@
                     <th>Full name</th>
                     <th>Personal Email</th>
                     <th>Status</th>
-                    <th>Grade</th>
+                    <th>Group</th>
                     <th>Enrollment Date</th>
                     <th>Date of bith</th>
                     <th>School Email</th>
@@ -78,19 +78,34 @@
                                 </div>
                             </td>
                             <td>@student.Email</td>
-                            <td><span class="status-active">@student.Status</span></td>
-                            <td>@student.Status</td>
+                            <td> <span class="status-@student.Status">@student.Status</span></td>
                             <td>
-                                @student.StartDate.Date
+                                @if (student.Enrollments.Count() > 0)
+                                {
+                                    @foreach (var group in student.Enrollments)
+                                    {
+                                        @group.Group.Name
+                                    }
+                                }
+                                else
+                                {
+                                    @Model.NoGroup
+                                }
+                            </td>
+                            <td>
+                                @student.StartDate.Date.ToString("yyyy-MM-dd")
                             </td>
                             <td>
                                 @student.DOB
                             </td>
                             <td>
-                                NotWorkYet
+                                @foreach(var user in student.StudentUsers)
+                                {
+                                    @user.UserName
+                                }
                             </td>
                             <td>
-                                NotWorkYet
+                               @Model.Password
                             </td>
                             <td>
                                 <div class="actions">
@@ -115,4 +130,43 @@
     <link rel="stylesheet" href="/css/shared-css/typography.css">
     <link rel="stylesheet" href="/css/shared-css/components.css">
     <link rel="stylesheet" href="/css/shared-css/layout.css">
+}
+@section Scripts {
+    <script>
+        function filterUsers() {
+            const statusFilter = document.getElementById("statusFilter").value.toLowerCase();
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const tableBody = document.getElementById("usersTableBody");
+            const rows = tableBody.getElementsByTagName("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                if (!cells.length) continue;
+
+                const fullName = cells[1]?.innerText.toLowerCase() || "";
+                const email = cells[2]?.innerText.toLowerCase() || "";
+                const status = cells[3]?.innerText.toLowerCase() || "";
+                const matchesStatus = statusFilter === "" || status === statusFilter;
+                const matchesSearch =
+                    searchInput === "" ||
+                    fullName.includes(searchInput) ||
+                    email.includes(searchInput) ||
+                    status.includes(searchInput);
+
+                if (matchesStatus && matchesSearch) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        function clearFilters() {
+            document.getElementById("statusFilter").value = "";
+            document.getElementById("searchInput").value = "";
+            filterUsers();
+        }
+        
+        
+    </script>
 }

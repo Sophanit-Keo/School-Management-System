@@ -50,14 +50,13 @@ namespace school_management_system.Pages.Admin.Teachers
 
                 var fTeacher = await _db.Teachers.FindAsync(Teacher.Id);
                 var autoPassword = "Abc!@#456";
-                //var autoUsername = $"T_{fTeacher.FirstName}{fTeacher.LastName}{fTeacher.Id}";
                 var autoEmail = $"{fTeacher.FirstName.ToLower()}.{fTeacher.LastName.ToLower()}.{fTeacher.Id}@school.edu.kh";
 
                 //Auth for Teacher
                 /*
                  {
-                    Username: {fTeacher.FirstName.ToLower()}.{fTeacher.LastName}.{fTeacher.Id}@school.edu.kh"
-                    Password: Auto generated
+                    Username: FirstName.LastName.@school.edu.kh"
+                    Password: "Abc!@#456"
                  }
                 */
 

@@ -29,3 +29,77 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.sidebar {
+    width: 280px;
+    background: white;
+    border-right: 1px solid var(--color-gray-200);
+    padding: var(--space-6);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+    .sidebar-header .logo {
+        width: 64px;
+        height: 64px;
+        background: var(--color-primary-500);
+        border-radius: var(--radius-xl);
+        margin: 0 auto var(--space-4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        font-weight: var(--font-bold);
+    }
+
+    .sidebar-header h3 {
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-2);
+    }
+
+.role-badge {
+    background: var(--color-primary-100);
+    color: var(--color-primary-700);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-2xl);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+    .sidebar-menu li {
+        margin-bottom: var(--space-2);
+    }
+
+    .sidebar-menu a {
+        display: flex;
+        align-items: center;
+        padding: var(--space-3) var(--space-4);
+        border-radius: var(--radius-lg);
+        color: var(--color-gray-700);
+        text-decoration: none;
+        transition: all var(--transition-fast);
+        gap: var(--space-3);
+    }
+
+    .sidebar-menu a:hover {
+        background: var(--color-gray-300);
+        color: var(--color-gray-600);
+    }
+
+    .sidebar-menu .icon {
+        font-size: 18px;
+    }
