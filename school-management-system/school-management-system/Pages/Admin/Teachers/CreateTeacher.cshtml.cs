@@ -37,9 +37,10 @@ namespace school_management_system.Pages.Admin.Teachers
             ModelState.Remove("Teacher.Timetables");
             ModelState.Remove("Teacher.Homeworks");
             ModelState.Remove("Teacher.Subjects");
-            ModelState.Remove("Subjects");
+            ModelState.Remove("Teacher.TeacherUser");
+            ModelState.Remove("Teacher.Subjects.SubjectCode");
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 await _db.Teachers.AddAsync(Teacher);
                 Teacher.Subjects = [];
@@ -88,7 +89,7 @@ namespace school_management_system.Pages.Admin.Teachers
                 }
 
             }
-            return RedirectToPage("Index");
+            return Page();
 
         }
     }

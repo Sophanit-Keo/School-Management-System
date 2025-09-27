@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
 
 namespace school_management_system.Pages.Admin.Students
 {
-    public class IndexModel(AppDBContext _db) : PageModel
+    public class IndexModel(AppDBContext _db, UserManager<IdentityUser> _userManager) : PageModel
     {
 
         public string NoGroup { get; set; } = "No gorup yet";
@@ -14,15 +15,6 @@ namespace school_management_system.Pages.Admin.Students
         public IEnumerable<StudentModel> Students { get; set; }
 
 
-        //RoleModel
-
-
-        // GradeModel
-
-        // GuardianModel
-
-        // Auth
-
         public async Task OnGet()
         {
             Students = await _db.Students
@@ -31,6 +23,7 @@ namespace school_management_system.Pages.Admin.Students
                 .Include(s => s.Enrollments)
                     .ThenInclude(e => e.Group)
                 .ToListAsync();
+
         }
     }
 }

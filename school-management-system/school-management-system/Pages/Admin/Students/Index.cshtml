@@ -109,8 +109,11 @@
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn btn-sm btn-secondary" onclick="editUser('parent001')">Edit</button>
-                                    <button class="btn btn-sm btn-warning" onclick="toggleUserStatus('parent001')">Deactivate</button>
+                                    <a class="btn btn-sm btn-secondary" 
+                                        asp-page="/students/editestudent"
+                                        asp-route-studentId="@student.Id"
+                                        role = " button">Edit</a>
+                                    <button class="btn btn-sm btn-warning" >Deactivate</button>
                                 </div>
                             </td>
                         </tr>

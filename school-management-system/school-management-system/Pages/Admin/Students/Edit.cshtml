@@ -1,0 +1,131 @@
+﻿@page
+@model school_management_system.Pages.Admin.Students.EditModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Edit";
+}
+<div class="main-content">
+    <div class="header">
+        <h1>Edit Student infomation</h1>
+        <p>Fill in the information below to register a new student</p>
+    </div>
+
+    <div class="form-container">
+        <h2 class="form-title">@Model.Student.FirstName Edit Form</h2>
+
+        <form method="POST" >
+
+            @* <div asp-validation-summary="All"></div> *@
+            <!-- Personal Information Section -->
+            <div class="section-header">Personal Information</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label asp-for="Student.FirstName">First Name <span class="required">*</span></label>
+                    <input asp-for="Student.FirstName" type="text"  required>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Student.LastName">Last Name <span class="required">*</span></label>
+                    <input  asp-for="Student.LastName" type="text"  required>
+                </div>
+                <div class="form-group">
+                    <label  asp-for="Student.Email">Email Address <span class="required">*</span></label>
+                    <input  asp-for="Student.Email" required>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label  asp-for="Student.Phone">Phone Number</label>
+                    <input  asp-for="Student.Phone" type="text"  >
+                </div>
+                <div class="form-group">
+                    <label  asp-for="Student.DOB">Date of Birth <span class="required">*</span></label>
+                    <input asp-for="Student.DOB" type="date"  required>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Student.Gender">Gender <span class="required">*</span></label>
+                    <select asp-for="Student.Gender"  required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Academic Information Section -->
+            <div class="section-header">Academic Information</div>
+            <div class="form-grid">
+                <div class="form-group"> 
+                    <label for = "StudnetId">Student ID <span class="required">*</span></label> 
+                    <input for = "stduentId" disabled type="text" value ="ST-@(Model.Student.Id)" required /> 
+                </div>
+                <div class="form-group"> 
+                    @* <label asp-for="SelectListGroup">Group <span class="required">*</span></label>  * *@
+                    @* <select asp-for="SelectListGroup" asp-items="Model.SelectListGroup" required>   *@
+                    @*     <option value="">Select Group</option>   *@
+                    @* </select>   *@
+                </div> 
+                <div class="form-group">
+                    <label asp-for="Student.StartDate">Enrollment Date <span class="required">*</span></label>
+                    <input asp-for="Student.StartDate" type="date" required>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Student.Status">Status <span class="required">*</span></label>
+                    <select asp-for="Student.Status" required>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="suspended">Suspended</option>
+                        <option value="graduated">Graduated</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Guardian Information Section -->
+            <div class="section-header">Guardian/Parent Information</div>
+            <div class="form-grid">
+                    @foreach(var gardian in Model.Student.Guardians)
+                    {
+                        <div class="form-group">
+                            <label asp-for="@gardian.FirstName">First Name <span class="required">*</span></label>
+                                <input asp-for="@gardian.FirstName" type="text"  required>
+                        
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@gardian.LastName">Last Name <span class="required">*</span></label>
+                            <input asp-for="@gardian.LastName" type="text"  required>
+                        </div>
+                    }
+                <div class="form-group">
+                    <label asp-for="Guardian.Phone">Guardian Phone number <span class="required">*</span></label>
+                    <input asp-for="Guardian.Phone" type="tel"  required>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label asp-for="Student.Address">Home Address</label>
+                <textarea asp-for="Student.Address" rows="3"></textarea>
+            </div>
+
+            <!-- Additional Information Section -->
+            <div class="section-header">Additional Information</div>
+            <div class="form-group full-width">
+                <label asp-for="Student.SpecialRequirements">Special Requirements</label>
+                <textarea asp-for="Student.SpecialRequirements"  rows="4" placeholder="Enter any special requirements, medical conditions, or additional notes..."></textarea>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <a type="button" class="btn btn-secondary" asp-page="Index">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Edit Student</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+            <link rel="stylesheet" href="/css/admin-css/admin.css" />
+            <link rel="stylesheet" href="/css/admin-css/user.css" />
+            <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+            <link rel="stylesheet" href="/css/shared-css/typography.css">
+            <link rel="stylesheet" href="/css/shared-css/components.css">
+            <link rel="stylesheet" href="/css/shared-css/layout.css">
+}
