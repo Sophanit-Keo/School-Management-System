@@ -35,10 +35,24 @@ namespace school_management_system.Pages.Admin.Teachers
         {
             ModelState.Remove("Teacher.Gender");
             ModelState.Remove("Teacher.Timetables");
-            ModelState.Remove("Teacher.Homeworks");
             ModelState.Remove("Teacher.Subjects");
-            ModelState.Remove("Teacher.TeacherUser");
-            ModelState.Remove("Teacher.Subjects.SubjectCode");
+            ModelState.Remove("Grades");
+            ModelState.Remove("Teachers");
+            ModelState.Remove("Homeworks");
+            ModelState.Remove("Timetables");
+            ModelState.Remove("Attendances");
+            ModelState.Remove("SubjectCode");
+            ModelState.Remove("Teacher.Homeworks");
+            ModelState.Remove("Teacher.TeacherUsers");
+            ModelState.Remove("Name");
+            if (!ModelState.IsValid)
+            {
+                Console.WriteLine(ModelState.ValidationState);
+                foreach (var kvp in ModelState)
+                {
+                    Console.WriteLine($"{kvp.Key}: {kvp.Value.ValidationState}");
+                }
+            }
 
             if (ModelState.IsValid)
             {

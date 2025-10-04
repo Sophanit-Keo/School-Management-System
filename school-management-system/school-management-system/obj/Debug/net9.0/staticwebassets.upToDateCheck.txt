@@ -1,4 +1,5 @@
-wwwroot\css\site.css
+wwwroot\css\admin-css\admin.css
+wwwroot\css\admin-css\Class.css
 wwwroot\css\admin-css\report.css
 wwwroot\css\admin-css\user.css
 wwwroot\css\login-css\login.css
@@ -6,7 +7,7 @@ wwwroot\css\shared-css\components.css
 wwwroot\css\shared-css\layout.css
 wwwroot\css\shared-css\reset.css
 wwwroot\css\shared-css\typography.css
-wwwroot\css\admin-css\admin.css
+wwwroot\css\site.css
 wwwroot\echo-logo.ico
 wwwroot\echo-logo.jpg
 wwwroot\favicon.ico
@@ -142,3 +143,4 @@ D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\Sch
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\js\site.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\Class.css

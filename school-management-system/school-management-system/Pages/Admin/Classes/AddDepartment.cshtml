@@ -1,0 +1,70 @@
+﻿@page
+@model school_management_system.Pages.Admin.Classes.AddDepartmentModel
+@{
+	Layout ="_AdminLayout";
+}
+<div class="container">
+    <h2>Add Class</h2>
+    <form id="addClassForm">
+      <!-- Department -->
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select id="department" required>
+          <option value="">Select Department</option>
+          <option value="1">Computer Science</option>
+          <option value="2">Mathematics</option>
+          <option value="3">Business</option>
+        </select>
+      </div>
+
+      <!-- Term -->
+      <div class="form-group">
+        <label for="term">Term</label>
+        <select id="term" required>
+          <option value="">Select Term</option>
+          <option value="1">Fall 2023</option>
+          <option value="2">Spring 2024</option>
+          <option value="3">Summer 2024</option>
+        </select>
+      </div>
+
+      <!-- Major -->
+      <div class="form-group">
+        <label for="major">Major</label>
+        <select id="major" required>
+          <option value="">Select Major</option>
+          <option value="1">Software Engineering</option>
+          <option value="2">Data Science</option>
+          <option value="3">Marketing</option>
+        </select>
+      </div>
+
+      <!-- Subject -->
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" required>
+          <option value="">Select Subject</option>
+          <option value="1">Databases</option>
+          <option value="2">Web Development</option>
+          <option value="3">Accounting</option>
+        </select>
+      </div>
+
+      <!-- Group -->
+      <div class="form-group">
+        <label for="group">Group</label>
+        <select id="group" required>
+          <option value="">Select Group</option>
+          <option value="1">Group A</option>
+          <option value="2">Group B</option>
+          <option value="3">Group C</option>
+        </select>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-cancel" onclick="resetForm()">Cancel</button>
+        <button type="submit" class="btn btn-submit">Save Class</button>
+      </div>
+    </form>
+  </div>

@@ -882,3 +882,4 @@ D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\Sch
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\ref\school-management-system.dll
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\8h1wrvbnnd-jpm6c15jzi.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\m31x67axpc-12rkfo7vxo.gz
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\z7wxwwv89b-omsy0swh37.gz
