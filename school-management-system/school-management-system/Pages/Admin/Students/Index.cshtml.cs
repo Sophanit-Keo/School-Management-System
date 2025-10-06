@@ -23,7 +23,6 @@ namespace school_management_system.Pages.Admin.Students
                 .Include(s => s.Enrollments)
                     .ThenInclude(e => e.Group)
                 .ToListAsync();
-
         }
     }
 }

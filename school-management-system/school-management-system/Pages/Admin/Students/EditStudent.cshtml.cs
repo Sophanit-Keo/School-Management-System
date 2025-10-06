@@ -22,10 +22,11 @@ namespace school_management_system.Pages.Admin.Students
         public GuardianModel Guardian { get; set; }
 
 
+
         // Group
         public async Task OnGet(int studentId)
         {
-            studentId = 1;
+
             Student = await _db.Students
                 .Include(s => s.Guardians)
                 .FirstOrDefaultAsync(s => s.Id == studentId);
@@ -36,13 +37,30 @@ namespace school_management_system.Pages.Admin.Students
             ModelState.Remove("Student.Attendances");
             ModelState.Remove("Student.Grades");
             ModelState.Remove("Student.Guardians");
+            ModelState.Remove("Students");
             ModelState.Remove("Student.Enrollments");
             ModelState.Remove("Student.HomeworkSubmissions");
             ModelState.Remove("Guardian.Students");
             ModelState.Remove("Student.StudentUsers");
 
             if (!ModelState.IsValid)
+            {
+                Student = await _db.Students
+                .Include(s => s.Guardians)
+                .FirstOrDefaultAsync(s => s.Id == Student.Id);
+
+                Console.WriteLine($"Phone: {Guardian.LastName}");
+                Console.WriteLine($"Phone: {Guardian.FirstName}");
+                Console.WriteLine($"Phone: {Guardian.Phone}");
+                Console.WriteLine($"Phone: {Guardian.Students}");
+
+                Console.WriteLine(ModelState.ValidationState);
+                foreach (var kvp in ModelState)
+                {
+                    Console.WriteLine($"{kvp.Key}: {kvp.Value.ValidationState}");
+                }
                 return Page();
+            }
 
             var existingStudent = await _db.Students
                 .Include(s => s.Guardians)
@@ -64,7 +82,7 @@ namespace school_management_system.Pages.Admin.Students
             existingStudent.SpecialRequirements = Student.SpecialRequirements;
 
             // Update guardian (replace or update existing)
-            existingStudent.Guardians = [];
+            existingStudent.Guardians.Clear();
             existingStudent.Guardians.Add(Guardian);
 
             await _db.SaveChangesAsync();

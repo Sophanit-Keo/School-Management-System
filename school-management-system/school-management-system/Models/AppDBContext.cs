@@ -15,10 +15,7 @@ namespace school_management_system.Models
         public DbSet<StudentModel> Students { get; set; }
         public DbSet<GuardianModel> Guardians { get; set; }
         public DbSet<SubjectModel> Subjects { get; set; }
-        public DbSet<TermModel> Terms { get; set; }
         public DbSet<GroupModel> Groups { get; set; }
-        public DbSet<MajorModel> Majors { get; set; }
-        public DbSet<DepartmentModel> Departments { get; set; }
         public DbSet<ClassroomModel> Classrooms { get; set; }
         public DbSet<TimetableModel> Timetables { get; set; }
         public DbSet<HomeworkModel> Homeworkss { get; set; }
