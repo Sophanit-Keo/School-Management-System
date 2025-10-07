@@ -801,7 +801,6 @@ D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\Sch
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\8pn0w1j67h-nqrkdzoh38.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\ud3z63vf5z-xuvvdvivft.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\q1svij0bcr-6z6c4rgriw.gz
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\vv4jto2oz9-67f1jua9y2.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\f62g4o6tbl-8mcuea9w1s.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\1selrodxhk-yyy8nzcbu4.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\9wop8jbbtc-j67filjb5i.gz
@@ -881,5 +880,6 @@ D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\Sch
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\school-management-system.genruntimeconfig.cache
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\ref\school-management-system.dll
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\8h1wrvbnnd-jpm6c15jzi.gz
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\m31x67axpc-12rkfo7vxo.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\z7wxwwv89b-omsy0swh37.gz
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\vv4jto2oz9-rhg573o4tz.gz
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\m31x67axpc-5hg9i6qzjp.gz

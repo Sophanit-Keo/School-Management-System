@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
@@ -17,6 +18,19 @@ namespace school_management_system.Pages.Admin.Teachers
                 .Include(t => t.Subjects)
                 .Include(t => t.TeacherUsers)
                 .ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync(int teacherId)
+        {
+            var teacher = await _db.Teachers.FindAsync(teacherId);
+            if (teacher == null)
+            {
+                return NotFound();
+            }
+
+            _db.Teachers.Remove(teacher);
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage();
         }
     }
 }

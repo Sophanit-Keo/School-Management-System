@@ -7,10 +7,9 @@
  <main class="main-content">
             <header class="header">
                 <h1>Welcome back, Admin</h1>
-                <p class="text-gray-600">Monday, December 18, 2025</p>
                 <div class="header-actions">
                     <div class="profile-menu">
-                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Admin" class="profile-avatar">
+                        <img src="~/src/admin-profile.jpg" alt="Admin" class="profile-avatar">
                     </div>
                 </div>
             </header>
@@ -20,18 +19,18 @@
                 <div class="stat-card">
                     <div class="stat-icon success">👥</div>
                     <div class="stat-content">
-                        <h3>1,248</h3>
+                        <h3>@Model.Students.Count()</h3>
                         <p>Total Students</p>
-                        <span class="stat-change positive">+12 this month</span>
+                        <span class="stat-change positive">+@Model.newStudent() this year</span>
                     </div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-icon primary">🎓</div>
                     <div class="stat-content">
-                        <h3>89</h3>
+                        <h3>@Model.Teachers.Count()</h3>
                         <p>Total Teachers</p>
-                        <span class="stat-change positive">+3 this month</span>
+                        <span class="stat-change positive">+@Model.newTeacher() this month</span>
                     </div>
                 </div>
 

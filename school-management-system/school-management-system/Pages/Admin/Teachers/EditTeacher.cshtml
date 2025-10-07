@@ -1,12 +1,12 @@
 ﻿@page
-@model school_management_system.Pages.Admin.Teachers.CreateTeacherModel
+@model school_management_system.Pages.Admin.Teachers.EditTeacherModel
 @{
-	Layout="_AdminLayout";
-	ViewData["Title"]="Teacher-Add";
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "Edit-Teacher";
 }
 <div class="main-content"> 
     <div class="header">
-        <h1>Add New Teacher</h1>
+        <h1>Update Teacher Infomation</h1>
         <p>Fill in the information below to register a new teacher</p>
     </div>
 
@@ -15,7 +15,7 @@
 
         <form  method="POST" enctype="multipart/form-data">
             <!-- Personal Information Section -->
-            <div asp-validation-summary="All"></div>
+            <input type="hidden" asp-for="Teacher.Id" />
             <div class="section-header">Personal Information</div>
             <div class="form-grid">
                 <div class="form-group">
@@ -60,7 +60,6 @@
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
                         <option value="suspended">Suspended</option>
-                        <option value="graduated">Graduated</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -71,20 +70,21 @@
                 </div>
             </div>
 
+
             <!-- Buttons -->
             <div class="button-group">
-                <button type="button" class="btn btn-secondary">Cancel</button>
-                <button type="submit" class="btn btn-primary">Add Teacher</button>
-            </div>
+                <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Edit Teacher</button>
+           </div>
         </form>
     </div>
 </div>
 
 @section Styles {
-    <link rel="stylesheet" href="/css/admin-css/admin.css" />
-    <link rel="stylesheet" href="/css/admin-css/user.css" />
-    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
-    <link rel="stylesheet" href="/css/shared-css/typography.css">
-    <link rel="stylesheet" href="/css/shared-css/components.css">
-    <link rel="stylesheet" href="/css/shared-css/layout.css">
+        <link rel="stylesheet" href="/css/admin-css/admin.css" />
+        <link rel="stylesheet" href="/css/admin-css/user.css" />
+        <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+        <link rel="stylesheet" href="/css/shared-css/typography.css">
+        <link rel="stylesheet" href="/css/shared-css/components.css">
+        <link rel="stylesheet" href="/css/shared-css/layout.css">
 }

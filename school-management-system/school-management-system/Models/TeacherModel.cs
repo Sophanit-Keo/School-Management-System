@@ -11,6 +11,7 @@ namespace school_management_system.Models
         public string Phone { get; set; }
         public string Gender { get; set; }
         public DateOnly DOB { get; set; }
+        public string Status { get; set; }
         public DateTime HireDate { get; set; } = DateTime.Now;
 
         //Navigation Property Subjects, Timetables, Homeworks

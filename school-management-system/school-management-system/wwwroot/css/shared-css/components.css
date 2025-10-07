@@ -292,9 +292,15 @@
 .status-active {
     color: var(--color-success-600);
 }
+.status-graduated {
+    color: var(--color-primary-500);
+}
+.status-suspended {
+    color: var(--color-status-suspense);
+}
 
 .status-inactive {
-    color: var(--color-gray-500);
+    color: var(--color-gray-400);
 }
 
 .status-pending {
