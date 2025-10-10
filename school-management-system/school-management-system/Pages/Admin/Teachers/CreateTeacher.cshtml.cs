@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
-using school_management_system.Models.Users;
 
 namespace school_management_system.Pages.Admin.Teachers
 {
@@ -56,16 +55,9 @@ namespace school_management_system.Pages.Admin.Teachers
 
             if (ModelState.IsValid)
             {
-                await _db.Teachers.AddAsync(Teacher);
-                Teacher.Subjects = [];
-                var sSubject = await _db.Subjects.FindAsync(SelectedSubject);
-                Teacher.Subjects.Add(sSubject);
-                await _db.Teachers.AddAsync(Teacher);
-                await _db.SaveChangesAsync();
 
-                var fTeacher = await _db.Teachers.FindAsync(Teacher.Id);
                 var autoPassword = "Abc!@#456";
-                var autoEmail = $"{fTeacher.FirstName.ToLower()}.{fTeacher.LastName.ToLower()}.{fTeacher.Id}@school.edu.kh";
+                var autoEmail = $"{Teacher.FirstName.ToLower()}.{Teacher.LastName.ToLower()}.{Teacher.Id}@school.edu.kh";
 
                 //Auth for Teacher
                 /*
@@ -74,21 +66,24 @@ namespace school_management_system.Pages.Admin.Teachers
                     Password: "Abc!@#456"
                  }
                 */
-
-                var teacherUser = new TeacherUser()
+                var teacherUser = new IdentityUser()
                 {
-                    TeacherId = fTeacher.Id,
-                    Email = autoEmail,
                     UserName = autoEmail,
+                    Email = autoEmail,
                 };
-
                 var result = await _userManager.CreateAsync(teacherUser, autoPassword);
+                Teacher.UserId = teacherUser.Id;
+                await _db.Teachers.AddAsync(Teacher);
+                Teacher.Subjects = [];
+                var sSubject = await _db.Subjects.FindAsync(SelectedSubject);
+                Teacher.Subjects.Add(sSubject);
+                await _db.SaveChangesAsync();
 
                 Console.WriteLine(teacherUser.UserName);
                 Console.WriteLine(autoPassword);
                 if (result.Succeeded)
                 {
-                    Console.WriteLine(fTeacher.Id);
+                    Console.WriteLine(Teacher.Id);
                     await _userManager.AddToRoleAsync(teacherUser, "teacher");
                     await _signInManager.SignInAsync(teacherUser, isPersistent: true);
                     var roles = await _userManager.GetRolesAsync(teacherUser);

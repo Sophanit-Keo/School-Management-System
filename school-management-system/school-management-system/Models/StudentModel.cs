@@ -1,6 +1,4 @@
-﻿using school_management_system.Models.Users;
-
-namespace school_management_system.Models
+﻿namespace school_management_system.Models
 {
     public class StudentModel
     {
@@ -14,6 +12,7 @@ namespace school_management_system.Models
         public string Status { get; set; }
         public string SpecialRequirements { get; set; }
         public DateOnly DOB { get; set; }
+        public string? UserId { get; set; }
         public DateTime StartDate { get; set; } = DateTime.Now;
 
 
@@ -23,7 +22,6 @@ namespace school_management_system.Models
         public ICollection<HomeworkSubmissionModel> HomeworkSubmissions { get; set; }
         public ICollection<EnrollmentModel> Enrollments { get; set; }
         public ICollection<GuardianModel> Guardians { get; set; }
-        public ICollection<StudentUser> StudentUsers { get; set; }
     }
 
 }

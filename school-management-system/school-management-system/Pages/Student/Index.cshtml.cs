@@ -3,23 +3,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
-using school_management_system.Models.Users;
 
 namespace school_management_system.Pages.Student
 {
-    public class IndexModel(AppDBContext _db, UserManager<StudentUser> _userManager) : PageModel
+    public class IndexModel(AppDBContext _db, UserManager<IdentityUser> _userManager) : PageModel
     {
         public StudentModel Student { get; set; }
+        public IEnumerable<StudentModel> Students { get; set; }
+        public List<IdentityUser> Users { get; set; }
+        public string UserId { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            var user = await _userManager.GetUserAsync(User);
+            var loginUser = await _userManager.GetUserAsync(User);
+            Students = await _db.Students.ToListAsync();
             Console.WriteLine("Fail");
-            if (user == null)
+            foreach (var student in Students)
             {
-                return Unauthorized();
+                if (loginUser.Id == student.UserId)
+                {
+                    Student = student;
+                }
             }
-            Student = await _db.Students
-                .FirstOrDefaultAsync(s => s.Id == user.StudentId);
             return Page();
         }
     }

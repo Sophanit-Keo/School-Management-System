@@ -14,16 +14,18 @@ namespace school_management_system.Pages.Admin.Students
         // StudentModel
         public StudentModel Student { get; set; }
         public IEnumerable<StudentModel> Students { get; set; }
+        public List<IdentityUser> Users { get; set; }
 
 
         public async Task OnGet()
         {
             Students = await _db.Students
                 .Include(s => s.Guardians)
-                .Include(s => s.StudentUsers)
                 .Include(s => s.Enrollments)
                     .ThenInclude(e => e.Group)
                 .ToListAsync();
+            Users = await _userManager.Users.ToListAsync();
+
         }
         public async Task<IActionResult> OnPostDeleteAsync(int studentId)
         {

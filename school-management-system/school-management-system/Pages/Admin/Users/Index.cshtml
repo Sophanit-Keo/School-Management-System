@@ -90,9 +90,12 @@
                                 @teacher.HireDate
                             </td>
                             <td>
-                                @foreach (var user in teacher.TeacherUsers)
+                                @foreach (var user in Model.Users)
                                 {
-                                    @user.UserName
+                                    if(teacher.UserId == user.Id)
+                                    {
+                                        @user.UserName
+                                    }
                                 }
                             </td>
                             <td>
@@ -129,9 +132,12 @@
                                 @student.StartDate
                             </td>
                             <td>
-                                @foreach(var user in student.StudentUsers)
+                                @foreach(var user in Model.Users)
                                 {
-                                    @user.UserName
+                                    if(student.UserId == user.Id)
+                                    {
+                                        @user.UserName
+                                    }
                                 }
                             </td>
                             <td>

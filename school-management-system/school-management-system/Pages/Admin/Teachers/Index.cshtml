@@ -85,8 +85,11 @@
                                 <td>@subject.Name</td>
                             }
                             <td>
-                                @foreach(var user in teacher.TeacherUsers){
-                                    @user.UserName
+                                @foreach(var user in Model.Users){
+                                    if (teacher.UserId == user.Id)
+                                    {
+                                        @user.UserName
+                                    }
                                 }
                             <td>
                                 @Model.Password

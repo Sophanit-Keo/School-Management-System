@@ -101,9 +101,12 @@
                                 @student.DOB
                             </td>
                             <td>
-                                @foreach(var user in student.StudentUsers)
+                                @foreach(var user in Model.Users)
                                 {
-                                    @user.UserName
+                                    if(student.UserId == user.Id)
+                                    {
+                                        @user.UserName
+                                    }
                                 }
                             </td>
                             <td>
