@@ -1,4 +1,4 @@
-wwwroot\css\admin-css\Class.css
+wwwroot\css\site.css
 wwwroot\css\admin-css\report.css
 wwwroot\css\admin-css\user.css
 wwwroot\css\login-css\login.css
@@ -6,7 +6,7 @@ wwwroot\css\shared-css\components.css
 wwwroot\css\shared-css\layout.css
 wwwroot\css\shared-css\reset.css
 wwwroot\css\shared-css\typography.css
-wwwroot\css\site.css
+wwwroot\css\admin-css\admin.css
 wwwroot\echo-logo.ico
 wwwroot\echo-logo.jpg
 wwwroot\favicon.ico
@@ -71,78 +71,88 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\admin-css\Class.css
 wwwroot\src\admin-profile.jpg
 wwwroot\src\One-Step-Logo.png
-wwwroot\css\admin-css\admin.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\Class.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\report.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\user.css
+wwwroot\css\student-css\student.css
+wwwroot\css\student-css\schedules.css
+wwwroot\css\student-css\grade.css
+wwwroot\css\student-css\assignment.css
+wwwroot\css\student-css\library.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\login-css\login.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\components.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\layout.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\reset.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\typography.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\user.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\report.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\site.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\echo-logo.ico
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\favicon.ico
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\js\site.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\additional-methods.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\jquery.validate.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\LICENSE.md
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.min.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.slim.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.slim.min.js
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.slim.min.map
-D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\LICENSE.txt
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\typography.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\reset.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\layout.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\shared-css\components.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\admin.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\echo-logo.ico
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\LICENSE.txt
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.slim.min.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.slim.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.slim.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.min.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery\dist\jquery.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\LICENSE.md
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation\dist\additional-methods.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\js\site.js
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\Class.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\student.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\schedules.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\grade.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\assignment.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\library.css

@@ -1,0 +1,196 @@
+﻿@page
+@model school_management_system.Pages.Student.Schedules.IndexModel
+@{
+    Layout = "_StudentLayout";
+    ViewData["Title"] = "Student-Schedules";
+}
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>My Schedule</h1>
+            <p class="text-gray-600">Your weekly timetable and upcoming classes</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary">Export Schedule</button>
+            <button class="btn btn-primary">Set Reminders</button>
+        </div>
+    </header>
+
+    <!-- Today's Classes -->
+    <div class="today-schedule">
+        <div class="card">
+            <div class="card-header">
+                <h3>Today's Classes</h3>
+                <span class="date">Wednesday, December 18, 2025</span>
+            </div>
+
+            <div class="today-classes">
+                <div class="class-item current">
+                    <div class="class-time">09:00 - 10:30</div>
+                    <div class="class-details">
+                        <h4>Mathematics</h4>
+                        <p>Room 201 • Mrs. Johnson</p>
+                        <span class="topic">Quadratic Equations</span>
+                    </div>
+                    <div class="class-status">Current</div>
+                </div>
+
+                <div class="class-item upcoming">
+                    <div class="class-time">11:00 - 12:30</div>
+                    <div class="class-details">
+                        <h4>English Literature</h4>
+                        <p>Room 105 • Mr. Chen</p>
+                        <span class="topic">Shakespeare Analysis</span>
+                    </div>
+                    <div class="class-status">Next</div>
+                </div>
+
+                <div class="class-item">
+                    <div class="class-time">14:00 - 15:30</div>
+                    <div class="class-details">
+                        <h4>Physics Lab</h4>
+                        <p>Lab 3 • Dr. Wilson</p>
+                        <span class="topic">Optics Experiment</span>
+                    </div>
+                    <div class="class-status">Later</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weekly Timetable -->
+    <div class="timetable-container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Weekly Timetable</h3>
+                <div class="week-nav">
+                    <button class="btn btn-secondary">‹ Previous</button>
+                    <span class="current-week">December 16-22, 2025</span>
+                    <button class="btn btn-secondary">Next ›</button>
+                </div>
+            </div>
+
+            <div class="timetable-grid">
+                <div class="time-column">
+                    <div class="time-header">Time</div>
+                    <div class="time-slot">8:00</div>
+                    <div class="time-slot">9:00</div>
+                    <div class="time-slot">10:00</div>
+                    <div class="time-slot">11:00</div>
+                    <div class="time-slot">12:00</div>
+                    <div class="time-slot">13:00</div>
+                    <div class="time-slot">14:00</div>
+                    <div class="time-slot">15:00</div>
+                </div>
+
+                <div class="days-container">
+                    <div class="day-column">
+                        <div class="day-header">Monday</div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block math">Mathematics</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block english">English</div>
+                        </div>
+                        <div class="timetable-cell lunch">Lunch</div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block physics">Physics</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                    </div>
+
+                    <div class="day-column">
+                        <div class="day-header">Tuesday</div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block chemistry">Chemistry</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block math">Mathematics</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell lunch">Lunch</div>
+                        <div class="timetable-cell">
+                            <div class="subject-block history">History</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block english">English</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                    </div>
+
+                    <div class="day-column">
+                        <div class="day-header">Wednesday</div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block math">Mathematics</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block physics">Physics Lab</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block english">English</div>
+                        </div>
+                        <div class="timetable-cell lunch">Lunch</div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block chemistry">Chemistry</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                    </div>
+
+                    <div class="day-column">
+                        <div class="day-header">Thursday</div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block history">History</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block math">Mathematics</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block physics">Physics</div>
+                        </div>
+                        <div class="timetable-cell lunch">Lunch</div>
+                        <div class="timetable-cell">
+                            <div class="subject-block english">English</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell"></div>
+                    </div>
+
+                    <div class="day-column">
+                        <div class="day-header">Friday</div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell">
+                            <div class="subject-block chemistry">Chemistry Lab</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block math">Mathematics</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                        <div class="timetable-cell lunch">Lunch</div>
+                        <div class="timetable-cell">
+                            <div class="subject-block history">History</div>
+                        </div>
+                        <div class="timetable-cell">
+                            <div class="subject-block english">English</div>
+                        </div>
+                        <div class="timetable-cell"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section Styles {
+    <link rel="stylesheet" href="/css/student-css/student.css" />
+    <link rel="stylesheet" href="/css/student-css/schedules.css" />
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/school_management_system.styles.css" asp-append-version="true" />
+    <link rel="icon" href="~/echo-logo.ico" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+<div class="student-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="~/src/One-Step-Logo.png" alt="School-Logo" class="school-logo">
+                </div>
+                <span class="role-badge">Student</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li><a  asp-page="/Student/index"
+                        class="@(string.Equals(ViewContext.RouteData.Values["page"]?.ToString(), "/Student/index", StringComparison.OrdinalIgnoreCase) ? "active" : "")"/>
+                        <span class="icon">📊</span> Dashboard</a>
+                </li>
+                <li><a asp-page="/Student/Schedules/index"
+                        class="@(string.Equals(ViewContext.RouteData.Values["page"]?.ToString(), "/Student/Schedules/index", StringComparison.OrdinalIgnoreCase) ? "active" : "")"><span class="icon">📅</span> Schedule</a></li>
+                <li><a asp-page="/Student/Assignments/index"
+                        class="@(string.Equals(ViewContext.RouteData.Values["page"]?.ToString(), "/Student/Assignments/index", StringComparison.OrdinalIgnoreCase) ? "active" : "")"><span class="icon">📝</span> Assignments</a></li>
+                <li><a asp-page="/Student/Grades/index"
+                        class="@(string.Equals(ViewContext.RouteData.Values["page"]?.ToString(), "/Student/Grades/index", StringComparison.OrdinalIgnoreCase) ? "active" : "")"><span class="icon">🎯</span> Grades</a></li>
+                <li><a asp-page="/Student/Librarys/index"
+                        class="@(string.Equals(ViewContext.RouteData.Values["page"]?.ToString(), "/Student/Librarys/index", StringComparison.OrdinalIgnoreCase) ? "active" : "")"><span class="icon">📚</span> Library</a></li>
+                <li><a asp-page="/Student/Inboxs/index"
+                        class="@(string.Equals(ViewContext.RouteData.Values["page"]?.ToString(), "/Student/Inboxs/index", StringComparison.OrdinalIgnoreCase) ? "active" : "")"><span class="icon">✉️</span> Inbox</a></li>
+                <li><a asp-page="/Index"asp-page="/Index"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+
+
+        <style>
+            .sidebar-menu a.active {
+                background: var(--color-primary-500);
+                color: white;
+            }
+        </style>
+        <!-- Main Content -->
+
+    @RenderBody()
+    <div/>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

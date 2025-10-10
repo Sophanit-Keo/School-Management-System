@@ -1,0 +1,89 @@
+﻿@page
+@model school_management_system.Pages.Student.Assignments.IndexModel
+@{
+    Layout = "_StudentLayout";
+    ViewData["Title"] = "Stuent-Assignment";
+}
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>My Assignments</h1>
+            <p class="text-gray-600">Track your assignments and submissions</p>
+        </div>
+        <div class="header-actions">
+            <select class="subject-filter">
+                <option value="">All Subjects</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="english">English</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Assignment Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon warning">📝</div>
+            <div class="stat-content">
+                <h3>8</h3>
+                <p>Pending</p>
+                <span class="stat-change neutral">Due this week</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon primary">📤</div>
+            <div class="stat-content">
+                <h3>15</h3>
+                <p>Submitted</p>
+                <span class="stat-change positive">Awaiting grades</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon success">✅</div>
+            <div class="stat-content">
+                <h3>23</h3>
+                <p>Completed</p>
+                <span class="stat-change positive">This semester</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon error">⏰</div>
+            <div class="stat-content">
+                <h3>2</h3>
+                <p>Overdue</p>
+                <span class="stat-change negative">Need attention</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assignments List -->
+    <div class="assignments-container">
+        <div class="card">
+            <div class="card-header">
+                <h3>All Assignments</h3>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="pending">Pending</button>
+                    <button class="filter-tab" data-filter="submitted">Submitted</button>
+                    <button class="filter-tab" data-filter="graded">Graded</button>
+                </div>
+            </div>
+
+            <div class="assignments-list" id="assignmentsList">
+                <!-- Assignments will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+</main>
+@section Styles {
+    <link rel="stylesheet" href="/css/student-css/student.css" />
+    <link rel="stylesheet" href="/css/student-css/assignment.css" />
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

@@ -1,0 +1,169 @@
+﻿@page
+@model school_management_system.Pages.Student.Grades.IndexModel
+@{
+    Layout = "_StudentLayout";
+    ViewData["Title"] = "Student-Grade";
+}
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>My Grades</h1>
+            <p class="text-gray-600">Track your academic performance</p>
+        </div>
+        <div class="header-actions">
+            <select class="semester-filter">
+                <option value="fall2024">Fall 2024</option>
+                <option value="spring2024">Spring 2024</option>
+            </select>
+            <button class="btn btn-secondary">Download Report</button>
+        </div>
+    </header>
+
+    <!-- GPA Overview -->
+    <div class="gpa-overview">
+        <div class="card">
+            <div class="gpa-header">
+                <div class="gpa-main">
+                    <h2>3.8</h2>
+                    <p>Current GPA</p>
+                </div>
+                <div class="gpa-chart">
+                    <canvas id="gpaChart"></canvas>
+                </div>
+                <div class="gpa-stats">
+                    <div class="gpa-stat">
+                        <span class="label">Semester GPA</span>
+                        <span class="value">3.9</span>
+                    </div>
+                    <div class="gpa-stat">
+                        <span class="label">Class Rank</span>
+                        <span class="value">5/45</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subject Grades -->
+    <div class="grades-container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Subject Performance</h3>
+            </div>
+
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="subject-header">
+                        <div class="subject-icon math">🧮</div>
+                        <div class="subject-info">
+                            <h4>Mathematics</h4>
+                            <p>Mrs. Johnson</p>
+                        </div>
+                        <div class="subject-grade">A-</div>
+                    </div>
+
+                    <div class="grade-breakdown">
+                        <div class="grade-item">
+                            <span>Midterm Exam</span>
+                            <span class="grade">88%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Quiz Average</span>
+                            <span class="grade">92%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Assignments</span>
+                            <span class="grade">85%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-header">
+                        <div class="subject-icon english">📚</div>
+                        <div class="subject-info">
+                            <h4>English Literature</h4>
+                            <p>Mr. Chen</p>
+                        </div>
+                        <div class="subject-grade">A</div>
+                    </div>
+
+                    <div class="grade-breakdown">
+                        <div class="grade-item">
+                            <span>Essay Portfolio</span>
+                            <span class="grade">95%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Reading Tests</span>
+                            <span class="grade">90%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Participation</span>
+                            <span class="grade">98%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-header">
+                        <div class="subject-icon physics">⚗️</div>
+                        <div class="subject-info">
+                            <h4>Physics</h4>
+                            <p>Dr. Wilson</p>
+                        </div>
+                        <div class="subject-grade">B+</div>
+                    </div>
+
+                    <div class="grade-breakdown">
+                        <div class="grade-item">
+                            <span>Lab Reports</span>
+                            <span class="grade">82%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Theory Exam</span>
+                            <span class="grade">78%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Projects</span>
+                            <span class="grade">85%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-header">
+                        <div class="subject-icon chemistry">🧪</div>
+                        <div class="subject-info">
+                            <h4>Chemistry</h4>
+                            <p>Dr. Smith</p>
+                        </div>
+                        <div class="subject-grade">A-</div>
+                    </div>
+
+                    <div class="grade-breakdown">
+                        <div class="grade-item">
+                            <span>Lab Work</span>
+                            <span class="grade">90%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Theory Tests</span>
+                            <span class="grade">86%</span>
+                        </div>
+                        <div class="grade-item">
+                            <span>Assignments</span>
+                            <span class="grade">88%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section Styles {
+    <link rel="stylesheet" href="/css/student-css/student.css" />
+    <link rel="stylesheet" href="/css/student-css/grade.css" />
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

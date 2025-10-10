@@ -31,8 +31,6 @@ namespace school_management_system.Pages.Admin.Teachers
 
             Subjects = await _db.Subjects.ToListAsync();
             SubjectItems = new SelectList(Subjects, nameof(SubjectModel.Id), nameof(SubjectModel.Name));
-
-            // Pre-select the teacher's current subject
             if (Teacher.Subjects.Any())
             {
                 SelectedSubject = Teacher.Subjects.First().Id;

@@ -56,10 +56,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2xhc3Nlc1xBZGRDbGFzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Admin/Classes/AddDepartment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2xhc3Nlc1xBZGREZXBhcnRtZW50LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Admin/Classes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2xhc3Nlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -144,12 +140,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Shared/_StudentLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9TdHVkZW50TGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Shared/_ViewNoData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WaWV3Tm9EYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Student/Assignments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFxBc3NpZ25tZW50c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Student/Grades/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFxHcmFkZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Student/Inboxs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFxJbmJveHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Student/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Student/Librarys/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFxMaWJyYXJ5c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/Student/Schedules/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFxTY2hlZHVsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PHANIT/IT STEP/SCHOOL/School/Lesson and Homework/Term 3/ASP/Final_Project/School-Management-System/school-management-system/school-management-system/Pages/_ViewImports.cshtml]

@@ -14,11 +14,13 @@ namespace school_management_system.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
         }
         public string Password { get; set; } = "Abc!@#456";
         /// <summary>
@@ -104,11 +106,28 @@ namespace school_management_system.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
+                    var finduser = await _userManager.FindByNameAsync(Input.Email);
+                    var loginUserRole = await _userManager.GetRolesAsync(finduser);
+
+                    Console.WriteLine($"{loginUserRole.ToString()}");
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+
+                    if (loginUserRole.Contains("admin"))
+                    {
+                        return LocalRedirect(returnUrl);
+                    }
+                    else if (loginUserRole.Contains("teacher"))
+                    {
+                        return LocalRedirect(Url.Content("~/Teacher"));
+                    }
+                    else if (loginUserRole.Contains("student"))
+                    {
+                        return LocalRedirect(Url.Content("~/Student"));
+                    }
+
                 }
                 if (result.RequiresTwoFactor)
                 {
