@@ -1,0 +1,168 @@
+﻿@page
+@model school_management_system.Pages.Teacher.Attendance.IndexModel
+@{
+    Layout = "_TeacherLayout";
+    ViewData["Title"] = "Teacher-Attendance";
+}
+
+<main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Attendance Management</h1>
+                    <p class="text-gray-600">Track and manage student attendance</p>
+                </div>
+                <div class="header-actions">
+                    <select class="class-selector">
+                        <option value="class001">Grade 10A</option>
+                        <option value="class002">Grade 10B</option>
+                        <option value="class003">Grade 11A</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="takeAttendance()">Take Attendance</button>
+                </div>
+            </header>
+
+            <!-- Attendance Overview -->
+            <div class="attendance-overview">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Today's Attendance - Grade 10A</h3>
+                        <span class="date">December 18, 2025</span>
+                    </div>
+
+                    <div class="attendance-stats">
+                        <div class="stat-item present">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Present</div>
+                        </div>
+                        <div class="stat-item absent">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Absent</div>
+                        </div>
+                        <div class="stat-item late">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Late</div>
+                        </div>
+                        <div class="stat-item total">
+                            <div class="stat-number">30</div>
+                            <div class="stat-label">Total</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Attendance List -->
+            <div class="attendance-list">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Student List</h3>
+                        <div class="attendance-actions">
+                            <button class="btn btn-success" onclick="markAllPresent()">Mark All Present</button>
+                            <button class="btn btn-secondary" onclick="saveAttendance()">Save Attendance</button>
+                        </div>
+                    </div>
+
+                    <div class="students-grid">
+                        <div class="student-card">
+                            <img src="https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="John Doe">
+                            <div class="student-info">
+                                <h4>John Doe</h4>
+                                <p>Roll: 10A001</p>
+                            </div>
+                            <div class="attendance-buttons">
+                                <button class="attendance-btn present active" data-status="present">P</button>
+                                <button class="attendance-btn absent" data-status="absent">A</button>
+                                <button class="attendance-btn late" data-status="late">L</button>
+                            </div>
+                        </div>
+
+                        <div class="student-card">
+                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="Marie Stephens">
+                            <div class="student-info">
+                                <h4>Marie Stephens</h4>
+                                <p>Roll: 10A002</p>
+                            </div>
+                            <div class="attendance-buttons">
+                                <button class="attendance-btn present" data-status="present">P</button>
+                                <button class="attendance-btn absent active" data-status="absent">A</button>
+                                <button class="attendance-btn late" data-status="late">L</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+@section Scripts {
+    <script>
+        function markStatus(index, status, button) {
+            const input = document.getElementById('attendance-' + index);
+            input.value = status;
+
+            // Remove 'active' class from all buttons for this student
+            const btnContainer = button.parentElement;
+            const buttons = btnContainer.querySelectorAll('.attendance-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Add 'active' class to the clicked button
+            button.classList.add('active');
+
+            // Update overview counts
+            updateOverviewCounts();
+        }
+
+        function markAll(status) {
+            const total = @Model.Students.Count();
+            for (let i = 0; i < total; i++) {
+                const btns = document.querySelectorAll('.student-card')[i].querySelectorAll('.attendance-btn');
+                btns.forEach(b => {
+                    if (b.classList.contains(status.toLowerCase())) {
+                        b.click(); // trigger click to mark status & update color
+                    }
+                });
+            }
+        }
+
+        function updateOverviewCounts() {
+            let present = 0, absent = 0, late = 0;
+            const total = @Model.Students.Count();
+
+            for (let i = 0; i < total; i++) {
+                const status = document.getElementById('attendance-' + i).value;
+                if (status === "Present") present++;
+                else if (status === "Absent") absent++;
+                else if (status === "Late") late++;
+            }
+
+            document.getElementById('present-count').innerText = present;
+            document.getElementById('absent-count').innerText = absent;
+            document.getElementById('late-count').innerText = late;
+            document.getElementById('total-count').innerText = total;
+        }
+
+        // Initialize buttons and counts on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const total = @Model.Students.Count();
+            for (let i = 0; i < total; i++) {
+                const status = document.getElementById('attendance-' + i).value;
+                const btns = document.querySelectorAll('.student-card')[i].querySelectorAll('.attendance-btn');
+
+                btns.forEach(b => b.classList.remove('active'));
+                if (status === "Present") btns[0].classList.add('active');
+                else if (status === "Absent") btns[1].classList.add('active');
+                else if (status === "Late") btns[2].classList.add('active');
+            }
+
+            updateOverviewCounts();
+        });
+    </script>
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="/css/teacher-css/teacher.css" />
+    <link rel="stylesheet" href="/css/teacher-css/attendance.css">
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

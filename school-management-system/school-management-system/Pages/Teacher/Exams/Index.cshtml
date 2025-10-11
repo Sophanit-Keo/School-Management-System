@@ -1,0 +1,84 @@
+﻿@page
+@model school_management_system.Pages.Teacher.Exams.IndexModel
+@{
+	Layout = "_TeacherLayout";
+	ViewData["Title"] = "Teacher-Exams";
+}
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>Exam Management</h1>
+            <p class="text-gray-600">Create and manage exams and assessments</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary">Export Results</button>
+            <button class="btn btn-primary" onclick="createExam()">Create Exam</button>
+        </div>
+    </header>
+
+    <!-- Exam Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon primary">📝</div>
+            <div class="stat-content">
+                <h3>12</h3>
+                <p>Total Exams</p>
+                <span class="stat-change neutral">This semester</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon warning">⏰</div>
+            <div class="stat-content">
+                <h3>3</h3>
+                <p>Upcoming Exams</p>
+                <span class="stat-change neutral">Next 7 days</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon success">✅</div>
+            <div class="stat-content">
+                <h3>8</h3>
+                <p>Completed Exams</p>
+                <span class="stat-change positive">Results published</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon error">📊</div>
+            <div class="stat-content">
+                <h3>82%</h3>
+                <p>Average Score</p>
+                <span class="stat-change positive">+5% improvement</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exams Table -->
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Exam</th>
+                    <th>Class</th>
+                    <th>Date & Time</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="examsTableBody">
+                <!-- Exams will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</main>
+@section Styles {
+    <link rel="stylesheet" href="/css/teacher-css/teacher.css" />
+    <link rel="stylesheet" href="/css/teacher-css/exams.css">
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

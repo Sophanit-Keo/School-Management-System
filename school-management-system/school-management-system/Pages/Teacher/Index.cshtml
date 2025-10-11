@@ -1,0 +1,201 @@
+﻿
+@page
+@model school_management_system.Pages.Teacher.TeacherDashboardModel
+
+@{
+    Layout = "_TeacherLayout";
+    ViewData["Title"] = "Teacher-Dashboard";
+}
+
+<main class="main-content">
+    <!-- Header -->
+    <header class="header">
+        <div>
+            <h1>Welcome back, @Model.Teacher.FirstName @Model.Teacher.LastName</h1>
+            <p class="text-gray-600">
+                Your students average progress is @Model.StudentProgress%.
+                Level up your students to improve your teacher rank!
+            </p>
+        </div>
+
+        <div class="teacher-profile">
+            <div class="profile-info">
+                <h4>@Model.Teacher.FirstName @Model.Teacher.LastName</h4>
+                <p>@Model.Teacher.Email</p>
+                <div class="teacher-stats">
+                    <span>Rank: @Model.Rank</span>
+                    <span>Classes: @Model.ClassCount</span>
+                </div>
+            </div>
+            <img src="@Model.ProfilePictureUrl"
+                 alt="@Model.TeacherName"
+                 class="profile-avatar">
+        </div>
+    </header>
+
+    <div class="dashboard-content">
+
+        <!-- ===== TOP ROW: Working Hours & Group Chats ===== -->
+        <div class="dashboard-grid">
+
+            <!-- Working Hours Card -->
+            <div class="working-hours-card">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Working Hours</h3>
+                        <p class="text-sm text-gray-600">01 - 08 June 2022</p>
+                    </div>
+
+                    <div class="hours-summary">
+                        <div class="hours-stat text-center">
+                            <span class="label">Total</span>
+                            <span class="value">@Model.TotalHours</span>
+                        </div>
+                        <div class="hours-stat text-center online">
+                            <span class="label">Online</span>
+                            <span class="value">@Model.OnlineHours</span>
+                        </div>
+                        <div class="hours-stat text-center offline">
+                            <span class="label">Offline</span>
+                            <span class="value">@Model.OfflineHours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Chats Card -->
+            <div class="group-chats-card">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Group chats</h3>
+                        <a href="#" class="text-primary">View all</a>
+                    </div>
+                    <div class="chat-list">
+                        @if (Model.GroupChats != null && Model.GroupChats.Any())
+                        {
+                            @foreach (var chat in Model.GroupChats)
+                            {
+                                <div class="chat-item">
+                                    <div class="chat-avatar">@chat.Icon</div>
+                                    <div class="chat-content">
+                                        <h4>@chat.GroupName</h4>
+                                        <p>@chat.LastMessage</p>
+                                    </div>
+                                    @if (chat.UnreadCount > 0)
+                                    {
+                                        <div class="chat-badge">@chat.UnreadCount</div>
+                                    }
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-gray-500">No active group chats.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== BOTTOM ROW: Student Tests & Upcoming Classes ===== -->
+        <div class="bottom-section">
+
+            <!-- Student Tests -->
+            <div class="tests-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Student tests</h3>
+                        <a href="exams.html" class="text-primary">All tests</a>
+                    </div>
+                    <div class="tests-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Test name</th>
+                                    <th>Deadline</th>
+                                    <th>Student</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.StudentTests != null && Model.StudentTests.Any())
+                                {
+                                    @foreach (var test in Model.StudentTests)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="test-info">
+                                                    <span class="test-icon">📝</span>
+                                                    @test.TestName
+                                                </div>
+                                            </td>
+                                            <td>@test.Deadline.ToString("MMM dd, yyyy")</td>
+                                            <td>
+                                                <div class="student-info">
+                                                    <img src="@(string.IsNullOrEmpty(test.StudentImageUrl) ? "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&fit=crop" : test.StudentImageUrl)" alt="@test.StudentName">
+                                                    @test.StudentName
+                                                </div>
+                                            </td>
+                                            <td><span class="badge badge-primary">@test.Status</span></td>
+                                            <td><button class="btn-icon">⋮</button></td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="text-gray-500">No tests available.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Classes -->
+            <div class="upcoming-classes">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Upcoming Classes</h3>
+                        <a href="schedule.html" class="text-primary">View all</a>
+                    </div>
+                    <div class="classes-list">
+                        @if (Model.UpcomingClasses != null && Model.UpcomingClasses.Any())
+                        {
+                            @foreach (var cls in Model.UpcomingClasses)
+                            {
+                                <div class="class-item">
+                                    <div class="class-time">@cls.Time</div>
+                                    <div class="class-content">
+                                        <h4>@cls.Subject | @cls.Room</h4>
+                                        <p>@cls.Date.ToString("MMM dd") @((cls.IsOnline) ? "- Online" : "- Offline")</p>
+                                    </div>
+                                    <button class="class-action">📝</button>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-gray-500">No upcoming classes.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+@section Styles {
+    <link rel="stylesheet" href="/css/teacher-css/teacher.css" />
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css" />
+    <link rel="stylesheet" href="/css/shared-css/typography.css" />
+    <link rel="stylesheet" href="/css/shared-css/components.css" />
+    <link rel="stylesheet" href="/css/shared-css/layout.css" />
+}
+
+

@@ -1,0 +1,15 @@
+﻿@page
+@model school_management_system.Pages.Teacher.Schedule.IndexModel
+@{
+    Layout = "_TeacherLayout";
+	ViewData["Title"] = "Teacher-Schedule";
+}
+
+<partial name="_ComingSoonView" model="@(new { Name = "Schedules " })" />
+@section styles {
+    <link rel="stylesheet" href="/css/teacher-css/teacher.css" />
+    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+    <link rel="stylesheet" href="/css/shared-css/typography.css">
+    <link rel="stylesheet" href="/css/shared-css/components.css">
+    <link rel="stylesheet" href="/css/shared-css/layout.css">
+}

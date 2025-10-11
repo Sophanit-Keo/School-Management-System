@@ -1,5 +1,4 @@
-wwwroot\css\admin-css\admin.css
-wwwroot\css\admin-css\Class.css
+wwwroot\css\site.css
 wwwroot\css\admin-css\report.css
 wwwroot\css\admin-css\user.css
 wwwroot\css\login-css\login.css
@@ -7,12 +6,7 @@ wwwroot\css\shared-css\components.css
 wwwroot\css\shared-css\layout.css
 wwwroot\css\shared-css\reset.css
 wwwroot\css\shared-css\typography.css
-wwwroot\css\site.css
-wwwroot\css\student-css\assignment.css
-wwwroot\css\student-css\grade.css
-wwwroot\css\student-css\library.css
-wwwroot\css\student-css\schedules.css
-wwwroot\css\student-css\student.css
+wwwroot\css\admin-css\admin.css
 wwwroot\echo-logo.ico
 wwwroot\echo-logo.jpg
 wwwroot\favicon.ico
@@ -77,8 +71,17 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\admin-css\Class.css
 wwwroot\src\admin-profile.jpg
 wwwroot\src\One-Step-Logo.png
+wwwroot\css\student-css\student.css
+wwwroot\css\student-css\schedules.css
+wwwroot\css\student-css\grade.css
+wwwroot\css\student-css\assignment.css
+wwwroot\css\student-css\library.css
+wwwroot\css\teacher-css\attendance.css
+wwwroot\css\teacher-css\exams.css
+wwwroot\css\teacher-css\teacher.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\login-css\login.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\user.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\admin-css\report.css
@@ -156,3 +159,6 @@ D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\Sch
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\grade.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\assignment.css
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\student-css\library.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\teacher-css\attendance.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\teacher-css\exams.css
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\wwwroot\css\teacher-css\teacher.css

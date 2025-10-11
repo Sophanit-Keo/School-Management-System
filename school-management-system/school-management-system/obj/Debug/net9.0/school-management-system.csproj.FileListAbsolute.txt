@@ -888,3 +888,6 @@ D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\Sch
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\j3uufr72xy-ido2l746mu.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\m31x67axpc-5hg9i6qzjp.gz
 D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\z7wxwwv89b-4siwrcmilb.gz
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\0qm5pq53eb-nzcssaoknp.gz
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\muyfldm5v8-nu6k24xpjl.gz
+D:\PHANIT\IT STEP\SCHOOL\School\Lesson and Homework\Term 3\ASP\Final_Project\School-Management-System\school-management-system\school-management-system\obj\Debug\net9.0\compressed\hdmmnfqhtb-y1o0xlvsi9.gz

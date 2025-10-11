@@ -29,6 +29,7 @@ namespace school_management_system.Pages.Admin.Classes
         public ClassroomModel Classroom { get; set; }
 
         //Timetable
+        [BindProperty]
         public TimetableModel Timetable { get; set; }
         public async Task OnGet()
         {
@@ -49,20 +50,35 @@ namespace school_management_system.Pages.Admin.Classes
         }
         public async Task<IActionResult> OnPostAddClass()
         {
-            await _db.Classrooms.AddAsync(Classroom);
-            var timetable = new TimetableModel
+            if (ModelState.IsValid)
             {
-                DayOfWeek = Timetable.DayOfWeek,
-                StartTime = Timetable.StartTime,
-                EndTime = Timetable.EndTime,
-                GroupId = SelectedGroup,
-                TeacherId = SeletedTeacher,
-                ClassroomId = Classroom.Id,
-                SubjectId = SelectedSubject
-            };
-            await _db.Timetables.AddAsync(timetable);
-            await _db.SaveChangesAsync();
-            return RedirectToPage();
+                Console.WriteLine(Timetable.ToString());
+                await _db.Classrooms.AddAsync(Classroom);
+                await _db.SaveChangesAsync();
+                var timetable = new TimetableModel
+                {
+                    DayOfWeek = Timetable.DayOfWeek,
+                    StartTime = Timetable.StartTime,
+                    EndTime = Timetable.EndTime,
+                    GroupId = SelectedGroup,
+                    TeacherId = SeletedTeacher,
+                    ClassroomId = Classroom.Id,
+                    SubjectId = SelectedSubject
+                };
+                Console.WriteLine(timetable);
+                await _db.Timetables.AddAsync(timetable);
+                await _db.SaveChangesAsync();
+                return RedirectToPage();
+            }
+            else
+            {
+                Console.WriteLine(ModelState.ValidationState);
+                foreach (var kvp in ModelState)
+                {
+                    Console.WriteLine($"{kvp.Key}: {kvp.Value.ValidationState}");
+                }
+                return RedirectToPage();
+            }
         }
     }
 }
