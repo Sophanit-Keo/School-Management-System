@@ -15,9 +15,6 @@ namespace school_management_system.Pages.Admin.Students
         public IEnumerable<StudentModel> Students { get; set; }
 
 
-        //RoleModel
-        public SelectList SelectListGroup { get; set; }
-
 
         // GuardianModel
         [BindProperty]
@@ -26,8 +23,16 @@ namespace school_management_system.Pages.Admin.Students
 
 
         // Group
+        public SelectList ListGroups { get; set; }
+        public IEnumerable<GroupModel> Groups { get; set; }
+        [BindProperty]
+        public int SelectedGroup { get; set; }
+
         public async Task OnGet()
         {
+            Groups = await _db.Groups.ToListAsync();
+            ListGroups = new SelectList(Groups, nameof(GroupModel.Id), nameof(GroupModel.Name));
+
             Students = await _db.Students
                     .Include(s => s.Guardians)
                     .ToListAsync();
@@ -52,6 +57,16 @@ namespace school_management_system.Pages.Admin.Students
                 Student.Guardians.Add(sGuardian);
                 // Add Student
                 await _db.Students.AddAsync(Student);
+                await _db.SaveChangesAsync();
+
+                // Enrollment
+                var enroll = new EnrollmentModel
+                {
+                    GroupId = SelectedGroup,
+                    StudentId = Student.Id,
+                    EnrollmentDate = DateOnly.FromDateTime(DateTime.Now),
+                };
+                await _db.Enrollments.AddAsync(enroll);
                 await _db.SaveChangesAsync();
 
                 var autoPassword = "Abc!@#456";

@@ -40,13 +40,6 @@
                 </li>
 
                 <li>
-                    <a asp-page="/Admin/Users/index"
-                      class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/User")? "active" :" ")"/>
-                       <span class="icon">👥</span> All Users
-                    </a>
-                </li>
-
-                <li>
                     <a asp-page="/Admin/Students/index"
                       class= "@(ViewContext.RouteData.Values["page"].ToString().StartsWith("/Admin/Students")? "active" :" ")"/>
                        <span class="icon">🧑🏻‍🎓</span> Student

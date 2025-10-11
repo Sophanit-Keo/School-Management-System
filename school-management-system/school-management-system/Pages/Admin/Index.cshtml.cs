@@ -10,6 +10,7 @@ namespace school_management_system.Pages.Admin
     {
         public IEnumerable<TeacherModel> Teachers { get; set; }
         public IEnumerable<StudentModel> Students { get; set; }
+        public IEnumerable<GroupModel> Groups { get; set; }
         public async Task OnGet()
         {
             Teachers = await _db.Teachers
@@ -18,6 +19,7 @@ namespace school_management_system.Pages.Admin
             Students = await _db.Students
                 .Include(s => s.Guardians)
                 .ToListAsync();
+            Groups = await _db.Groups.ToListAsync();
         }
         public int newStudent()
         {

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using school_management_system.Models;
 
@@ -11,12 +12,21 @@ namespace school_management_system.Pages.Admin.Students
         // StudentModel
         [BindProperty]
         public StudentModel Student { get; set; }
+
+        // Group
+        public SelectList ListGroups { get; set; }
+        public IEnumerable<GroupModel> Groups { get; set; }
+        [BindProperty]
+        public int SelectedGroup { get; set; }
         public async Task<IActionResult> OnGet(int studentId)
         {
+            Groups = await _db.Groups.ToListAsync();
+            ListGroups = new SelectList(Groups, nameof(GroupModel.Id), nameof(GroupModel.Name));
             Student = await _db.Students
                 .Include(s => s.Guardians)
+                .Include(s => s.Enrollments)
                 .FirstOrDefaultAsync(s => s.Id == studentId);
-
+            SelectedGroup = Student.Enrollments.FirstOrDefault()?.GroupId ?? 0;
             if (Student == null)
                 return NotFound();
 
@@ -64,7 +74,13 @@ namespace school_management_system.Pages.Admin.Students
             existingStudent.Status = Student.Status;
             existingStudent.Address = Student.Address;
             existingStudent.SpecialRequirements = Student.SpecialRequirements;
-
+            var enr = new EnrollmentModel
+            {
+                EnrollmentDate = DateOnly.FromDateTime(DateTime.UtcNow),
+                GroupId = SelectedGroup,
+                StudentId = existingStudent.Id,
+            };
+            await _db.Enrollments.AddAsync(enr);
             // Update guardian information
             var submittedGuardian = Student.Guardians?.FirstOrDefault();
             if (submittedGuardian != null)
