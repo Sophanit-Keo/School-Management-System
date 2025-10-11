@@ -56,6 +56,9 @@ namespace school_management_system.Pages.Admin.Teachers
             if (ModelState.IsValid)
             {
 
+                await _db.Teachers.AddAsync(Teacher);
+                await _db.SaveChangesAsync();
+
                 var autoPassword = "Abc!@#456";
                 var autoEmail = $"{Teacher.FirstName.ToLower()}.{Teacher.LastName.ToLower()}.{Teacher.Id}@school.edu.kh";
 
@@ -73,7 +76,6 @@ namespace school_management_system.Pages.Admin.Teachers
                 };
                 var result = await _userManager.CreateAsync(teacherUser, autoPassword);
                 Teacher.UserId = teacherUser.Id;
-                await _db.Teachers.AddAsync(Teacher);
                 Teacher.Subjects = [];
                 var sSubject = await _db.Subjects.FindAsync(SelectedSubject);
                 Teacher.Subjects.Add(sSubject);

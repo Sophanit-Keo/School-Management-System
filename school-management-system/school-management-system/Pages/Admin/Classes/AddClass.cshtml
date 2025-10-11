@@ -4,185 +4,199 @@
     Layout = "_AdminLayout";
     ViewData["Title"] = "Add-Class";
 }
+
 <main class="main-content">
     <div id="app">
-      <div class="container">
-        <header>
-          <h1>Class Schedule Management</h1>
-          <div class="header-actions">
-            <button id="addGroupBtn" class="btn btn-primary">Add Group</button>
-          </div>
-        </header>
+        <div class="container">
+            <header>
+                <h1>Class Schedule Management</h1>
+                <div class="header-actions">
+                    <button id="addGroupBtn" class="btn btn-primary">Add Group</button>
+                    <button id="addRoomBtn" class="btn btn-primary">Add Room</button>
+                </div>
+            </header>
 
-        <div class="group-selector">
-          <label asp-for="SelectedGroup">Select Group:</label>
-          <select asp-for="SelectedGroup" asp-items="Model.ListGroups">
-            <option seleted>-- Select a Group --</option>
-          </select>
+            <div class="group-selector">
+                <label asp-for="SelectedGroup">Select Group:</label>
+                <select asp-for="SelectedGroup" asp-items="Model.ListGroups" required>
+                    <option value="">-- Select a Group --</option>
+                </select>
+            </div>
+
+            <div id="scheduleSection" class="schedule-section">
+                <div class="section-header">
+                    <h2>Class Schedule</h2>
+                    <button id="addClassBtn" class="btn btn-primary">Add Class</button>
+                </div>
+
+                <div class="table-container">
+                    <table id="scheduleTable">
+                        <thead>
+                            <tr>
+                                <th>Group</th>
+                                <th>Subject</th>
+                                <th>Teacher</th>
+                                <th>Room</th>
+                                <th>Day of Week</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTableBody">
+                            <!-- Schedule rows will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
-        <div id="scheduleSection" class="schedule-section">
-          <div class="section-header">
-            <h2>Class Schedule</h2>
-            <button id="addClassBtn" class="btn btn-primary">Add Class</button>
-          </div>
-
-          <div class="table-container">
-            <table id="scheduleTable">
-              <thead>
-                <tr>
-                  <th>Group</th>
-                  <th>Subject</th>
-                  <th>Teacher</th>
-                  <th>Room</th>
-                  <th>Day of Week</th>
-                  <th>Start Time</th>
-                  <th>End Time</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="scheduleTableBody">
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Add/Edit Class Modal -->
     <div id="classModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 id="modalTitle">Add Class</h2>
-          <button class="close-btn" id="closeModal">&times;</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Class</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="classForm" method="POST" asp-page-handler="AddClass">
+                <input type="hidden" id="classId">
+                <input type="hidden" id="groupId" name="SelectedGroup" value="" style="display:none">
+
+                <div class="form-group">
+                    <label asp-for="SelectedSubject">Subject:</label>
+                    <select asp-for="SelectedSubject" asp-items="Model.ListSubject" required>
+                        <option selected>-- Select Subject --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SelectedTeacher">Teacher:</label>
+                    <select asp-for="SelectedTeacher" asp-items="Model.ListTeacher" required>
+                        <option selected>-- Select Teacher --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SelectedClassroom">Teacher:</label>
+                    <select asp-for="SelectedClassroom" asp-items="Model.ListClassroom" required>
+                        <option selected>-- Select Room --</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Timetable.DayOfWeek">Day of Week:</label>
+                    <select asp-for="Timetable.DayOfWeek" required>
+                        <option value="">-- Select Day --</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Timetable.StartTime">Start Time:</label>
+                    <input type="time" asp-for="Timetable.StartTime" required>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Timetable.EndTime">End Time:</label>
+                    <input type="time" asp-for="Timetable.EndTime" required>
+                </div>
+
+                <div class="form-actions">
+                    <a asp-page="AddClass" type="button" class="btn btn-secondary" id="cancelBtn">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
         </div>
-        <form id="classForm"  method="POST" asp-page-handler="AddClass">
-          <input type="hidden" id="classId">
-
-          <div class="form-group">
-            <label asp-for="SelectedSubject">Subject:</label>
-            <select asp-for="SelectedSubject" asp-items="Model.ListSubject" required>
-              <option seleted>-- Select Subject --</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label asp-for="SeletedTeacher">Teacher:</label>
-            <select asp-for="SeletedTeacher" asp-items="Model.ListTeacher" required>
-              <option seleted>-- Select Teacher --</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label asp-for="Classroom.Name">Room:</label>
-            <input type="text" asp-for="Classroom.Name"  placeholder="e.g., 101A" required>
-          </div>
-
-          <div class="form-group">
-            <label asp-for="Timetable.DayOfWeek">Day of Week:</label>
-            <select asp-for="Timetable.DayOfWeek" required>
-              <option value="">-- Select Day --</option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-              <option value="Saturday">Saturday</option>
-              <option value="Sunday">Sunday</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label asp-for="Timetable.StartTime">Start Time:</label>
-            <input type="time"  asp-for="Timetable.StartTime" required>
-          </div>
-
-          <div class="form-group">
-            <label asp-for="Timetable.EndTime">End Time:</label>
-            <input type="time" asp-for="Timetable.EndTime" required>
-          </div>
-
-          <div class="form-actions">
-            <a asp-page="AddClass" type="button" class="btn btn-secondary" id="cancelBtn">Cancel</a>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </form>
-      </div>
     </div>
 
     <!-- Add Group Modal -->
     <div id="groupModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Add New Group</h2>
-          <button class="close-btn" id="closeGroupModal">&times;</button>
-        </div>
-        <form method="POST" asp-page-handler="AddGroup">
-          <div class="form-group">
-            <label asp-for="Group.Name">Group Name:</label>
-            <input type="text" asp-for="Group.Name" placeholder="e.g., 12-A" required>
-          </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Group</h2>
+                <button class="close-btn" id="closeGroupModal">&times;</button>
+            </div>
+            <form method="POST" asp-page-handler="AddGroup">
+                <div class="form-group">
+                    <label asp-for="Group.Name">Group Name:</label>
+                    <input type="text" asp-for="Group.Name" placeholder="e.g., 12-A" required>
+                </div>
 
-          <div class="form-actions">
-            <a asp-page="AddClass"type="button" class="btn btn-secondary" >Cancel</a>
-            <button type="submit" class="btn btn-primary">Create Group</button>
-          </div>
-        </form>
-      </div>
+                <div class="form-actions">
+                    <a asp-page="AddClass" type="button" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Create Group</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="roomModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Room</h2>
+                <button class="close-btn" id="closeRoomModal">&times;</button>
+            </div>
+            <form method="POST" asp-page-handler="AddRoom">
+                <div class="form-group">
+                    <label asp-for="Classroom.Name">Room Name:</label>
+                    <input type="text" asp-for="Classroom.Name" placeholder="e.g., 101-A" required>
+                </div>
+
+                <div class="form-actions">
+                    <a asp-page="AddClass" type="button" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Create Room</button>
+                </div>
+            </form>
+        </div>
     </div>
 </main>
+
 @section Styles {
-    <link rel="stylesheet" href="/css/admin-css/admin.css" />
-    <link rel="stylesheet" href="/css/admin-css/Class.css" />
-    <link rel="stylesheet" href="/css/shared-css/css/reset.css">
-    <link rel="stylesheet" href="/css/shared-css/typography.css">
-    <link rel="stylesheet" href="/css/shared-css/components.css">
-    <link rel="stylesheet" href="/css/shared-css/layout.css">
+        <link rel="stylesheet" href="/css/admin-css/admin.css" />
+        <link rel="stylesheet" href="/css/admin-css/Class.css" />
+        <link rel="stylesheet" href="/css/shared-css/css/reset.css">
+        <link rel="stylesheet" href="/css/shared-css/typography.css">
+        <link rel="stylesheet" href="/css/shared-css/components.css">
+        <link rel="stylesheet" href="/css/shared-css/layout.css">
 }
-@section Scripts{
+
+@section Scripts {
     <script>
-        function openGroupModal() {
-            const modal = document.getElementById('groupModal')
-            modal.classList.add('show')
-        }
-        document.getElementById('addGroupBtn').addEventListener('click', () => {
-            openGroupModal()
-        })
-            // === Add Class Modal Functions ===
-        function openClassModal() {
-            const modal = document.getElementById('classModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const form = document.getElementById('classForm');
+        // Toggle visibility of modals
+        document.getElementById("addGroupBtn").addEventListener("click", function() {
+            document.getElementById("groupModal").style.display = "block";
+        });
+        document.getElementById("closeGroupModal").addEventListener("click", function() {
+            document.getElementById("groupModal").style.display = "none";
+        });
+        
+        document.getElementById("addRoomBtn").addEventListener("click", function() {
+            document.getElementById("roomModal").style.display = "block";
+        });
+        document.getElementById("closeRoomModal").addEventListener("click", function() {
+            document.getElementById("roomModal").style.display = "none";
+        });
 
-            modalTitle.textContent = 'Add Class';
-            form.reset(); // Clear previous input
-            document.getElementById('classId').value = ''; // Clear hidden ID
-
-            modal.classList.add('show'); // Show the modal (assumes you use CSS like .modal.show { display: block; })
-        }
-
-        function closeClassModal() {
-            document.getElementById('classModal').classList.remove('show');
-        }
-
-        // === Attach event listener to Add Class button ===
+        document.getElementById("addClassBtn").addEventListener("click", function() {
+            document.getElementById("classModal").style.display = "block";
+        });
+        document.getElementById("closeModal").addEventListener("click", function() {
+            document.getElementById("classModal").style.display = "none";
+        });
         document.addEventListener('DOMContentLoaded', () => {
-            const addClassBtn = document.getElementById('addClassBtn');
-            const cancelBtn = document.getElementById('cancelBtn');
-            const closeModalBtn = document.getElementById('closeModal');
+            const groupSelect = document.querySelector('select[name="SelectedGroup"]');
+            const groupIdInput = document.getElementById('groupId');
 
-            if (addClassBtn) {
-                addClassBtn.addEventListener('click', openClassModal);
-            }
-
-            if (cancelBtn) {
-                cancelBtn.addEventListener('click', closeClassModal);
-            }
-
-            if (closeModalBtn) {
-                closeModalBtn.addEventListener('click', closeClassModal);
-            }
+            groupSelect.addEventListener('change', () => {
+                groupIdInput.value = groupSelect.value || '';
+            });
+            groupIdInput.value = groupSelect.value || '';
         });
     </script>
-
 }

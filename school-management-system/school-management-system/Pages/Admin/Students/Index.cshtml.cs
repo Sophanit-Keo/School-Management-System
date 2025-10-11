@@ -30,10 +30,6 @@ namespace school_management_system.Pages.Admin.Students
         public async Task<IActionResult> OnPostDeleteAsync(int studentId)
         {
             var student = await _db.Students.FindAsync(studentId);
-            if (student == null)
-            {
-                return NotFound();
-            }
 
             _db.Students.Remove(student);
             await _db.SaveChangesAsync();

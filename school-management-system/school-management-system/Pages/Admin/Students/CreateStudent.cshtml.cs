@@ -46,9 +46,13 @@ namespace school_management_system.Pages.Admin.Students
                 // Pass
                 await _db.Guardians.AddAsync(Guardian);
                 await _db.SaveChangesAsync();
+
                 Student.Guardians = [];
                 var sGuardian = await _db.Guardians.FindAsync(Guardian.Id);
                 Student.Guardians.Add(sGuardian);
+                // Add Student
+                await _db.Students.AddAsync(Student);
+                await _db.SaveChangesAsync();
 
                 var autoPassword = "Abc!@#456";
                 var autoEmail = $"{Student.FirstName.ToLower()}.{Student.LastName.ToLower()}.{Student.Id}@school.edu.kh";
@@ -68,7 +72,6 @@ namespace school_management_system.Pages.Admin.Students
 
                 var result = await _userManager.CreateAsync(user, autoPassword);
                 Student.UserId = user.Id;
-                await _db.Students.AddAsync(Student);
                 await _db.SaveChangesAsync();
                 Console.WriteLine(autoPassword);
 

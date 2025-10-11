@@ -495,3 +495,6 @@ form {
         margin-bottom: 0.25rem;
     }
 }
+.hidden {
+    display: none;
+}
