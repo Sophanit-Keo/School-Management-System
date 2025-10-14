@@ -21,7 +21,7 @@
         <div class="stat-card">
             <div class="stat-icon primary">🏫</div>
             <div class="stat-content">
-                <h3>42</h3>
+                <h3>@Model.Groups.Count()</h3>
                 <p>Total Classes</p>
                 <span class="stat-change neutral">Active sessions</span>
             </div>
@@ -30,7 +30,7 @@
         <div class="stat-card">
             <div class="stat-icon success">👥</div>
             <div class="stat-content">
-                <h3>1,248</h3>
+                <h3>@Model.Students.Count()</h3>
                 <p>Total Students</p>
                 <span class="stat-change positive">95% attendance</span>
             </div>
@@ -39,7 +39,7 @@
         <div class="stat-card">
             <div class="stat-icon warning">🎓</div>
             <div class="stat-content">
-                <h3>89</h3>
+                <h3>@Model.Teachers.Count()</h3>
                 <p>Total Teachers</p>
                 <span class="stat-change positive">Fully staffed</span>
             </div>
@@ -59,15 +59,14 @@
     <div class="table-container">
         <div class="table-header">
             <h3>All Classes</h3>
+
             <div class="table-filters">
-                <select id="gradeFilter" onchange="filterClasses()">
-                    <option value="">All Grades</option>
-                    <option value="9">Grade 9</option>
-                    <option value="10">Grade 10</option>
-                    <option value="11">Grade 11</option>
-                    <option value="12">Grade 12</option>
-                </select>
-                <input type="text" id="searchClasses" placeholder="Search classes..." oninput="filterClasses()">
+                <form method="get">
+                    <label asp-for="SelectedGroup">Select Group:</label>
+                    <select asp-for="SelectedGroup" asp-items="Model.ListGroups" oninput="filterClasses()" onchange="this.form.submit()" required>
+                        <option selected> All Group</option>
+                    </select>
+                </form>
             </div>
         </div>
 
@@ -85,6 +84,7 @@
             </thead>
             <tbody id="classesTableBody">
                 <!-- Classes will be populated by JavaScript -->
+                <partial name="_ClassTablePartial" model="Model.Timetables" />
             </tbody>
         </table>
     </div>

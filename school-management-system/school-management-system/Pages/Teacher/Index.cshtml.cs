@@ -18,9 +18,9 @@ namespace school_management_system.Pages.Teacher
         public double StudentProgress { get; set; }
 
         // Working Hours Summary
-        public string TotalHours { get; set; } = "36h 45m";
-        public string OnlineHours { get; set; } = "12h 30m";
-        public string OfflineHours { get; set; } = "14h 15m";
+        public string TotalHours { get; set; } = "36h 00m";
+        public string OnlineHours { get; set; } = "12h 00m";
+        public string OfflineHours { get; set; } = "24h 00m";
 
         // Collections
         public List<WorkingHour> WorkingHours { get; set; } = new();
@@ -64,13 +64,6 @@ namespace school_management_system.Pages.Teacher
                 new WorkingHour { Day = "Tuesday", StartTime = DateTime.Today.AddHours(8), EndTime = DateTime.Today.AddHours(16) },
             };
 
-            // Group chats demo
-            GroupChats = new List<GroupChat>
-            {
-                new GroupChat { Icon = "??", GroupName = "Teacher's Group", LastMessage = "Donna Clapton: Who can replace me on Web?", UnreadCount = 14, TimeAgo = "2h ago" },
-                new GroupChat { Icon = "3A", GroupName = "Class 3A", LastMessage = "You: ?? Composition-task.pdf", UnreadCount = 0, TimeAgo = "1h ago" },
-                new GroupChat { Icon = "3B", GroupName = "Class 3B", LastMessage = "Cody Dodson: Where can I read the info for...", UnreadCount = 2, TimeAgo = "30m ago" }
-            };
 
             // Student tests demo
             StudentTests = new List<StudentTest>
@@ -79,13 +72,6 @@ namespace school_management_system.Pages.Teacher
                 new StudentTest { TestName = "Math Midterm", Deadline = DateTime.Now.AddDays(3), StudentName = "Tommy Blake", StudentImageUrl = "", Status = "Pending" }
             };
 
-            // Upcoming classes demo
-            UpcomingClasses = new List<UpcomingClass>
-            {
-                new UpcomingClass { Subject = "Composition", Time = "10:30", Room = "Class 3A", Date = DateTime.Today.AddDays(1), IsOnline = false, OnlineDetails = "" },
-                new UpcomingClass { Subject = "Composition", Time = "11:30", Room = "Class 3B", Date = DateTime.Today.AddDays(1), IsOnline = false, OnlineDetails = "" },
-                new UpcomingClass { Subject = "Grid System", Time = "14:30", Room = "Class 5B", Date = DateTime.Today.AddDays(1), IsOnline = true, OnlineDetails = "Zoom Meeting" }
-            };
         }
 
         // Supporting Classes

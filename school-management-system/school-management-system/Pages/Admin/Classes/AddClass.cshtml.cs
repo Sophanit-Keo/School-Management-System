@@ -39,9 +39,10 @@ namespace school_management_system.Pages.Admin.Classes
         [BindProperty]
         public TimetableModel Timetable { get; set; }
 
-        public IEnumerable<TimetableModel> FilteredTimetables { get; set; }
-        public async Task OnGet()
+        public IEnumerable<TimetableModel> ExistingTimetables { get; set; }
+        public async Task OnGet(int? selectedGroup)
         {
+            SelectedGroup = selectedGroup ?? 0;
             Groups = await _db.Groups.ToListAsync();
             ListGroups = new SelectList(Groups, nameof(GroupModel.Id), nameof(GroupModel.Name));
 
@@ -53,7 +54,13 @@ namespace school_management_system.Pages.Admin.Classes
 
             Classrooms = await _db.Classrooms.ToListAsync();
             ListClassroom = new SelectList(Classrooms, nameof(ClassroomModel.Id), nameof(ClassroomModel.Name));
-
+            ExistingTimetables = await _db.Timetables
+               .Include(t => t.Group)
+               .Include(t => t.Subject)
+               .Include(t => t.Teacher)
+               .Include(t => t.Classroom)
+                    .Where(t => t.Group.Id == SelectedGroup)
+               .ToListAsync();
             Console.WriteLine($"SelectedGroup ID: {SelectedGroup}");
 
         }
@@ -70,6 +77,7 @@ namespace school_management_system.Pages.Admin.Classes
             await _db.SaveChangesAsync();
             return RedirectToPage();
         }
+
         public async Task<IActionResult> OnPostAddClass()
         {
             ModelState.Remove("Name");
@@ -83,6 +91,8 @@ namespace school_management_system.Pages.Admin.Classes
             ModelState.Remove("Timetable.Classroom");
             ModelState.Remove("Timetables");
             ModelState.Remove("Attendances");
+            ModelState.Remove("SelectedGroup");
+
 
             if (ModelState.IsValid)
             {
@@ -95,14 +105,14 @@ namespace school_management_system.Pages.Admin.Classes
                 Console.WriteLine($"SelectedGroup ID: {SelectedGroup}");
                 Console.WriteLine($"SelectedSubject ID: {SelectedSubject}");
                 Console.WriteLine($"SelectedTeacher ID: {SelectedTeacher}");
-                Console.WriteLine($"SelectedClassroom ID: {Classroom.Id}");
+                Console.WriteLine($"SelectedClassroom ID: {SelectedClassroom}");
                 var newTimetable = new TimetableModel
                 {
                     DayOfWeek = Timetable.DayOfWeek,
                     StartTime = Timetable.StartTime,
                     EndTime = Timetable.EndTime,
-                    GroupId = SelectedGroup,// Can not defind groupID
-                    TeacherId = SelectedTeacher, // fix typo below
+                    GroupId = SelectedGroup,
+                    TeacherId = SelectedTeacher,
                     ClassroomId = SelectedClassroom,
                     SubjectId = SelectedSubject
                 };
@@ -124,6 +134,13 @@ namespace school_management_system.Pages.Admin.Classes
                 return RedirectToPage();
             }
         }
-
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var curentTimetable = await _db.Timetables.FindAsync(id);
+            _db.Timetables.Remove(curentTimetable);
+            await _db.SaveChangesAsync();
+            Console.WriteLine("Sucess");
+            return RedirectToPage();
+        }
     }
 }

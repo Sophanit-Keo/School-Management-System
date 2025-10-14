@@ -1,0 +1,29 @@
+﻿@model IEnumerable<school_management_system.Models.TimetableModel>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+                <tr>
+                    <td>@item.Group?.Name</td>
+                    <td>@item.Subject?.Name</td>
+                    <td>@($"{item.Teacher?.FirstName} {item.Teacher?.LastName}")</td>
+                    <td>@item.Classroom?.Name</td>
+                    <td>@item.DayOfWeek</td>
+                    <td>@item.StartTime.ToString(@"hh\\:mm")</td>
+                    <td>@item.EndTime.ToString(@"hh\\:mm")</td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+    }
+}
+else
+{
+        <tr>
+            <td colspan="8" class="text-center text-muted">No class schedules found</td>
+        </tr>
+}
+       

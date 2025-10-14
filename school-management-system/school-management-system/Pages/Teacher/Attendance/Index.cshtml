@@ -6,158 +6,99 @@
 }
 
 <main class="main-content">
-            <header class="header">
-                <div>
-                    <h1>Attendance Management</h1>
-                    <p class="text-gray-600">Track and manage student attendance</p>
-                </div>
-                <div class="header-actions">
-                    <select class="class-selector">
-                        <option value="class001">Grade 10A</option>
-                        <option value="class002">Grade 10B</option>
-                        <option value="class003">Grade 11A</option>
-                    </select>
-                    <button class="btn btn-primary" onclick="takeAttendance()">Take Attendance</button>
-                </div>
-            </header>
+    <header class="header">
+        <div>
+            <h1>Attendance Management</h1>
+            <p class="text-gray-600">Track and manage student attendance</p>
+        </div>
 
-            <!-- Attendance Overview -->
-            <div class="attendance-overview">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Today's Attendance - Grade 10A</h3>
-                        <span class="date">December 18, 2025</span>
+        <div class="header-actions">
+            <form method="get" class="d-flex" style="gap:0.5rem;">
+                <select asp-for="SelectedGroupId"
+                        asp-items="@(new SelectList(Model.Groups, "Id", "Name"))"
+                        class="class-selector">
+                    <option value="">-- Select Group --</option>
+                </select>
+                <select asp-for="SelectedSubjectId" 
+                        asp-items="@(new SelectList(Model.Subjects, "Id", "Name"))"
+                        class="subject-selector">
+                    <option value="">-- Select Subject --</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Show Students</button>
+            </form>
+        </div>
+    </header>
+
+    @if (Model.SelectedGroupId != null && Model.Students.Any())
+    {
+        <div class="attendance-overview">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Today's Attendance - @Model.Groups.FirstOrDefault(g => g.Id == Model.SelectedGroupId)?.Name</h3>
+                    <span class="date">@DateTime.Today.ToString("MMMM dd, yyyy")</span>
+                </div>
+                <div class="attendance-stats">
+                    <div class="stat-item present">
+                        <span class="stat-number">@Model.PresentCount</span>
+                        <div class="stat-label">Present</div>
                     </div>
-
-                    <div class="attendance-stats">
-                        <div class="stat-item present">
-                            <div class="stat-number">25</div>
-                            <div class="stat-label">Present</div>
-                        </div>
-                        <div class="stat-item absent">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Absent</div>
-                        </div>
-                        <div class="stat-item late">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">Late</div>
-                        </div>
-                        <div class="stat-item total">
-                            <div class="stat-number">30</div>
-                            <div class="stat-label">Total</div>
-                        </div>
+                    <div class="stat-item absent">
+                        <span class="stat-number">@Model.AbsentCount</span>
+                        <div class="stat-label">Absent</div>
+                    </div>
+                    <div class="stat-item late">
+                        <span class="stat-number">@Model.LateCount</span>
+                        <div class="stat-label">Late</div>
+                    </div>
+                    <div class="stat-item total">
+                        <span class="stat-number">@Model.TotalCount</span>
+                        <div class="stat-label">Total</div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Student Attendance List -->
-            <div class="attendance-list">
+        <div class="attendance-list">
+            <form method="post" asp-page-handler="SaveAttendance">
+                <input type="hidden" asp-for="SelectedGroupId" />
+                <input type="hidden" asp-for="SelectedSubjectId" />
                 <div class="card">
                     <div class="card-header">
                         <h3>Student List</h3>
                         <div class="attendance-actions">
-                            <button class="btn btn-success" onclick="markAllPresent()">Mark All Present</button>
-                            <button class="btn btn-secondary" onclick="saveAttendance()">Save Attendance</button>
+                            <button type="button" class="btn btn-success" onclick="markAll('Present')">Mark All Present</button>
+                            <button type="submit" class="btn btn-secondary">Save Attendance</button>
                         </div>
                     </div>
 
                     <div class="students-grid">
-                        <div class="student-card">
-                            <img src="https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="John Doe">
-                            <div class="student-info">
-                                <h4>John Doe</h4>
-                                <p>Roll: 10A001</p>
+                        @for (int i = 0; i < Model.Students.Count; i++)
+                        {
+                            var student = Model.Students[i];
+                            <div class="student-card">
+                                <img src="@Url.Content($"~/uploads/student pics/{student.Id}.jpg")" alt="@($"{student.FirstName} {student.LastName}")" />
+                                <div class="student-info">
+                                    <h4>@student.FirstName @student.LastName</h4>
+                                </div>
+                                <div class="attendance-buttons">
+                                    <button type="button" class="attendance-btn present" onclick="markStatus(@i, 'Present', this)">P</button>
+                                    <button type="button" class="attendance-btn absent" onclick="markStatus(@i, 'Absent', this)">A</button>
+                                    <button type="button" class="attendance-btn late" onclick="markStatus(@i, 'Late', this)">L</button>
+                                </div>
+                                <!-- Bind to StudentsAttendance -->
+                                <input type="hidden" name="StudentsAttendance[@i].StudentId" value="@student.Id" />
+                                <input type="hidden" name="StudentsAttendance[@i].Status" id="attendance-@i" value="" />
                             </div>
-                            <div class="attendance-buttons">
-                                <button class="attendance-btn present active" data-status="present">P</button>
-                                <button class="attendance-btn absent" data-status="absent">A</button>
-                                <button class="attendance-btn late" data-status="late">L</button>
-                            </div>
-                        </div>
-
-                        <div class="student-card">
-                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="Marie Stephens">
-                            <div class="student-info">
-                                <h4>Marie Stephens</h4>
-                                <p>Roll: 10A002</p>
-                            </div>
-                            <div class="attendance-buttons">
-                                <button class="attendance-btn present" data-status="present">P</button>
-                                <button class="attendance-btn absent active" data-status="absent">A</button>
-                                <button class="attendance-btn late" data-status="late">L</button>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
-            </div>
-        </main>
-
-@section Scripts {
-    <script>
-        function markStatus(index, status, button) {
-            const input = document.getElementById('attendance-' + index);
-            input.value = status;
-
-            // Remove 'active' class from all buttons for this student
-            const btnContainer = button.parentElement;
-            const buttons = btnContainer.querySelectorAll('.attendance-btn');
-            buttons.forEach(b => b.classList.remove('active'));
-
-            // Add 'active' class to the clicked button
-            button.classList.add('active');
-
-            // Update overview counts
-            updateOverviewCounts();
-        }
-
-        function markAll(status) {
-            const total = @Model.Students.Count();
-            for (let i = 0; i < total; i++) {
-                const btns = document.querySelectorAll('.student-card')[i].querySelectorAll('.attendance-btn');
-                btns.forEach(b => {
-                    if (b.classList.contains(status.toLowerCase())) {
-                        b.click(); // trigger click to mark status & update color
-                    }
-                });
-            }
-        }
-
-        function updateOverviewCounts() {
-            let present = 0, absent = 0, late = 0;
-            const total = @Model.Students.Count();
-
-            for (let i = 0; i < total; i++) {
-                const status = document.getElementById('attendance-' + i).value;
-                if (status === "Present") present++;
-                else if (status === "Absent") absent++;
-                else if (status === "Late") late++;
-            }
-
-            document.getElementById('present-count').innerText = present;
-            document.getElementById('absent-count').innerText = absent;
-            document.getElementById('late-count').innerText = late;
-            document.getElementById('total-count').innerText = total;
-        }
-
-        // Initialize buttons and counts on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const total = @Model.Students.Count();
-            for (let i = 0; i < total; i++) {
-                const status = document.getElementById('attendance-' + i).value;
-                const btns = document.querySelectorAll('.student-card')[i].querySelectorAll('.attendance-btn');
-
-                btns.forEach(b => b.classList.remove('active'));
-                if (status === "Present") btns[0].classList.add('active');
-                else if (status === "Absent") btns[1].classList.add('active');
-                else if (status === "Late") btns[2].classList.add('active');
-            }
-
-            updateOverviewCounts();
-        });
-    </script>
-}
-
-
+            </form>
+        </div>
+    }
+    else if (Model.SelectedGroupId != null)
+    {
+    }
+</main>
 @section Styles {
     <link rel="stylesheet" href="/css/teacher-css/teacher.css" />
     <link rel="stylesheet" href="/css/teacher-css/attendance.css">
@@ -165,4 +106,39 @@
     <link rel="stylesheet" href="/css/shared-css/typography.css">
     <link rel="stylesheet" href="/css/shared-css/components.css">
     <link rel="stylesheet" href="/css/shared-css/layout.css">
+}
+@section Scripts {
+        <script>
+        function markStatus(index, status, btn) {
+            // Update hidden input
+            document.getElementById('attendance-' + index).value = status;
+            btn.parentElement.querySelectorAll('.attendance-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Remove active class from all buttons in the same student card
+            const buttons = btn.parentElement.querySelectorAll('.attendance-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Add active class to clicked button
+            btn.classList.add('active');
+        }
+
+        function markAll(status) {
+            // Loop all student cards
+            document.querySelectorAll('.student-card').forEach((card, i) => {
+                const input = card.querySelector('input[type="hidden"][id^="attendance-"]');
+                const buttons = card.querySelectorAll('.attendance-btn');
+
+                // Update hidden input
+                input.value = status;
+
+                // Remove active class from all buttons
+                buttons.forEach(b => b.classList.remove('active'));
+
+                // Add active class to the button matching the status
+                const btn = card.querySelector(`.attendance-btn.${status.toLowerCase()}`);
+                if (btn) btn.classList.add('active');
+            });
+        }
+    </script>
 }

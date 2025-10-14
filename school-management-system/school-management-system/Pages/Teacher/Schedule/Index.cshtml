@@ -2,10 +2,54 @@
 @model school_management_system.Pages.Teacher.Schedule.IndexModel
 @{
     Layout = "_TeacherLayout";
-	ViewData["Title"] = "Teacher-Schedule";
+    ViewData["Title"] = "Teacher-Schedule";
 }
 
-<partial name="_ComingSoonView" model="@(new { Name = "Schedules " })" />
+<main class="main-content">
+    <header class="header">
+        <div>
+            <h1>Teacher Schedule</h1>
+            <p class="text-gray-600">View your class schedule</p>
+        </div>
+    </header>
+
+    @if (Model.Timetables.Any())
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3>Weekly Schedule</h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Group</th>
+                        <th>Subject</th>
+                        <th>Classroom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var t in Model.Timetables)
+                    {
+                        <tr>
+                            <td>@t.DayOfWeek</td>
+                            <td>@t.StartTime.ToString("HH:mm") - @t.EndTime.ToString("HH:mm")</td>
+                            <td>@t.Group.Name</td>
+                            <td>@t.Subject.Name</td>
+                            <td>@t.Classroom.Name</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p class="text-gray-500">No schedule found.</p>
+    }
+</main>
+
 @section styles {
     <link rel="stylesheet" href="/css/teacher-css/teacher.css" />
     <link rel="stylesheet" href="/css/shared-css/css/reset.css">

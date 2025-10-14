@@ -16,41 +16,66 @@
                 </div>
             </header>
 
-            <div class="group-selector">
+            <div class="group-selector"> 
+            <form method="get">
                 <label asp-for="SelectedGroup">Select Group:</label>
-                <select asp-for="SelectedGroup" asp-items="Model.ListGroups" required>
-                    <option value="">-- Select a Group --</option>
+                <select asp-for="SelectedGroup" asp-items="Model.ListGroups" onchange="this.form.submit()" required>
+                    <option selected>-- Select a Group --</option>
                 </select>
-            </div>
+            </form>
+</div>
 
-            <div id="scheduleSection" class="schedule-section">
-                <div class="section-header">
-                    <h2>Class Schedule</h2>
-                    <button id="addClassBtn" class="btn btn-primary">Add Class</button>
-                </div>
-
-                <div class="table-container">
-                    <table id="scheduleTable">
-                        <thead>
-                            <tr>
-                                <th>Group</th>
-                                <th>Subject</th>
-                                <th>Teacher</th>
-                                <th>Room</th>
-                                <th>Day of Week</th>
-                                <th>Start Time</th>
-                                <th>End Time</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="scheduleTableBody">
-                            <!-- Schedule rows will be dynamically inserted here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+<div id="scheduleSection" class="schedule-section">
+    <div class="section-header">
+        <h2>Class Schedule</h2>
+        <button id="addClassBtn" class="btn btn-primary">Add Class</button>
     </div>
+
+    <div class="table-container">
+        <table id="scheduleTable">
+            <thead>
+                <tr>
+                    <th>Group</th>
+                    <th>Subject</th>
+                    <th>Teacher</th>
+                    <th>Room</th>
+                    <th>Day of Week</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleTableBody">
+                            @if (Model != null && Model.ExistingTimetables.Count()>0)
+                            {
+                                foreach (var item in Model.ExistingTimetables)
+                                {
+                                <tr data-group="@item.Group?.Name">
+                                    <td>@item.Group?.Name</td>
+                                    <td>@item.Subject?.Name</td>
+                                    <td>@($"{item.Teacher?.FirstName} {item.Teacher?.LastName}")</td>
+                                    <td>@item.Classroom?.Name</td>
+                                    <td>@item.DayOfWeek</td>
+                                    <td>@item.StartTime.ToString(@"hh:mm")</td>
+                                    <td>@item.EndTime.ToString(@"hh:mm")</td>
+                                    <td>
+                                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                }
+                            }
+                            else
+                            {
+                        <tr>
+                            <td colspan="8" class="text-center text-muted">No class schedules found</td>
+                        </tr>
+                            }
+            </tbody>
+        </table>
+    </div>
+</div>
 
     <!-- Add/Edit Class Modal -->
     <div id="classModal" class="modal">
@@ -60,9 +85,7 @@
                 <button class="close-btn" id="closeModal">&times;</button>
             </div>
             <form id="classForm" method="POST" asp-page-handler="AddClass">
-                <input type="hidden" id="classId">
-                <input type="hidden" id="groupId" name="SelectedGroup" value="" style="display:none">
-
+            <input type="hidden" id="groupId" name="SelectedGroup" value="" style="display:none">
                 <div class="form-group">
                     <label asp-for="SelectedSubject">Subject:</label>
                     <select asp-for="SelectedSubject" asp-items="Model.ListSubject" required>
@@ -197,6 +220,24 @@
                 groupIdInput.value = groupSelect.value || '';
             });
             groupIdInput.value = groupSelect.value || '';
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+        const groupSelector = document.getElementById('groupSelector');
+        const scheduleTableBody = document.getElementById('scheduleTableBody');
+        const scheduleRows = scheduleTableBody.getElementsByTagName('tr');
+
+        // Event listener to filter rows based on selected group
+            groupSelector.addEventListener('change', function () {
+                const selectedGroup = groupSelector.value;
+                for (let row of scheduleRows) {
+                    const rowGroup = row.getAttribute('data-group');
+                    if (selectedGroup === '' || rowGroup === selectedGroup) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
         });
     </script>
 }
